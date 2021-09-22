@@ -297,11 +297,11 @@ function three() {
   scene.add(pointLightTop);
 
   THREE.ImageUtils.crossOrigin = '';
-  const textureCirc = new THREE.TextureLoader().load("http://10.255.248.200:8086/HT/img/circumference.jpg");
+  const textureCirc = new THREE.TextureLoader().load("img/circumference.jpg");
   textureCirc.wrapS = THREE.RepeatWrapping;//repeat texture horizontally
   textureCirc.repeat.set(20, 0);//repeat 20x
-  const textureHeads = new THREE.TextureLoader().load("http://10.255.248.200:8086/HT/img/bull.png");
-  const textureTails = new THREE.TextureLoader().load("http://10.255.248.200:8086/HT/img/bear.png");
+  const textureHeads = new THREE.TextureLoader().load("img/bull.png");
+  const textureTails = new THREE.TextureLoader().load("img/bear.png");
   const metalness = 0.7;
   const roughness = 0.3;
 
