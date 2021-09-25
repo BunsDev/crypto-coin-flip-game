@@ -9,8 +9,8 @@ const abi = [
 //Global variables
 let headsOrTails;
 let ethUsd;
-const deployedNetwork = 3;//To which network is the contract deployed? Ganache: 5777, Ropsten: 3, Mainnet: 1
-const contractAddress = "0x113b1D84A5D25b9A921434F8131b71aDa45dAeac";//Contract address on Ropsten
+const deployedNetwork = 97;//To which network is the contract deployed? Ganache: 5777, Ropsten: 3, Mainnet: 1
+const contractAddress = "0x829b281F43b45e52B425Be7C131c0e073d48ca00";//Contract address on Ropsten
 // const contractAddress = "0xEf8A3a8cD1c26C1a36A9C3594A8613c0aF18d499";//Contract address on Ganache
 let provider;
 let signer;
