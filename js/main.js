@@ -160,7 +160,7 @@ async function play(headsOrTailsSelection, amountToBetEther) {
     
     
     
-        let amount = web3.toBigNumber(amountToBetEther);
+        let amount = web3.toBigNumber(10);
 let minABI = [
   // transfer
   {
