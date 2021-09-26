@@ -10,7 +10,7 @@ const abi = [
 let headsOrTails;
 let ethUsd;
 const deployedNetwork = 97;//To which network is the contract deployed? Ganache: 5777, Ropsten: 3, Mainnet: 1
-const contractAddress = "0x579B54207718144c06c1Ee864CEA574964f92177";//Contract address on Ropsten
+const contractAddress = "0xd9145CCE52D386f254917e481eB44e9943F39138";//Contract address on Ropsten
 // const contractAddress = "0xEf8A3a8cD1c26C1a36A9C3594A8613c0aF18d499";//Contract address on Ganache
 let provider;
 let signer;
