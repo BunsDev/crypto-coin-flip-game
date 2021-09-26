@@ -102,7 +102,7 @@ async function loadWeb3() {
 async function loadBlockchainData() {
   //Show link to contract on Etherscan and link to Github repository
   contractAddressShortened = contractAddress.slice(0, 4) + "..." + contractAddress.slice(-4);
-  document.querySelector(".contract-address").innerHTML = '<a href="https://ropsten.etherscan.io/address/' + contractAddress + '">' + contractAddressShortened + '</a> Code on Github: <a href="https://github.com/rene78/Heads-Or-Tails">Heads or Tails</a>';
+  document.querySelector(".contract-address").innerHTML = '<a href="https://testnet.bscscan.com/address/' + contractAddress + '">' + contractAddressShortened + '</a> Code on Github: <a href="https://github.com/rene78/Heads-Or-Tails">Heads or Tails</a>';
 
   //First check if contract is deployed to the network
   let activeNetwork = await provider.getNetwork(provider);
@@ -168,8 +168,8 @@ async function play(headsOrTailsSelection, amountToBetEther) {
 function logEvent() {
   headsOrTails.once("GameResult", (side, event) => {
     // console.log(event);
-    console.log("Bet on: " + ((headsOrTailsSelection === 0) ? 'Heads' : 'Tails'));
-    console.log("Result: " + ((side === 0) ? 'Heads' : 'Tails'));
+    console.log("Bet on: " + ((headsOrTailsSelection === 0) ? 'Bull' : 'Bear'));
+    console.log("Result: " + ((side === 0) ? 'Bull' : 'Bear'));
     const msg = (side === headsOrTailsSelection) ? "<h1 class='won'>You won!</h1>" : "<h1 class='lost'>You lost!</h1>";
     // console.log(msg);
 
