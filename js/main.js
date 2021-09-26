@@ -154,7 +154,8 @@ async function play(headsOrTailsSelection, amountToBetEther) {
     // The amount to send with the transaction (i.e. msg.value)
     value: 0
     */
-   let amount = web3.toBigNumber(10);
+   //let amount = web3.toBigNumber(10);
+  let amount =amountToBetEther;
 let minABI = [
   // transfer
   {
