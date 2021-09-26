@@ -102,7 +102,7 @@ async function loadWeb3() {
 async function loadBlockchainData() {
   //Show link to contract on Etherscan and link to Github repository
   contractAddressShortened = contractAddress.slice(0, 4) + "..." + contractAddress.slice(-4);
-  document.querySelector(".contract-address").innerHTML = '<a href="https://testnet.bscscan.com/address/' + contractAddress + '">' + contractAddressShortened + '</a> Code on Github: <a href="https://github.com/rene78/Heads-Or-Tails">Heads or Tails</a>';
+  document.querySelector(".contract-address").innerHTML = '<a href="https://ropsten.etherscan.io/address/' + contractAddress + '">' + contractAddressShortened + '</a> Code on Github: <a href="https://github.com/rene78/Heads-Or-Tails">Heads or Tails</a>';
 
   //First check if contract is deployed to the network
   let activeNetwork = await provider.getNetwork(provider);
@@ -128,13 +128,6 @@ async function loadBlockchainData() {
   getContractBalance();
 }
 
-
-
-
-
-
-
-
 //Launch game
 async function play(headsOrTailsSelection, amountToBetEther) {
   const amountToBetWei = ethers.utils.parseEther(amountToBetEther);
@@ -152,15 +145,13 @@ async function play(headsOrTailsSelection, amountToBetEther) {
     gasPrice: ethers.utils.parseUnits('5.0', 'gwei'),
 
     // The amount to send with the transaction (i.e. msg.value)
-    value: 0
-    
-  
+    value: amountToBetWei
   };
 
   try {
     toggleBlur(); //blur all irrelevant divs
     // console.log("Side selection send to contract: " + headsOrTailsSelection);
-    let tx = await headsOrTails.lottery(headsOrTailsSelection);//In case of failure it jumps straight to catch()
+    let tx = await headsOrTails.lottery(headsOrTailsSelection, overrides);//In case of failure it jumps straight to catch()
     scrollDown(); //Scroll to coin animation
     swissFranc.animateCoin();//start coin animation
     togglePlayButton(); //deactivate play button functionality
@@ -177,8 +168,8 @@ async function play(headsOrTailsSelection, amountToBetEther) {
 function logEvent() {
   headsOrTails.once("GameResult", (side, event) => {
     // console.log(event);
-    console.log("Bet on: " + ((headsOrTailsSelection === 0) ? 'Bull' : 'Bear'));
-    console.log("Result: " + ((side === 0) ? 'Bull' : 'Bear'));
+    console.log("Bet on: " + ((headsOrTailsSelection === 0) ? 'Heads' : 'Tails'));
+    console.log("Result: " + ((side === 0) ? 'Heads' : 'Tails'));
     const msg = (side === headsOrTailsSelection) ? "<h1 class='won'>You won!</h1>" : "<h1 class='lost'>You lost!</h1>";
     // console.log(msg);
 
@@ -230,7 +221,7 @@ async function getLatestGameData() {
     let result = gameEntry.winner ? "Won" : "Lost";
     let resultClass = gameEntry.winner ? "won" : "lost";//define class to color text red or green
     // console.log(resultClass);
-    let guess = gameEntry.guess == 0 ? "Bull" : "Bear";
+    let guess = gameEntry.guess == 0 ? "Heads" : "Tails";
     //Shorten player address
     const addressShortened = gameEntry.addr.slice(0, 3) + "..." + gameEntry.addr.slice(-3);
     td[0].textContent = addressShortened;
@@ -311,8 +302,8 @@ function three() {
   const textureCirc = new THREE.TextureLoader().load("img/circumference.jpg");
   textureCirc.wrapS = THREE.RepeatWrapping;//repeat texture horizontally
   textureCirc.repeat.set(20, 0);//repeat 20x
-  const textureHeads = new THREE.TextureLoader().load("img/bull.png");
-  const textureTails = new THREE.TextureLoader().load("img/bear.png");
+  const textureHeads = new THREE.TextureLoader().load("img/heads.jpg");
+  const textureTails = new THREE.TextureLoader().load("img/tails.jpg");
   const metalness = 0.7;
   const roughness = 0.3;
 
