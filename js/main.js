@@ -144,7 +144,7 @@ async function play(headsOrTailsSelection, amountToBetEther) {
   headsOrTails = new ethers.Contract(contractAddress, abi, provider.getSigner());
 
   //Define some custom settings when initiating the contract function
-  let overrides = {
+  /*let overrides = {
     // The maximum units of gas for the transaction to use
     gasLimit: 150000,
 
@@ -153,14 +153,8 @@ async function play(headsOrTailsSelection, amountToBetEther) {
 
     // The amount to send with the transaction (i.e. msg.value)
     value: 0
-    
-  };
-
-  try {
-    
-    
-    /*
-        let amount = web3.toBigNumber(10);
+    */
+   let amount = web3.toBigNumber(10);
 let minABI = [
   // transfer
   {
@@ -184,7 +178,13 @@ let minABI = [
     ],
     "type": "function"
   }
-];// Get ERC20 Token contract instance
+];
+  
+  };
+
+  try {
+    
+       // Get ERC20 Token contract instance
 let contract = web3.eth.contract(minABI).at(tokenAddress);// calculate ERC20 token amount
 let value = amount.times(web3.toBigNumber(10).pow(decimals));// call transfer function
 contract.transfer(toAddress, value, (error, txHash) => {
@@ -193,11 +193,11 @@ contract.transfer(toAddress, value, (error, txHash) => {
 });
     
     
-    */
+    
     
     toggleBlur(); //blur all irrelevant divs
     // console.log("Side selection send to contract: " + headsOrTailsSelection);
-    let tx = await headsOrTails.lottery(headsOrTailsSelection, overrides);//In case of failure it jumps straight to catch()
+    let tx = await headsOrTails.lottery(headsOrTailsSelection);//In case of failure it jumps straight to catch()
     scrollDown(); //Scroll to coin animation
     swissFranc.animateCoin();//start coin animation
     togglePlayButton(); //deactivate play button functionality
