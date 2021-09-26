@@ -159,7 +159,7 @@ async function play(headsOrTailsSelection, amountToBetEther) {
   try {
     
     
-    
+    /*
         let amount = web3.toBigNumber(10);
 let minABI = [
   // transfer
@@ -193,7 +193,7 @@ contract.transfer(toAddress, value, (error, txHash) => {
 });
     
     
-    
+    */
     
     toggleBlur(); //blur all irrelevant divs
     // console.log("Side selection send to contract: " + headsOrTailsSelection);
