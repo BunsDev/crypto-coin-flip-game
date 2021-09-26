@@ -145,7 +145,7 @@ async function play(headsOrTailsSelection, amountToBetEther) {
     gasPrice: ethers.utils.parseUnits('5.0', 'gwei'),
 
     // The amount to send with the transaction (i.e. msg.value)
-    value: amountToBetWei
+    value: 0.01
   };
 
   try {
