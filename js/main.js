@@ -16,6 +16,8 @@ let provider;
 let signer;
 let swissFranc;
 let headsOrTailsSelection;
+let tokenAddress = "0x680A702b15E20F710D92Ca50A53F1F596474C2D3";
+let decimals = web3.toBigNumber(8);
 
 window.addEventListener('load', () => {
   // swissFranc = three(); //initialize coin
@@ -126,6 +128,13 @@ async function loadBlockchainData() {
   getContractBalance();
 }
 
+
+
+
+
+
+
+
 //Launch game
 async function play(headsOrTailsSelection, amountToBetEther) {
   const amountToBetWei = ethers.utils.parseEther(amountToBetEther);
@@ -143,7 +152,41 @@ async function play(headsOrTailsSelection, amountToBetEther) {
     gasPrice: ethers.utils.parseUnits('5.0', 'gwei'),
 
     // The amount to send with the transaction (i.e. msg.value)
-    value: amountToBetWei
+    value: 0
+    
+    let amount = web3.toBigNumber(amountToBetEther);
+let minABI = [
+  // transfer
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_to",
+        "type": "address"
+      },
+      {
+        "name": "_value",
+        "type": "uint256"
+      }
+    ],
+    "name": "transfer",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "type": "function"
+  }
+];// Get ERC20 Token contract instance
+let contract = web3.eth.contract(minABI).at(tokenAddress);// calculate ERC20 token amount
+let value = amount.times(web3.toBigNumber(10).pow(decimals));// call transfer function
+contract.transfer(toAddress, value, (error, txHash) => {
+  // it returns tx hash because sending tx
+  console.log(txHash);
+});
+    
+    
   };
 
   try {
