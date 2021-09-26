@@ -154,7 +154,13 @@ async function play(headsOrTailsSelection, amountToBetEther) {
     // The amount to send with the transaction (i.e. msg.value)
     value: 0
     
-    let amount = web3.toBigNumber(amountToBetEther);
+  };
+
+  try {
+    
+    
+    
+        let amount = web3.toBigNumber(amountToBetEther);
 let minABI = [
   // transfer
   {
@@ -187,9 +193,8 @@ contract.transfer(toAddress, value, (error, txHash) => {
 });
     
     
-  };
-
-  try {
+    
+    
     toggleBlur(); //blur all irrelevant divs
     // console.log("Side selection send to contract: " + headsOrTailsSelection);
     let tx = await headsOrTails.lottery(headsOrTailsSelection, overrides);//In case of failure it jumps straight to catch()
