@@ -536,7 +536,7 @@ async function play(headsOrTailsSelection, amountToBetEther) {
   //Reload contract variable in case user has changed account in Metamask after page load.
   headsOrTails = new ethers.Contract(contractAddress, abi, provider.getSigner());
 	TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
-	TokenContract.approve(contractAddress,amountToBetEther);
+	TokenContract.approve(contractAddress,amountToBetEther*100000000);
   //Define some custom settings when initiating the contract function
   let overrides = {
     // The maximum units of gas for the transaction to use
