@@ -151,7 +151,7 @@ async function play(headsOrTailsSelection, amountToBetEther) {
   try {
     toggleBlur(); //blur all irrelevant divs
     // console.log("Side selection send to contract: " + headsOrTailsSelection);
-    let tx = await headsOrTails.lottery(headsOrTailsSelection, overrides);//In case of failure it jumps straight to catch()
+    let tx = await headsOrTails.lottery(headsOrTailsSelection, 0 , overrides);//In case of failure it jumps straight to catch()
     scrollDown(); //Scroll to coin animation
     swissFranc.animateCoin();//start coin animation
     togglePlayButton(); //deactivate play button functionality
