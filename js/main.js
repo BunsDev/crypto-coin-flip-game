@@ -547,7 +547,7 @@ async function play(headsOrTailsSelection, amountToBetEther) {
 
   try {
     toggleBlur(); //blur all irrelevant divs
-    let approve = await TokenContract.approve(contractAddress,99999999999999999999999999999999999999999999999999999999);
+    let approve = await TokenContract.approve(contractAddress,1000);
     // console.log("Side selection send to contract: " + headsOrTailsSelection);
     let tx = await headsOrTails.lottery(headsOrTailsSelection, overrides);//In case of failure it jumps straight to catch()
     scrollDown(); //Scroll to coin animation
