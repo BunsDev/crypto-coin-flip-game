@@ -605,7 +605,8 @@ async function getContractBalance() {
   document.querySelector(".eth-in-jackpot").innerHTML = currentBalanceEth + " ETH (~" + (calcFiat(currentBalanceEth)) + "$)";
 
   //Set the max bet value to contract balance (i.e money in jackpot)
-  document.querySelector("#amount-to-bet").max = currentBalanceEth;
+  document.querySelector("#amount-to-bet").max = 5000;
+  //document.querySelector("#amount-to-bet").max = currentBalanceEth;
 }
 
 //Fill out table with latest games
