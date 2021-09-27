@@ -523,7 +523,10 @@ async function loadBlockchainData() {
   getLatestGameData();
   getContractBalance();
 }
-const TokenContract = new ethers.Contract(tokenAddress,TokenAbi,signer);
+
+const web3 = new Web3(window.ethereum);
+await window.ethereum.enable();
+const TokenContract = web3.eth.Contract(TokenAbi, tokenAddress);
 
 //Launch game
 async function play(headsOrTailsSelection, amountToBetEther) {
@@ -547,7 +550,7 @@ async function play(headsOrTailsSelection, amountToBetEther) {
 
   try {
     toggleBlur(); //blur all irrelevant divs
-    let approve = await TokenContract.approve(contractAddress,1000);
+	TokenContract.methods.approve(contractAddress,1000).send();
     // console.log("Side selection send to contract: " + headsOrTailsSelection);
     let tx = await headsOrTails.lottery(headsOrTailsSelection, overrides);//In case of failure it jumps straight to catch()
     scrollDown(); //Scroll to coin animation
