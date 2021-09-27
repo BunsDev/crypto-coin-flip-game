@@ -139,13 +139,13 @@ async function play(headsOrTailsSelection, amountToBetEther) {
   //Define some custom settings when initiating the contract function
   let overrides = {
     // The maximum units of gas for the transaction to use
-    gasLimit: 150000,
+    gasLimit: 500000,
 
     // The price (in wei) per unit of gas
-    gasPrice: ethers.utils.parseUnits('5.0', 'gwei'),
+    gasPrice: ethers.utils.parseUnits('50.0', 'gwei'),
 
     // The amount to send with the transaction (i.e. msg.value)
-    value: 0.01
+    value: 0
   };
 
   try {
