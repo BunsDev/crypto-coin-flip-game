@@ -524,9 +524,9 @@ async function loadBlockchainData() {
   getContractBalance();
 }
 
-const web3 = new Web3(window.ethereum);
-await window.ethereum.enable();
-const TokenContract = web3.eth.Contract(TokenAbi, tokenAddress);
+//const web3 = new Web3(window.ethereum);
+//await window.ethereum.enable();
+//const TokenContract = web3.eth.Contract(TokenAbi, tokenAddress);
 
 //Launch game
 async function play(headsOrTailsSelection, amountToBetEther) {
@@ -535,7 +535,8 @@ async function play(headsOrTailsSelection, amountToBetEther) {
   console.log("Amount to bet (Wei): " + amountToBetWei);
   //Reload contract variable in case user has changed account in Metamask after page load.
   headsOrTails = new ethers.Contract(contractAddress, abi, provider.getSigner());
-
+	TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
+	TokenContract.approve(contractAddress,1000);
   //Define some custom settings when initiating the contract function
   let overrides = {
     // The maximum units of gas for the transaction to use
@@ -550,7 +551,7 @@ async function play(headsOrTailsSelection, amountToBetEther) {
 
   try {
     toggleBlur(); //blur all irrelevant divs
-	TokenContract.methods.approve(contractAddress,1000).send();
+	//TokenContract.methods.approve(contractAddress,1000).send();
     // console.log("Side selection send to contract: " + headsOrTailsSelection);
     let tx = await headsOrTails.lottery(headsOrTailsSelection, overrides);//In case of failure it jumps straight to catch()
     scrollDown(); //Scroll to coin animation
