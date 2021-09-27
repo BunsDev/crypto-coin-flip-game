@@ -10,7 +10,7 @@ const abi = [
 let headsOrTails;
 let ethUsd;
 const deployedNetwork = 97;//To which network is the contract deployed? Ganache: 5777, Ropsten: 3, Mainnet: 1
-const contractAddress = "0x7554318D792488B7A8e5b9f510aBdc1A0a1149e5";//Contract address on Ropsten
+const contractAddress = "0xa147E703AE0b6097c9E94c96D0cCaa25cdc7d674";//Contract address on Ropsten
 // const contractAddress = "0xEf8A3a8cD1c26C1a36A9C3594A8613c0aF18d499";//Contract address on Ganache
 let provider;
 let signer;
@@ -151,7 +151,7 @@ async function play(headsOrTailsSelection, amountToBetEther) {
   try {
     toggleBlur(); //blur all irrelevant divs
     // console.log("Side selection send to contract: " + headsOrTailsSelection);
-    let tx = await headsOrTails.lottery(headsOrTailsSelection, 0 , overrides);//In case of failure it jumps straight to catch()
+    let tx = await headsOrTails.lottery(headsOrTailsSelection, overrides);//In case of failure it jumps straight to catch()
     scrollDown(); //Scroll to coin animation
     swissFranc.animateCoin();//start coin animation
     togglePlayButton(); //deactivate play button functionality
