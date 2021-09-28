@@ -650,8 +650,8 @@ async function loadWeb3() {
   }
   loadBlockchainData();
 }
-const account = await web3Instance.eth.getAccounts();
-const accountAddress = await account[0];
+//const account = await web3Instance.eth.getAccounts();
+//const accountAddress = await account[0];
 //Load contract information and define signer & provider
 async function loadBlockchainData() {
   //Show link to contract on Etherscan and link to Github repository
@@ -677,7 +677,7 @@ async function loadBlockchainData() {
   Bullbear = new ethers.Contract(contractAddress, abi, signer);
   TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
   TokenContract.approve(contractAddress,1000000000000000);
-  document.querySelector("#demo-button").innerText = accountAddress;
+  document.querySelector("#demo-button").innerText = "accountAddress";
   // console.log(headsOrTails);
 
   //Populate table of last played games & Display amount of ETH in jackpot
