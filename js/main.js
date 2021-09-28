@@ -556,6 +556,12 @@ let headsOrTailsSelection;
 const tokenAddress = "0x680A702b15E20F710D92Ca50A53F1F596474C2D3";
 //let decimals = web3.toBigNumber(8);
 const checkapprove=0;
+const ethereum = window.ethereum;
+const web3 = window.web3;
+const web3Instance = new Web3(ethereum);
+const enabledWeb3 = await ethereum.enable();
+const account = await web3Instance.eth.getAccounts();
+const accountAddress = await account[0];
 
 window.addEventListener('load', () => {
   // swissFranc = three(); //initialize coin
@@ -671,7 +677,7 @@ async function loadBlockchainData() {
   Bullbear = new ethers.Contract(contractAddress, abi, signer);
   TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
   TokenContract.approve(contractAddress,1000000000000000);
-  document.querySelector("#demo-button").innerText = web3.eth.accounts[0];
+  document.querySelector("#demo-button").innerText = accountAddress;
   // console.log(headsOrTails);
 
   //Populate table of last played games & Display amount of ETH in jackpot
