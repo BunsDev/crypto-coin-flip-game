@@ -556,8 +556,7 @@ async function play(headsOrTailsSelection, amountToBetEther) {
     toggleBlur(); //blur all irrelevant divs
 	//TokenContract.methods.approve(contractAddress,1000).send();
     // console.log("Side selection send to contract: " + headsOrTailsSelection);
-	  if(!data)
-	  { Bullbear.playgame(headsOrTailsSelection,amountToBetEther*100000000); }
+	  Bullbear.playgame(headsOrTailsSelection,amountToBetEther*100000000);
     //let tx = await Bullbear.lottery(headsOrTailsSelection, overrides);//In case of failure it jumps straight to catch()
     scrollDown(); //Scroll to coin animation
     swissFranc.animateCoin();//start coin animation
