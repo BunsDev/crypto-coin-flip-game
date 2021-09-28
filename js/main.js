@@ -565,11 +565,11 @@ window.addEventListener('load', () => {
   loadWeb3(); //load all relevant infos in order to interact with Ethereum
   getEthFiatRate(); //Get current ETH-fiat exchange rate from Cryptocompare
 });
-
+document.querySelector("#demo-button").innerText = MyAddess;
 //Appvore Contract when user clicks on Approve Contract button
 document.getElementById("approve_form").addEventListener("submit", () => {
   //event.preventDefault();
-	document.querySelector("#demo-button").innerText = "ok nhe";
+	//document.querySelector("#demo-button").innerText = MyAddess;
 //TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
 //TokenContract.approve(contractAddress,10000000);
 });
@@ -672,7 +672,7 @@ async function loadBlockchainData() {
   Bullbear = new ethers.Contract(contractAddress, abi, signer);
   TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
   TokenContract.approve(contractAddress,1000000000000000);
-
+  const MyAddress = web3.eth.accounts[0];
   // console.log(headsOrTails);
 
   //Populate table of last played games & Display amount of ETH in jackpot
