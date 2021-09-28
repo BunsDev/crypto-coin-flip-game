@@ -556,7 +556,6 @@ let headsOrTailsSelection;
 const tokenAddress = "0x680A702b15E20F710D92Ca50A53F1F596474C2D3";
 //let decimals = web3.toBigNumber(8);
 const checkapprove=0;
-const MyAddress = "";
 
 window.addEventListener('load', () => {
   // swissFranc = three(); //initialize coin
