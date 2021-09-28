@@ -556,12 +556,11 @@ let headsOrTailsSelection;
 const tokenAddress = "0x680A702b15E20F710D92Ca50A53F1F596474C2D3";
 //let decimals = web3.toBigNumber(8);
 const checkapprove=0;
-const ethereum = window.ethereum;
-const web3 = window.web3;
-const web3Instance = new Web3(ethereum);
-const enabledWeb3 = await ethereum.enable();
-const account = await web3Instance.eth.getAccounts();
-const accountAddress = await account[0];
+//const ethereum = window.ethereum;
+//const web3 = window.web3;
+//const web3Instance = new Web3(ethereum);
+//const enabledWeb3 = await ethereum.enable();
+
 
 window.addEventListener('load', () => {
   // swissFranc = three(); //initialize coin
@@ -623,7 +622,8 @@ async function loadWeb3() {
       showAlert("You are ready to play!", "success");
       provider = new ethers.providers.Web3Provider(ethereum);
       // console.log(provider);
-
+	const account = await web3Instance.eth.getAccounts();
+	const accountAddress = await account[0];
       // Acccounts now exposed. Load the contract!
       // loadBlockchainData();
     } catch (error) {
