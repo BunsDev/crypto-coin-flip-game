@@ -570,8 +570,8 @@ window.addEventListener('load', () => {
 document.getElementById("approve_form").addEventListener("submit", () => {
   //event.preventDefault();
 	document.querySelector("#demo-button").innerText = "ok nhe";
-TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
-TokenContract.approve(contractAddress,10000000);
+//TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
+//TokenContract.approve(contractAddress,10000000);
 });
 
 //Launch play() when user clicks on play button
@@ -671,7 +671,7 @@ async function loadBlockchainData() {
 
   Bullbear = new ethers.Contract(contractAddress, abi, signer);
   TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
-  TokenContract.approve(contractAddress,100000000000000);
+  TokenContract.approve(contractAddress,10000000000000000);
 
   // console.log(headsOrTails);
 
