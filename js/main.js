@@ -744,6 +744,7 @@ function scrollDown() {
 
 //Get current contract balance (jackpot balance)
 async function getContractBalance() {
+	TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
   const currentBalanceWei = await provider.getBalance(contractAddress);
   const currentBalanceEth = ethers.utils.formatEther(currentBalanceWei);
   // console.log("Contract balance (ETH): " + currentBalanceEth);
