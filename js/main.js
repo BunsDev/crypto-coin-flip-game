@@ -685,7 +685,7 @@ async function play(headsOrTailsSelection, amountToBetEther) {
 	  
 
     // The amount to send with the transaction (i.e. msg.value)
-    value: amountToBetWei
+    value: amountToBetEther
   };
 
   try {
