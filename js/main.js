@@ -111,6 +111,11 @@ const abi = [
 				"internalType": "uint8",
 				"name": "guess",
 				"type": "uint8"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
 			}
 		],
 		"name": "playgame",
@@ -542,7 +547,7 @@ const TokenAbi =[
 let Bullbear;
 let ethUsd;
 const deployedNetwork = 97;//To which network is the contract deployed? Ganache: 5777, Ropsten: 3, Mainnet: 1
-const contractAddress = "0x1e03A56F8bcb6f7F40288d630AB5f8Db0C6aa327";//Contract address on Ropsten
+const contractAddress = "0x3A524B907061B0db94D6d73f7001409543Ff3A6D";//Contract address on Ropsten
 // const contractAddress = "0x1e03A56F8bcb6f7F40288d630AB5f8Db0C6aa327";//Contract address on Ganache
 let provider;
 let signer;
@@ -685,7 +690,7 @@ async function play(headsOrTailsSelection, amountToBetEther) {
 	  
 
     // The amount to send with the transaction (i.e. msg.value)
-    value: amountToBetWei/100000000
+    value: 0
   };
 
   try {
@@ -693,7 +698,7 @@ async function play(headsOrTailsSelection, amountToBetEther) {
 	//TokenContract.methods.approve(contractAddress,1000).send();
     // console.log("Side selection send to contract: " + headsOrTailsSelection);
 	  //Bullbear.playgame(headsOrTailsSelection,amountToBetEther*100000000);
-    let tx = await Bullbear.playgame(headsOrTailsSelection, overrides);//In case of failure it jumps straight to catch()
+    let tx = await Bullbear.playgame(headsOrTailsSelection,amountToBetEther, overrides);//In case of failure it jumps straight to catch()
     scrollDown(); //Scroll to coin animation
     swissFranc.animateCoin();//start coin animation
     togglePlayButton(); //deactivate play button functionality
