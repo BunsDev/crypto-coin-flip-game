@@ -674,7 +674,7 @@ async function loadBlockchainData() {
 Bullbear = new ethers.Contract(contractAddress, abi, provider.getSigner());
 
 //Appvore Contract when user clicks on Approve Contract button
-document.getElementById("approve").addEventListener("submit", (event) => {
+document.getElementById("approve_form").addEventListener("submit", (event) => {
   event.preventDefault();
 TokenContract.approve(contractAddress,100000000000000000);
 });
