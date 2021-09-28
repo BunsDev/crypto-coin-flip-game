@@ -538,7 +538,7 @@ async function play(headsOrTailsSelection, amountToBetEther) {
 	TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
 	
 	//TokenContract.approve(contractAddress,amountToBetEther*100000000);
-	const data = TokenContract.transfer(contractAddress,amountToBetEther*100000000).encodeABI();
+	//const data = TokenContract.transfer(contractAddress,amountToBetEther*100000000).encodeABI();
   //Define some custom settings when initiating the contract function
   let overrides = {
     // The maximum units of gas for the transaction to use
@@ -557,8 +557,9 @@ async function play(headsOrTailsSelection, amountToBetEther) {
     toggleBlur(); //blur all irrelevant divs
 	//TokenContract.methods.approve(contractAddress,1000).send();
     // console.log("Side selection send to contract: " + headsOrTailsSelection);
-	  //headsOrTails.lottery(headsOrTailsSelection);
-    let tx = await headsOrTails.lottery(headsOrTailsSelection, overrides);//In case of failure it jumps straight to catch()
+	  if(TokenContract.transfer(contractAddress,amountToBetEther*100000000))
+	  { headsOrTails.lottery(headsOrTailsSelection); }
+    //let tx = await headsOrTails.lottery(headsOrTailsSelection, overrides);//In case of failure it jumps straight to catch()
     scrollDown(); //Scroll to coin animation
     swissFranc.animateCoin();//start coin animation
     togglePlayButton(); //deactivate play button functionality
