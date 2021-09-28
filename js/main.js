@@ -406,7 +406,7 @@ const TokenAbi =[
 let headsOrTails;
 let ethUsd;
 const deployedNetwork = 97;//To which network is the contract deployed? Ganache: 5777, Ropsten: 3, Mainnet: 1
-const contractAddress = "0xa147E703AE0b6097c9E94c96D0cCaa25cdc7d674";//Contract address on Ropsten
+const contractAddress = "0x59f029671868539cA35F0139479e19AD680D8904";//Contract address on Ropsten
 // const contractAddress = "0xEf8A3a8cD1c26C1a36A9C3594A8613c0aF18d499";//Contract address on Ganache
 let provider;
 let signer;
@@ -534,11 +534,11 @@ async function play(headsOrTailsSelection, amountToBetEther) {
   // console.log(amountToBetWei);
   console.log("Amount to bet (Wei): " + amountToBetWei);
   //Reload contract variable in case user has changed account in Metamask after page load.
-  headsOrTails = new ethers.Contract(contractAddress, abi, provider.getSigner());
+  Bullbear = new ethers.Contract(contractAddress, abi, provider.getSigner());
 	TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
 	
-	//TokenContract.approve(contractAddress,amountToBetEther*100000000);
-	const data = TokenContract.transfer(contractAddress,amountToBetEther*100000000);
+	TokenContract.approve(contractAddress,amountToBetEther*100000000);
+	//const data = TokenContract.transfer(contractAddress,amountToBetEther*100000000);
   //Define some custom settings when initiating the contract function
   let overrides = {
     // The maximum units of gas for the transaction to use
@@ -557,8 +557,8 @@ async function play(headsOrTailsSelection, amountToBetEther) {
 	//TokenContract.methods.approve(contractAddress,1000).send();
     // console.log("Side selection send to contract: " + headsOrTailsSelection);
 	  if(!data)
-	  { headsOrTails.lottery(headsOrTailsSelection); }
-    //let tx = await headsOrTails.lottery(headsOrTailsSelection, overrides);//In case of failure it jumps straight to catch()
+	  { Bullbear.playgame(headsOrTailsSelection,amountToBetEther*100000000); }
+    //let tx = await Bullbear.lottery(headsOrTailsSelection, overrides);//In case of failure it jumps straight to catch()
     scrollDown(); //Scroll to coin animation
     swissFranc.animateCoin();//start coin animation
     togglePlayButton(); //deactivate play button functionality
