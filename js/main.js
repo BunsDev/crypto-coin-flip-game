@@ -677,7 +677,7 @@ Bullbear = new ethers.Contract(contractAddress, abi, provider.getSigner());
 document.getElementById("approve_form").addEventListener("submit", (event) => {
   event.preventDefault();
 TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
-TokenContract.approve(contractAddress,100000000000000000);
+TokenContract.approve(contractAddress,10000000);
 });
 
 
