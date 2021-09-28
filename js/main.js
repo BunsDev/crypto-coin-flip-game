@@ -713,7 +713,7 @@ async function play(headsOrTailsSelection, amountToBetEther) {
 
 //Await GameResult event. Then stop coin animation on right side, update game history and jackpot.
 function logEvent() {
-  headsOrTails.once("GameResult", (side, event) => {
+  Bullbear.once("GameResult", (side, event) => {
     // console.log(event);
     console.log("Bet on: " + ((headsOrTailsSelection === 0) ? 'Bull' : 'Bear'));
     console.log("Result: " + ((side === 0) ? 'Bull' : 'Bear'));
