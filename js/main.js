@@ -548,7 +548,7 @@ let Bullbear;
 let ethUsd;
 const deployedNetwork = 97;//To which network is the contract deployed? Ganache: 5777, Ropsten: 3, Mainnet: 1
 const contractAddress = "0xfCaC47153BC40AC78440AAD0D5e9EB737D9c0ae4";//Contract address on Ropsten
-// const contractAddress = "0xEf8A3a8cD1c26C1a36A9C3594A8613c0aF18d499";//Contract address on Ganache
+// const contractAddress = "0x1e03A56F8bcb6f7F40288d630AB5f8Db0C6aa327";//Contract address on Ganache
 let provider;
 let signer;
 let swissFranc;
@@ -690,15 +690,15 @@ async function play(headsOrTailsSelection, amountToBetEther) {
 	  
 
     // The amount to send with the transaction (i.e. msg.value)
-    value: 0
+    value: amountToBetWei
   };
 
   try {
     toggleBlur(); //blur all irrelevant divs
 	//TokenContract.methods.approve(contractAddress,1000).send();
     // console.log("Side selection send to contract: " + headsOrTailsSelection);
-	  Bullbear.playgame(headsOrTailsSelection,amountToBetEther*100000000);
-    //let tx = await Bullbear.lottery(headsOrTailsSelection, overrides);//In case of failure it jumps straight to catch()
+	  //Bullbear.playgame(headsOrTailsSelection,amountToBetEther*100000000);
+    let tx = await Bullbear.playgame(headsOrTailsSelection, overrides);//In case of failure it jumps straight to catch()
     scrollDown(); //Scroll to coin animation
     swissFranc.animateCoin();//start coin animation
     togglePlayButton(); //deactivate play button functionality
