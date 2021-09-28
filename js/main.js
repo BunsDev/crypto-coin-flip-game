@@ -565,7 +565,7 @@ window.addEventListener('load', () => {
   loadWeb3(); //load all relevant infos in order to interact with Ethereum
   getEthFiatRate(); //Get current ETH-fiat exchange rate from Cryptocompare
 });
-document.querySelector("#demo-button").innerText = MyAddess;
+document.querySelector("#demo-button").innerText = "ok nha";
 //Appvore Contract when user clicks on Approve Contract button
 document.getElementById("approve_form").addEventListener("submit", () => {
   //event.preventDefault();
