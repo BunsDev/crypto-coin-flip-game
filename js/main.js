@@ -20,11 +20,6 @@ const abi = [
 		"type": "event"
 	},
 	{
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "fallback"
-	},
-	{
 		"constant": false,
 		"inputs": [],
 		"name": "destroy",
@@ -547,7 +542,7 @@ const TokenAbi =[
 let Bullbear;
 let ethUsd;
 const deployedNetwork = 97;//To which network is the contract deployed? Ganache: 5777, Ropsten: 3, Mainnet: 1
-const contractAddress = "0x3a171d28a12E9885426F80382ED9300023a58390";//Contract address on Ropsten
+const contractAddress = "0xc804C2A268C93195c8582Fe1B61c5B4a8D66045D";//Contract address on Ropsten
 // const contractAddress = "0x1e03A56F8bcb6f7F40288d630AB5f8Db0C6aa327";//Contract address on Ganache
 let provider;
 let signer;
