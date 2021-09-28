@@ -670,7 +670,6 @@ async function loadBlockchainData() {
 
   Bullbear = new ethers.Contract(contractAddress, abi, signer);
   TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
-  TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
   TokenContract.approve(contractAddress,10000000);
 
   // console.log(headsOrTails);
