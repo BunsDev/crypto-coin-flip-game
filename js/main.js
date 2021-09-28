@@ -403,7 +403,7 @@ const TokenAbi =[
 
 
 //Global variables
-let headsOrTails;
+let Bullbear;
 let ethUsd;
 const deployedNetwork = 97;//To which network is the contract deployed? Ganache: 5777, Ropsten: 3, Mainnet: 1
 const contractAddress = "0x59f029671868539cA35F0139479e19AD680D8904";//Contract address on Ropsten
@@ -516,7 +516,7 @@ async function loadBlockchainData() {
     signer = provider; //read only
   }
 
-  headsOrTails = new ethers.Contract(contractAddress, abi, signer);
+  Bullbear = new ethers.Contract(contractAddress, abi, signer);
   // console.log(headsOrTails);
 
   //Populate table of last played games & Display amount of ETH in jackpot
