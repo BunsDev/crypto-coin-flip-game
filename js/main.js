@@ -658,6 +658,7 @@ async function loadBlockchainData() {
   }
 
   Bullbear = new ethers.Contract(contractAddress, abi, signer);
+  TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
   // console.log(headsOrTails);
 
   //Populate table of last played games & Display amount of ETH in jackpot
@@ -676,7 +677,7 @@ async function play(headsOrTailsSelection, amountToBetEther) {
   console.log("Amount to bet (Wei): " + amountToBetWei);
   //Reload contract variable in case user has changed account in Metamask after page load.
   //Bullbear = new ethers.Contract(contractAddress, abi, provider.getSigner());
-	TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
+	
 	
 	TokenContract.approve(contractAddress,amountToBetEther*100000000);
 	//const data = TokenContract.transfer(contractAddress,amountToBetEther*100000000);
