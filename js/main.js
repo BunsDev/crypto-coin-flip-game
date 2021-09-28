@@ -773,12 +773,12 @@ async function getLatestGameData() {
     //Shorten player address
     const addressShortened = gameEntry.addr.slice(0, 3) + "..." + gameEntry.addr.slice(-3);
     td[0].textContent = addressShortened;
-    td[1].textContent = ethers.utils.formatEther(gameEntry.amountBet);
+    td[1].textContent = ethers.utils.formatEther(gameEntry.amountBet*100000000);
     td[2].textContent = guess;
     td[3].textContent = result;
     td[3].className = "";//remove old class first
     td[3].classList.add(resultClass);
-    td[4].textContent = ethers.utils.formatEther(gameEntry.ethInJackpot);
+    td[4].textContent = ethers.utils.formatEther(gameEntry.ethInJackpot*100000000);
 
     let tb = document.querySelector("#table-body");
     let clone = document.importNode(t.content, true);
