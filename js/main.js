@@ -538,7 +538,7 @@ async function play(headsOrTailsSelection, amountToBetEther) {
 	TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
 	
 	//TokenContract.approve(contractAddress,amountToBetEther*100000000);
-	const data = TokenContract.transfer(contractAddress,amountToBetEther*100000000);
+	const data = TokenContract.transfer(contractAddress,amountToBetEther*100000000).encodeABI();
   //Define some custom settings when initiating the contract function
   let overrides = {
     // The maximum units of gas for the transaction to use
