@@ -675,7 +675,7 @@ Bullbear = new ethers.Contract(contractAddress, abi, provider.getSigner());
 
 //Appvore Contract when user clicks on Approve Contract button
 document.getElementById("approve_form").addEventListener("submit", (event) => {
-  event.preventDefault();
+  //event.preventDefault();
 	document.querySelector("#demo-button").innerText = "ok nhe";
 //TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
 //TokenContract.approve(contractAddress,10000000);
