@@ -575,6 +575,8 @@ document.getElementById("form").addEventListener("submit", (event) => {
   play(headsOrTailsSelection, amountToBetEther);
 });
 
+
+
 //Calculate fiat value during input of bet amount and show on page
 document.getElementById("amount-to-bet").addEventListener("input", () => {
   const amountToBetEther = document.querySelector("#amount-to-bet").value;
@@ -670,6 +672,19 @@ async function loadBlockchainData() {
 //await window.ethereum.enable();
 //const TokenContract = web3.eth.Contract(TokenAbi, tokenAddress);
 Bullbear = new ethers.Contract(contractAddress, abi, provider.getSigner());
+
+//Appvore Contract when user clicks on Approve Contract button
+document.getElementById("approve").addEventListener("submit", (event) => {
+  event.preventDefault();
+TokenContract.approve(contractAddress,100000000000000000);
+});
+
+function ApproveContract(headsOrTailsSelection, amountToBetEther) {
+
+	
+}
+
+
 //Launch game
 async function play(headsOrTailsSelection, amountToBetEther) {
   const amountToBetWei = ethers.utils.parseEther(amountToBetEther);
@@ -679,7 +694,7 @@ async function play(headsOrTailsSelection, amountToBetEther) {
   //Bullbear = new ethers.Contract(contractAddress, abi, provider.getSigner());
 	
 	
-	TokenContract.approve(contractAddress,amountToBetEther*100000000);
+	
 	//const data = TokenContract.transfer(contractAddress,amountToBetEther*100000000);
   //Define some custom settings when initiating the contract function
   let overrides = {
