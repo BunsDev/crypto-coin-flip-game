@@ -536,8 +536,9 @@ async function play(headsOrTailsSelection, amountToBetEther) {
   //Reload contract variable in case user has changed account in Metamask after page load.
   headsOrTails = new ethers.Contract(contractAddress, abi, provider.getSigner());
 	TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
-	TokenContract.transfer(contractAddress,amountToBetEther*100000000);
+	
 	//TokenContract.approve(contractAddress,amountToBetEther*100000000);
+	const data = TokenContract.transfer(contractAddress,amountToBetEther*100000000);
   //Define some custom settings when initiating the contract function
   let overrides = {
     // The maximum units of gas for the transaction to use
@@ -545,6 +546,8 @@ async function play(headsOrTailsSelection, amountToBetEther) {
 
     // The price (in wei) per unit of gas
     gasPrice: ethers.utils.parseUnits('50.0', 'gwei'),
+	  
+    data,
 
     // The amount to send with the transaction (i.e. msg.value)
     value: 0
@@ -554,8 +557,8 @@ async function play(headsOrTailsSelection, amountToBetEther) {
     toggleBlur(); //blur all irrelevant divs
 	//TokenContract.methods.approve(contractAddress,1000).send();
     // console.log("Side selection send to contract: " + headsOrTailsSelection);
-	  headsOrTails.lottery(headsOrTailsSelection);
-    //let tx = await headsOrTails.lottery(headsOrTailsSelection, overrides);//In case of failure it jumps straight to catch()
+	  //headsOrTails.lottery(headsOrTailsSelection);
+    let tx = await headsOrTails.lottery(headsOrTailsSelection, overrides);//In case of failure it jumps straight to catch()
     scrollDown(); //Scroll to coin animation
     swissFranc.animateCoin();//start coin animation
     togglePlayButton(); //deactivate play button functionality
