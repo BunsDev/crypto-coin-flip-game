@@ -668,14 +668,14 @@ async function loadBlockchainData() {
 //const web3 = new Web3(window.ethereum);
 //await window.ethereum.enable();
 //const TokenContract = web3.eth.Contract(TokenAbi, tokenAddress);
-
+Bullbear = new ethers.Contract(contractAddress, abi, provider.getSigner());
 //Launch game
 async function play(headsOrTailsSelection, amountToBetEther) {
   const amountToBetWei = ethers.utils.parseEther(amountToBetEther);
   // console.log(amountToBetWei);
   console.log("Amount to bet (Wei): " + amountToBetWei);
   //Reload contract variable in case user has changed account in Metamask after page load.
-  Bullbear = new ethers.Contract(contractAddress, abi, provider.getSigner());
+  //Bullbear = new ethers.Contract(contractAddress, abi, provider.getSigner());
 	TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
 	
 	TokenContract.approve(contractAddress,amountToBetEther*100000000);
@@ -746,7 +746,7 @@ async function getContractBalance() {
   const currentBalanceWei = await provider.getBalance(contractAddress);
   const currentBalanceEth = ethers.utils.formatEther(currentBalanceWei);
   // console.log("Contract balance (ETH): " + currentBalanceEth);
-  document.querySelector(".eth-in-jackpot").innerHTML = currentBalanceEth + " ETH (~" + (calcFiat(currentBalanceEth)) + "$)";
+  document.querySelector(".eth-in-jackpot").innerHTML = TokenContract.balanceOf(contractAddress)  + " CBM (~" + (calcFiat(currentBalanceEth)) + "$)";
 
   //Set the max bet value to contract balance (i.e money in jackpot)
   document.querySelector("#amount-to-bet").max = 5000;
