@@ -755,7 +755,7 @@ async function getContractBalance() {
 
 //Fill out table with latest games
 async function getLatestGameData() {
-  const gameCount = await headsOrTails.getGameCount();
+  const gameCount = await Bullbear.getGameCount();
   // console.log(gameCount);
 
   //Purge table before populating
@@ -765,7 +765,7 @@ async function getLatestGameData() {
   let td = t.content.querySelectorAll("td");
   const maxEntriesToDisplay = 5;
   for (let i = gameCount - 1; i >= 0; i--) {
-    const gameEntry = await headsOrTails.getGameEntry(i);
+    const gameEntry = await Bullbear.getGameEntry(i);
     let result = gameEntry.winner ? "Won" : "Lost";
     let resultClass = gameEntry.winner ? "won" : "lost";//define class to color text red or green
     // console.log(resultClass);
