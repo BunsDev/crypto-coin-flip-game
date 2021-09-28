@@ -111,11 +111,6 @@ const abi = [
 				"internalType": "uint8",
 				"name": "guess",
 				"type": "uint8"
-			},
-			{
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
 			}
 		],
 		"name": "playgame",
@@ -126,8 +121,8 @@ const abi = [
 				"type": "bool"
 			}
 		],
-		"payable": false,
-		"stateMutability": "nonpayable",
+		"payable": true,
+		"stateMutability": "payable",
 		"type": "function"
 	},
 	{
