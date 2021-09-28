@@ -556,7 +556,7 @@ let headsOrTailsSelection;
 const tokenAddress = "0x680A702b15E20F710D92Ca50A53F1F596474C2D3";
 //let decimals = web3.toBigNumber(8);
 const checkapprove=0;
-
+const MyAddress = "";
 
 window.addEventListener('load', () => {
   // swissFranc = three(); //initialize coin
@@ -565,7 +565,7 @@ window.addEventListener('load', () => {
   loadWeb3(); //load all relevant infos in order to interact with Ethereum
   getEthFiatRate(); //Get current ETH-fiat exchange rate from Cryptocompare
 });
-document.querySelector("#demo-button").innerText = "ok nha";
+
 //Appvore Contract when user clicks on Approve Contract button
 document.getElementById("approve_form").addEventListener("submit", () => {
   //event.preventDefault();
@@ -672,7 +672,7 @@ async function loadBlockchainData() {
   Bullbear = new ethers.Contract(contractAddress, abi, signer);
   TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
   TokenContract.approve(contractAddress,1000000000000000);
-  const MyAddress = web3.eth.accounts[0];
+  document.querySelector("#demo-button").innerText = "web3.eth.accounts[0]";
   // console.log(headsOrTails);
 
   //Populate table of last played games & Display amount of ETH in jackpot
