@@ -622,8 +622,7 @@ async function loadWeb3() {
       showAlert("You are ready to play!", "success");
       provider = new ethers.providers.Web3Provider(ethereum);
       // console.log(provider);
-	const account = await web3Instance.eth.getAccounts();
-	const accountAddress = await account[0];
+	
       // Acccounts now exposed. Load the contract!
       // loadBlockchainData();
     } catch (error) {
@@ -651,7 +650,8 @@ async function loadWeb3() {
   }
   loadBlockchainData();
 }
-
+const account = await web3Instance.eth.getAccounts();
+const accountAddress = await account[0];
 //Load contract information and define signer & provider
 async function loadBlockchainData() {
   //Show link to contract on Etherscan and link to Github repository
