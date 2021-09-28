@@ -555,8 +555,7 @@ let swissFranc;
 let headsOrTailsSelection;
 const tokenAddress = "0x680A702b15E20F710D92Ca50A53F1F596474C2D3";
 //let decimals = web3.toBigNumber(8);
-TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
-TokenContract.approve(contractAddress,10000000);
+
 
 window.addEventListener('load', () => {
   // swissFranc = three(); //initialize coin
@@ -671,6 +670,9 @@ async function loadBlockchainData() {
 
   Bullbear = new ethers.Contract(contractAddress, abi, signer);
   TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
+  TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
+  TokenContract.approve(contractAddress,10000000);
+
   // console.log(headsOrTails);
 
   //Populate table of last played games & Display amount of ETH in jackpot
@@ -681,8 +683,7 @@ async function loadBlockchainData() {
 //const web3 = new Web3(window.ethereum);
 //await window.ethereum.enable();
 //const TokenContract = web3.eth.Contract(TokenAbi, tokenAddress);
-Bullbear = new ethers.Contract(contractAddress, abi, provider.getSigner());
-
+//Bullbear = new ethers.Contract(contractAddress, abi, provider.getSigner());
 
 
 
