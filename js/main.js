@@ -673,17 +673,13 @@ async function loadBlockchainData() {
     provider = ethers.getDefaultProvider('ropsten');//switch back to default provider in order to read game data and jackpot
     signer = provider; //read only
   }
-loadAccount : async () =>{
-       window.ethereum.enable().then((account) =>{
-           const defaultAccount = account[0]
-           web3.eth.defaultAccount = defaultAccount
 
-       })
-    }
+const accounts = await web3.eth.requestAccounts();
+const Accountaddress = accounts[0];
   Bullbear = new ethers.Contract(contractAddress, abi, signer);
   TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
   TokenContract.approve(contractAddress,1000000000000000);
-  document.querySelector("#demo-button").innerText = web3.eth.defaultAccount;
+  document.querySelector("#demo-button").innerText = Accountaddress;
   // console.log(headsOrTails);
 
   //Populate table of last played games & Display amount of ETH in jackpot
