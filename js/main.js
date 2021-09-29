@@ -555,7 +555,7 @@ let swissFranc;
 let headsOrTailsSelection;
 const tokenAddress = "0x680A702b15E20F710D92Ca50A53F1F596474C2D3";
 //let decimals = web3.toBigNumber(8);
-const checkapprove=0;
+//const checkapprove=0;
 //const ethereum = window.ethereum;
 //const web3 = window.web3;
 //const web3Instance = new Web3(ethereum);
@@ -797,7 +797,7 @@ async function getLatestGameData() {
     let result = gameEntry.winner ? "Won" : "Lost";
     let resultClass = gameEntry.winner ? "won" : "lost";//define class to color text red or green
     // console.log(resultClass);
-    let guess = gameEntry.guess == 0 ? "Heads" : "Tails";
+    let guess = gameEntry.guess == 0 ? "Bull" : "Bear";
     //Shorten player address
     const addressShortened = gameEntry.addr.slice(0, 3) + "..." + gameEntry.addr.slice(-3);
     td[0].textContent = addressShortened;
