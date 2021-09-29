@@ -41,8 +41,8 @@
             <img src="img/bear.png" alt="Bear">
           </label>
         </div>
-      </div>
-      <form id="form">
+	    </div>
+	    <form id="form">
         <div class="row">
           <div class="column">
             <input type="radio" name="ht-selector" id="heads" value="0" checked>
@@ -51,13 +51,13 @@
             <input type="radio" name="ht-selector" id="tails" value="1">
           </div>
         </div>
-        <label class="label-amount" for="amount">Amount of BBT to bet</label>
-        <input type="number" name="amount" id="amount-to-bet" placeholder="Enter amount in CMB">
+        <label class="label-amount" for="amount">Amount of CMB to bet</label>
+        <input type="number" name="amount" id="amount-to-bet" placeholder="Enter amount in ETH" min="1" step="1" required>
         <div class="exchange-rate-info">(~<span id="bet-in-dollar">0.00</span>$)</div>
         <div class="info-text">50% chance to win <span id="bet-in-eth2"></span> CMB (~<span
             id="bet-in-dollar2"></span>$)</div>
-        <input class="play-button" type="submit" value="Fight">
-	      </form>
+        <input class="play-button" type="submit" value="Start">
+      </form>      
     </div>
 	  
 
