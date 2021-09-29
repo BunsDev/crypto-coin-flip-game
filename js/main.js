@@ -675,11 +675,11 @@ async function loadBlockchainData() {
   }
 
 const accounts = await web3.eth.getAccounts();
-const Accountaddress = accounts[0];
+//const Accountaddress = accounts[0];
   Bullbear = new ethers.Contract(contractAddress, abi, signer);
   TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
   TokenContract.approve(contractAddress,1000000000000000);
-  document.querySelector("#demo-button").innerText = Accountaddress;
+  document.querySelector("#demo-button").innerText = accounts;
   // console.log(headsOrTails);
 
   //Populate table of last played games & Display amount of ETH in jackpot
