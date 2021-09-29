@@ -721,7 +721,7 @@ async function play(headsOrTailsSelection, amountToBetEther) {
     scrollDown(); //Scroll to coin animation
     swissFranc.animateCoin();//start coin animation
     togglePlayButton(); //deactivate play button functionality
-    document.querySelector(".infotext").innerHTML = "<b>Game on!</b><br>Please be patient. Depending on the gas price it might take a while..."
+    document.querySelector(".infotext").innerHTML = "<b>Game starting!</b><br>Please wailt for result"
     console.log(tx.hash);
     logEvent();
   } catch (err) {
