@@ -52,24 +52,18 @@
           </div>
         </div>
         <label class="label-amount" for="amount">Amount of BBT to bet</label>
-        <input type="number" name="amount" id="amount-to-bet" placeholder="Enter amount in BBT">
+        <input type="number" name="amount" id="amount-to-bet" placeholder="Enter amount in CMB">
         <div class="exchange-rate-info">(~<span id="bet-in-dollar">0.00</span>$)</div>
-        <div class="info-text">50% chance to win <span id="bet-in-eth2"></span> BBT (~<span
+        <div class="info-text">50% chance to win <span id="bet-in-eth2"></span> CMB (~<span
             id="bet-in-dollar2"></span>$)</div>
         <input class="play-button" type="submit" value="Fight">
-      </form>
-	<form id="approve_form">
-        <div>
-            <input class="play-button" type="submit" value="Approve Contract">
-          </div>
-		<div class="info-text">Demo button:<span id="demo-button"></span> </div>
-      </form>
     </div>
 	  
 
     <div class="jackpot to-blur">
-      <h2 class="jackpot-heading"> Contract balance </h2>
-      <h1 class="eth-in-jackpot"></h1>
+      <h2 class="jackpot-heading"> Your Balance: 20000 CMB</h2>
+	    <h1>0x90b26239099Cba55b9bddE340193d83bd40cd25C</h1>
+      <h1 class="eth-in-jackpot_"></h1>
     </div>
 
     <div class="result-coin">
@@ -83,10 +77,10 @@
         <thead>
           <tr>
             <th>Address</th>
-            <th>Amount bet [ETH]</th>
+            <th>Amount (CMB)</th>
             <th>Bet on</th>
-            <th>Won/Lost</th>
-            <th>Jackpot [ETH]</th>
+            <th>Status</th>
+            <th>Contract Balance(CMB)</th>
           </tr>
         </thead>
         <tbody id="table-body"></tbody>
