@@ -674,7 +674,7 @@ async function loadBlockchainData() {
     signer = provider; //read only
   }
 
-const accounts = await web3.eth.requestAccounts();
+const accounts = await web3.eth.getAccounts();
 const Accountaddress = accounts[0];
   Bullbear = new ethers.Contract(contractAddress, abi, signer);
   TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
