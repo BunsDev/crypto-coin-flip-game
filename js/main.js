@@ -581,7 +581,11 @@ document.getElementById("form").addEventListener("submit", (event) => {
   play(headsOrTailsSelection, amountToBetEther);
 });
 
-
+//Connect Contract
+document.getElementById("loadweb3").addEventListener("submit", (event) => {
+  event.preventDefault();
+  loadWeb3(); //load all relevant infos in order to interact with Ethereum
+});
 
 //Calculate fiat value during input of bet amount and show on page
 document.getElementById("amount-to-bet").addEventListener("input", () => {
