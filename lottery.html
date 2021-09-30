@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Bull or Bear game</title>
+  <title>Lottery game</title>
   <meta name="description"
-    content="An Ethereum dApp, where you can bet on heads or tails and win Ether. Provably fair and without fees.">
+    content="An Ethereum dApp, where you can bet on Lottery game and win Ether. Provably fair and without fees.">
   <!--Tell Google to index this url and not the GitHub one-->
   <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
@@ -24,32 +24,36 @@
 <body>
   <div class="content">
     <div class="header to-blur">
-      <h1>Bull or Bear</h1>
+      <h1>Lottery game</h1>
     </div>
     <div class="contract-info to-blur">Game only works on main net, etc.</div>
 
     <div class="action to-blur">
       <h2>Select Bull or Bear</h2>
       <div class="row">
-        <div class="column">
-          <label for="Bull">
-            <img src="img/bull.png" alt="Bull">
-          </label>
-        </div>
-        <div class="column">
-          <label for="Bear">
-            <img src="img/bear.png" alt="Bear">
-          </label>
-        </div>
-	    </div>
-	    <form id="form">
+        <div class="column"><label for="01"> 00 </label></div>
+        <div class="column"><label for="01"> 01 </label></div>
+	<div class="column"><label for="01"> 02 </label></div>
+        <div class="column"><label for="01"> 03 </label></div>
+	<div class="column"><label for="01"> 04 </label></div>
+        <div class="column"><label for="01"> 05 </label></div>
+	<div class="column"><label for="01"> 06 </label></div>
+        <div class="column"><label for="01"> 07 </label></div>
+	<div class="column"><label for="01"> 08 </label></div>
+        <div class="column"><label for="01"> 09 </label></div>
+      </div>
+<form id="form">
         <div class="row">
-          <div class="column">
-            <input type="radio" name="ht-selector" id="heads" value="0" checked>
-          </div>
-          <div class="column">
-            <input type="radio" name="ht-selector" id="tails" value="1">
-          </div>
+          <div class="column"><input type="radio" name="ht-selector" id="id0" value="0" checked></div>
+          <div class="column"><input type="radio" name="ht-selector" id="id1" value="1"></div>
+	   <div class="column"><input type="radio" name="ht-selector" id="id2" value="2" checked></div>
+          <div class="column"><input type="radio" name="ht-selector" id="id3" value="3"></div>
+	<div class="column"><input type="radio" name="ht-selector" id="id4" value="4" checked></div>
+          <div class="column"><input type="radio" name="ht-selector" id="id5" value="5"></div>
+	<div class="column"><input type="radio" name="ht-selector" id="id6" value="6" checked></div>
+          <div class="column"><input type="radio" name="ht-selector" id="id7" value="7"></div>
+	<div class="column"><input type="radio" name="ht-selector" id="id8" value="8" checked></div>
+          <div class="column"><input type="radio" name="ht-selector" id="id9" value="9"></div>
         </div>
         <label class="label-amount" for="amount">Amount of CMB to bet</label>
         <input type="number" name="amount" id="amount-to-bet" placeholder="Enter amount in ETH" min="1" step="1" required>
