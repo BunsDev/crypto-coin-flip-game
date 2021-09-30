@@ -582,7 +582,7 @@ document.getElementById("form").addEventListener("submit", (event) => {
 });
 
 //Connect Contract
-document.getElementById("loadweb3").addEventListener("submit", (event) => {
+document.getElementById("loadweb3").addEventListener("button", (event) => {
   event.preventDefault();
   loadWeb3(); //load all relevant infos in order to interact with Ethereum
 });
