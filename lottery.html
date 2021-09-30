@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bull or Bear game</title>
+  <meta name="description"
+    content="An Ethereum dApp, where you can bet on heads or tails and win Ether. Provably fair and without fees.">
+  <!--Tell Google to index this url and not the GitHub one-->
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/img/site.webmanifest">
+  <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/img/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="/img/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+
+<body>
+  <div class="content">
+    <div class="header to-blur">
+      <h1>Bull or Bear</h1>
+    </div>
+    <div class="contract-info to-blur">Game only works on main net, etc.</div>
+
+    <div class="action to-blur">
+      <h2>Select Bull or Bear</h2>
+      <div class="row">
+        <div class="column">
+          <label for="Bull">
+            <img src="img/bull.png" alt="Bull">
+          </label>
+        </div>
+        <div class="column">
+          <label for="Bear">
+            <img src="img/bear.png" alt="Bear">
+          </label>
+        </div>
+	    </div>
+	    <form id="form">
+        <div class="row">
+          <div class="column">
+            <input type="radio" name="ht-selector" id="heads" value="0" checked>
+          </div>
+          <div class="column">
+            <input type="radio" name="ht-selector" id="tails" value="1">
+          </div>
+        </div>
+        <label class="label-amount" for="amount">Amount of CMB to bet</label>
+        <input type="number" name="amount" id="amount-to-bet" placeholder="Enter amount in ETH" min="1" step="1" required>
+        <div class="exchange-rate-info">(~<span id="bet-in-dollar">0.00</span>$)</div>
+        <div class="info-text">50% chance to win <span id="bet-in-eth2"></span> CMB (~<span
+            id="bet-in-dollar2"></span>$)</div>
+        <input class="play-button" type="submit" value="Start">
+      </form>
+    </div>
+	  
+
+    <div class="jackpot to-blur">
+      <h2 class="jackpot-heading"> Your Balance: 20000 CMB</h2>
+	    <div class="exchange-rate-info">0x90b26239099Cba55b9bddE340193d83bd40cd25C</div>
+      <h1 class="eth-in-jackpot_"></h1>
+    </div>
+
+    <div class="result-coin">
+	  <canvas></canvas><br>
+      <span class="infotext"></span>
+    </div>
+
+    <div class="recent-games to-blur">
+      <h2>Recent Games</h2>
+      <table class="recent-games-table">
+        <thead>
+          <tr>
+            <th>Address</th>
+            <th>Amount (CMB)</th>
+            <th>Bet on</th>
+            <th>Status</th>
+            <th>Contract Balance(CMB)</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <p class="contract-address-github to-blur">Contract address: <span class="contract-address"></span></p>
+
+  <template id="productrow">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </template>
+
+  <script src="js/ethers-v4_0_39.min.js"></script>
+  <script src="js/three.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
