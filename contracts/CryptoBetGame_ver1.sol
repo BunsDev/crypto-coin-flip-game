@@ -76,8 +76,8 @@ interface IBEP20 {
 
 
 
-// Heads or tails game contract
-contract BullBear {
+// Crypto mini game contract
+contract CryptoMiniGame {
   address payable owner;
   string public name;
 
@@ -86,18 +86,25 @@ contract BullBear {
     uint amountBet;
     uint8 guess;
     bool winner;
-    uint ethInJackpot;
+    uint ContractBalance;
   }
 
-  Game[] lastPlayedGames;
+  Game[] lastPlayedBullBearGames;
+  Game[] lastPlayedOneTwoThreeGames;
+  Game[] lastPlayedLotteryGames;
 
-  //Log game result (heads 0 or tails 1) in order to display it on frontend
-  event GameResult(uint8 side);
+  //Log game result 
+  //Bull bear game: (Bull 0 or bear 1) in order to display it on frontend
+  //Lottery game: (00 => 0 or 01 => 1 .... 09 => 9) in order to display it on frontend
+  //One two three game: (Rock 0 or Paper 1 or Scissors 2) in order to display it on frontend
+  event BullBearGameResult(uint8 side);
+  event LottryGameResult(uint8 side);
+  event OneTwoThreeGameResult(uint8 side);
 
   // Contract constructor run only on contract creation. Set owner.
   constructor() public {
     owner = msg.sender;
-    name = "Crypro Bet Game dApp";
+    name = "Crypro Mini Game dApp";
     
   }
  IBEP20 GAME_TOKEN = IBEP20(0x680A702b15E20F710D92Ca50A53F1F596474C2D3);
@@ -107,12 +114,12 @@ contract BullBear {
     _;
   }
 
-  //Play the game!
-  function playgame(uint8 guess, uint256 amount) public payable returns(bool){
+  //Play the Bull Bear game!
+  function BullBearGame(uint8 guess, uint256 amount) public payable returns(bool){
     require(guess == 0 || guess == 1, "Variable 'guess' should be either 0 ('Bull') or 1 ('Bear')");
     //require(msg.value > 0, "Bet more than 0");
     amount = amount*100000000;
-    //require(amount <= address(this).balance - amount, "You cannot bet more than what is available in the jackpot");
+    //require(amount <= address(this).balance - amount, "You cannot bet more than what is available in the Contract Balance");
     //require(IERC20(GAME_TOKEN).allowance(address(msg.sender), address(this)) >= amount, "insufficient allowance amount");
     IBEP20(GAME_TOKEN).transferFrom(address(msg.sender),address(this), amount);
     //address(this).balance is increased by msg.value even before code is executed. Thus "address(this).balance-msg.value"
@@ -125,26 +132,117 @@ contract BullBear {
       won = true;
     }
 
-    emit GameResult(result);
-    lastPlayedGames.push(Game(msg.sender, amount, guess, won, IBEP20(GAME_TOKEN).balanceOf(address(this))));
+    emit BullBearGameResult(result);
+    lastPlayedBullBearGames.push(Game(msg.sender, amount, guess, won, IBEP20(GAME_TOKEN).balanceOf(address(this))));
     return won; //Return value can only be used by other functions, but not within web3.js (as of 2019)
   }
 
   //Get amount of games played so far
-  function getGameCount() public view returns(uint) {
-    return lastPlayedGames.length;
+  function getBullBearGameCount() public view returns(uint) {
+    return lastPlayedBullBearGames.length;
   }
 
-  //Get stats about a certain played game, e.g. address of player, amount bet, won or lost, and ETH in the jackpot at this point in time
-  function getGameEntry(uint index) public view returns(address addr, uint amountBet, uint8 guess, bool winner, uint ethInJackpot) {
+  //Get stats about a certain played game, e.g. address of player, amount bet, won or lost, and CMG Token in the contract balance at this point in time
+  function getBullBearGameEntry(uint index) public view returns(address addr, uint amountBet, uint8 guess, bool winner, uint ContractBalance) {
     return (
-      lastPlayedGames[index].addr,
-      lastPlayedGames[index].amountBet,
-      lastPlayedGames[index].guess,
-      lastPlayedGames[index].winner,
-      lastPlayedGames[index].ethInJackpot
+      lastPlayedBullBearGames[index].addr,
+      lastPlayedBullBearGames[index].amountBet,
+      lastPlayedBullBearGames[index].guess,
+      lastPlayedBullBearGames[index].winner,
+      lastPlayedBullBearGames[index].ContractBalance
     );
   }
+  
+  
+  //Play the Lottery game!
+  function LotteryGame(uint8 guess, uint256 amount) public payable returns(bool){
+    require(guess == 0 || guess == 1 || guess == 2 || guess == 3 || guess == 4 || guess == 5 || guess == 6 || guess == 7 || guess == 8 || guess == 9, "Variable 'guess' should be either 0 ('00') or 1 ('01') or 2 ('02') or 3 ('03') or 4 ('04') or 5 ('05') or 6 ('06') or 7 ('07') or 8 ('08') or 9 ('09')");
+    //require(msg.value > 0, "Bet more than 0");
+    amount = amount*100000000;
+    //require(amount <= address(this).balance - amount, "You cannot bet more than what is available in the Contract balance");
+    //require(IERC20(GAME_TOKEN).allowance(address(msg.sender), address(this)) >= amount, "insufficient allowance amount");
+    IBEP20(GAME_TOKEN).transferFrom(address(msg.sender),address(this), amount);
+    //address(this).balance is increased by msg.value even before code is executed. Thus "address(this).balance-msg.value"
+    //Create a random number. Use the mining difficulty & the player's address, hash it, convert this hex to int, divide by modulo 2 which results in either 0 or 1 and return as uint8
+    uint8 result = uint8(uint256(keccak256(abi.encodePacked(block.difficulty, msg.sender, block.timestamp)))%10);
+    bool won = false;
+    if (guess == result) {
+      //Won!
+      IBEP20(GAME_TOKEN).transfer(address(msg.sender), amount*180/10);
+      won = true;
+    }
+
+    emit LotteryGameResult(result);
+    lastPlayedLotteryGames.push(Game(msg.sender, amount, guess, won, IBEP20(GAME_TOKEN).balanceOf(address(this))));
+    return won; //Return value can only be used by other functions, but not within web3.js (as of 2019)
+  }
+
+  //Get amount of Lottery games played so far
+  function getLotteryGameCount() public view returns(uint) {
+    return lastPlayedLotteryGames.length;
+  }
+
+  //Get stats about a certain played game, e.g. address of player, amount bet, won or lost, and CMG Token in the Contract balance at this point in time
+  function getLotteryGameEntry(uint index) public view returns(address addr, uint amountBet, uint8 guess, bool winner, uint ContractBalance) {
+    return (
+      lastPlayedLotteryGames[index].addr,
+      lastPlayedLotteryGames[index].amountBet,
+      lastPlayedLotteryGames[index].guess,
+      lastPlayedLotteryGames[index].winner,
+      lastPlayedLotteryGames[index].ContractBalance
+    );
+  }
+  
+   //Play the One two three game!
+  function OneTwoThreeGame(uint8 guess, uint256 amount) public payable returns(bool){
+    require(guess == 0 || guess == 1 || guess == 2, "Variable 'guess' should be either 0 ('Rock') or 1 ('Paper') or 2 ('Scissors')");
+    //require(msg.value > 0, "Bet more than 0");
+    amount = amount*100000000;
+    //require(amount <= address(this).balance - amount, "You cannot bet more than what is available in the Contract balance");
+    //require(IERC20(GAME_TOKEN).allowance(address(msg.sender), address(this)) >= amount, "insufficient allowance amount");
+    IBEP20(GAME_TOKEN).transferFrom(address(msg.sender),address(this), amount);
+    //address(this).balance is increased by msg.value even before code is executed. Thus "address(this).balance-msg.value"
+    //Create a random number. Use the mining difficulty & the player's address, hash it, convert this hex to int, divide by modulo 2 which results in either 0 or 1 and return as uint8
+    uint8 result = uint8(uint256(keccak256(abi.encodePacked(block.difficulty, msg.sender, block.timestamp)))%3);
+    uint8 won = 0;
+    if (guess == result) {
+      //Draw!
+      IBEP20(GAME_TOKEN).transfer(address(msg.sender), amount);
+      won = 0;
+    }
+    else if (guess - result == -1 || guess - result == 2)
+    {
+        //Lost
+        won = -1;
+    }
+    else if (guess - result == 1 || guess - result == -2)
+    {
+        //Lost
+        IBEP20(GAME_TOKEN).transfer(address(msg.sender), amount*19/10);
+        won = 1;
+    }
+
+    emit OneTwoThreeGameResult(result);
+    lastPlayedOneTwoThreeGames.push(Game(msg.sender, amount, guess, won, IBEP20(GAME_TOKEN).balanceOf(address(this))));
+    return won; //Return value can only be used by other functions, but not within web3.js (as of 2019)
+  }
+
+  //Get amount of One two three games played so far
+  function getOneTwoThreeGameCount() public view returns(uint) {
+    return lastOneTwoThreeGames.length;
+  }
+
+  //Get stats about a certain played One two three game, e.g. address of player, amount bet, won or lost, and CMG Token in the Contract balance at this point in time
+  function getOneTwoThreeGameEntry(uint index) public view returns(address addr, uint amountBet, uint8 guess, bool winner, uint ContractBalance) {
+    return (
+      lastOneTwoThreeGames[index].addr,
+      lastOneTwoThreeGames[index].amountBet,
+      lastOneTwoThreeGames[index].guess,
+      lastOneTwoThreeGames[index].winner,
+      lastOneTwoThreeGames[index].ContractBalance
+    );
+  }
+  
 
   // Contract destructor (Creator of contract can also destroy it and receives remaining ether of contract address).
   //Advantage compared to "withdraw": SELFDESTRUCT opcode uses negative gas because the operation frees up space on
