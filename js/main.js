@@ -980,7 +980,7 @@ async function getLatestGameData() {
   let td = t.content.querySelectorAll("td");
   const maxEntriesToDisplay = 5;
   for (let i = gameCount - 1; i >= 0; i--) {
-    const gameEntry = await Bullbear.getLotteryGameEntry(i);
+    const gameEntry = await Bullbear.getBullBearGameEntry(i);
     let result = gameEntry.winner ? "Won" : "Lost";
     let resultClass = gameEntry.winner ? "won" : "lost";//define class to color text red or green
     // console.log(resultClass);
