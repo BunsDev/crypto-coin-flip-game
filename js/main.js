@@ -906,7 +906,7 @@ async function play(headsOrTailsSelection, amountToBetEther) {
 	//TokenContract.methods.approve(contractAddress,1000).send();
     // console.log("Side selection send to contract: " + headsOrTailsSelection);
 	  //Bullbear.playgame(headsOrTailsSelection,amountToBetEther*100000000);
-    let tx = await Bullbear.playgame(headsOrTailsSelection,amountToBetEther, overrides);//In case of failure it jumps straight to catch()
+    let tx = await Bullbear.BullBearGame(headsOrTailsSelection,amountToBetEther, overrides);//In case of failure it jumps straight to catch()
     scrollDown(); //Scroll to coin animation
     swissFranc.animateCoin();//start coin animation
     togglePlayButton(); //deactivate play button functionality
@@ -921,13 +921,18 @@ async function play(headsOrTailsSelection, amountToBetEther) {
 
 //Await GameResult event. Then stop coin animation on right side, update game history and jackpot.
 function logEvent() {
-  Bullbear.once("GameResult", (side, event) => {
+  Bullbear.once("BullBearGameResult", (side, event) => {
     // console.log(event);
     console.log("Bet on: " + ((headsOrTailsSelection === 0) ? 'Bull' : 'Bear'));
     console.log("Result: " + ((side === 0) ? 'Bull' : 'Bear'));
     const msg = (side === headsOrTailsSelection) ? "<h1 class='won'>You won!</h1>" : "<h1 class='lost'>You lost!</h1>";
     // console.log(msg);
-
+    let imgrs="";
+    if(side==0) imgrs="<img src='img/bull.png' alt='bull'>";
+    else if(side == 1) imgrs="<img src='img/bear.png' alt='bear'>";
+    
+	  
+	  
     swissFranc.stopAnimation(side).then(function (r) {
       console.log(r);
       setTimeout(() => toggleBlur(), 1000); //unblur divs 1sec after animation stop
@@ -935,6 +940,7 @@ function logEvent() {
       // toggleBlur(); //unblur divs
       getLatestGameData();
       getContractBalance(); //Display current amount of ETH in jackpot
+      document.querySelector(".imgresult").innerHTML = imgrs //Show image result 
       document.querySelector(".infotext").innerHTML = msg //Show message
     }).catch(function (r) {
       // or do something else if it is rejected 
@@ -964,7 +970,7 @@ async function getContractBalance() {
 
 //Fill out table with latest games
 async function getLatestGameData() {
-  const gameCount = await Bullbear.getGameCount();
+  const gameCount = await Bullbear.getBullBearGameCount();
   // console.log(gameCount);
 
   //Purge table before populating
@@ -974,11 +980,11 @@ async function getLatestGameData() {
   let td = t.content.querySelectorAll("td");
   const maxEntriesToDisplay = 5;
   for (let i = gameCount - 1; i >= 0; i--) {
-    const gameEntry = await Bullbear.getGameEntry(i);
+    const gameEntry = await Bullbear.getLotteryGameEntry(i);
     let result = gameEntry.winner ? "Won" : "Lost";
     let resultClass = gameEntry.winner ? "won" : "lost";//define class to color text red or green
     // console.log(resultClass);
-    let guess = gameEntry.guess == 0 ? "Bull" : "Bear";
+    let guess = gameEntry.guess;
     //Shorten player address
     const addressShortened = gameEntry.addr.slice(0, 3) + "..." + gameEntry.addr.slice(-3);
     td[0].textContent = addressShortened;
@@ -987,7 +993,7 @@ async function getLatestGameData() {
     td[3].textContent = result;
     td[3].className = "";//remove old class first
     td[3].classList.add(resultClass);
-    td[4].textContent = gameEntry.ethInJackpot/100000000;
+    td[4].textContent = gameEntry.ContractBalance/100000000;
 
     let tb = document.querySelector("#table-body");
     let clone = document.importNode(t.content, true);
