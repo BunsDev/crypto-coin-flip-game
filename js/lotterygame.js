@@ -987,7 +987,7 @@ async function getLatestGameData() {
     td[3].textContent = result;
     td[3].className = "";//remove old class first
     td[3].classList.add(resultClass);
-    td[4].textContent = gameEntry.ethInJackpot/100000000;
+    td[4].textContent = gameEntry.ContractBalance/100000000;
 
     let tb = document.querySelector("#table-body");
     let clone = document.importNode(t.content, true);
