@@ -925,7 +925,7 @@ function logEvent() {
     // console.log(event);
     console.log("Bet on: " + ((headsOrTailsSelection === 0) ? 'Bull' : 'Bear'));
     console.log("Result: " + ((side === 0) ? 'Bull' : 'Bear'));
-    const msg = "";
+    let msg = "";
     // console.log(msg);
     if (headsOrTailsSelection == side) {
       //Draw!
