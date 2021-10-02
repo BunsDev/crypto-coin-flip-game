@@ -991,7 +991,7 @@ async function getLatestGameData() {
     const gameEntry = await Bullbear.getOneTwoThreeGameEntry(i);
     let result = "";
     let resultClass = "";//define class to color text red or green
-    if(gameEntry.winner==0) { result = "Draw"; }
+    if(gameEntry.winner==0) { result = "Draw"; resultClass = "won"}
     else if(gameEntry.winner==1) 
 	    {
 		    result = "won";
