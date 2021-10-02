@@ -929,7 +929,7 @@ function logEvent() {
     // console.log(msg);
     if (headsOrTailsSelection == side) {
       //Draw!
-	msg = "<h1 style='color:white;'>Draw!</h1>";
+	msg = "<h1>Draw!</h1>";
     }
     else if ((headsOrTailsSelection == 0 &&  side == 1)||(headsOrTailsSelection == 1 &&  side == 2)||(headsOrTailsSelection == 2 &&  side == 0))
     {
