@@ -928,7 +928,7 @@ function logEvent() {
     const msg = (side === headsOrTailsSelection) ? "<h1 class='won'>You won!</h1>" : "<h1 class='lost'>You lost!</h1>";
     // console.log(msg);
     let imgrs="";
-    if(side==0) imgrs="<img src='img/bull.png' alt='bull' width='100px' height='100px'>";
+    if(side==0) imgrs="<img src='img/bull.png' alt='bull' width='100' height='100'>";
     else if(side == 1) imgrs="<img src='img/bear.png' alt='bear'>";
     
 	  
