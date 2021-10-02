@@ -926,6 +926,8 @@ function logEvent() {
     console.log("Bet on: " + ((headsOrTailsSelection === 0) ? 'Bull' : 'Bear'));
     console.log("Result: " + ((side === 0) ? 'Bull' : 'Bear'));
     let msg = "";
+    let imgrs="";
+	  
     // console.log(msg);
     if (headsOrTailsSelection == side) {
       //Draw!
@@ -941,6 +943,9 @@ function logEvent() {
         //win 
         msg = "<h1 class='won'>You won!</h1>";
     }
+    if(side==0) imgrs="<img src='img/Rock.png' alt='rock>";
+    else if(side == 1) imgrs="<img src='img/Paper.png' alt='paper'>";
+    else if(side == 2) imgrs="<img src='img/Scissors.png' alt='scissors'>";
 
     swissFranc.stopAnimation(side).then(function (r) {
       console.log(r);
@@ -949,6 +954,7 @@ function logEvent() {
       // toggleBlur(); //unblur divs
       getLatestGameData();
       getContractBalance(); //Display current amount of ETH in jackpot
+      document.querySelector(".imgresult").innerHTML = imgrs //Show image result 
       document.querySelector(".infotext").innerHTML = msg //Show message
     }).catch(function (r) {
       // or do something else if it is rejected 
