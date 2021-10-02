@@ -125,7 +125,7 @@ input[type=number]:focus {
   position: relative;  /* Needed to place the child "won-lost" with "position: absolute" */
 }
 
-canvas { width: 30px; height: 30px; }
+canvas { width: 50px; height: 50px; }
 
 .recent-games {
   grid-area: recent-games;
