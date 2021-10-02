@@ -975,24 +975,24 @@ async function getLatestGameData() {
   const maxEntriesToDisplay = 5;
   for (let i = gameCount - 1; i >= 0; i--) {
     const gameEntry = await Bullbear.getOneTwoThreeGameEntry(i);
-    //let result = gameEntry.winner ? "Won" : "Lost";
-    //let resultClass = gameEntry.winner ? "won" : "lost";//define class to color text red or green
-    if(gameEntry.winner==0) { let result = "Draw"; }
+    let result = "";
+    let resultClass = "";//define class to color text red or green
+    if(gameEntry.winner==0) { result = "Draw"; }
     else if(gameEntry.winner==1) 
 	    {
-		    let result = "won";
-		    let resultClass = "won";
+		    result = "won";
+		    resultClass = "won";
 	    }
     else if(gameEntry.winner==2) 
 	    {
-		    let result = "lost";
-		    let resultClass = "lost";
+		    result = "lost";
+		    resultClass = "lost";
 	    }
     // console.log(resultClass);
-    //let guess = gameEntry.guess;
-    if(gameEntry.guess==0) { let guess = "Rock"; }
-    else if(gameEntry.guess==1) { let guess = "Paper"; }
-    else if(gameEntry.guess==2) { let guess = "Scissors";}
+    let guess ="";
+    if(gameEntry.guess==0) { guess = "Rock"; }
+    else if(gameEntry.guess==1) { guess = "Paper"; }
+    else if(gameEntry.guess==2) { guess = "Scissors";}
 
     //Shorten player address
     const addressShortened = gameEntry.addr.slice(0, 3) + "..." + gameEntry.addr.slice(-3);
