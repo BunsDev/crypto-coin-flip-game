@@ -910,6 +910,7 @@ async function play(headsOrTailsSelection, amountToBetEther) {
     scrollDown(); //Scroll to coin animation
     swissFranc.animateCoin();//start coin animation
     togglePlayButton(); //deactivate play button functionality
+    document.querySelector(".imgresult").innerHTML="";
     document.querySelector(".infotext").innerHTML = "<b>Game starting!</b><br>Please wailt for result"
     console.log(tx.hash);
     logEvent();
@@ -1094,8 +1095,8 @@ function three() {
   const textureCirc = new THREE.TextureLoader().load("img/circumference.jpg");
   textureCirc.wrapS = THREE.RepeatWrapping;//repeat texture horizontally
   textureCirc.repeat.set(20, 0);//repeat 20x
-  const textureHeads = new THREE.TextureLoader().load("img/bull.png");
-  const textureTails = new THREE.TextureLoader().load("img/bear.png");
+  const textureHeads = new THREE.TextureLoader().load("img/waiting.png");
+  const textureTails = new THREE.TextureLoader().load("img/waiting.png");
   const metalness = 0.7;
   const roughness = 0.3;
 
