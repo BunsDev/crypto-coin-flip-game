@@ -4,6 +4,7 @@ html {
 
 body {
   background-color: black;
+  background:url(img/head_noise.png);
   color: white;
   font-family: Arial, Helvetica, sans-serif;
 }
