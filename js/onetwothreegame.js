@@ -927,6 +927,20 @@ function logEvent() {
     console.log("Result: " + ((side === 0) ? 'Bull' : 'Bear'));
     const msg = (side === headsOrTailsSelection) ? "<h1 class='won'>You won!</h1>" : "<h1 class='lost'>You lost!</h1>";
     // console.log(msg);
+    if (headsOrTailsSelection == side) {
+      //Draw!
+	msg = "<h1 style='color:white;'>Draw!</h1>";
+    }
+    else if ((headsOrTailsSelection == 0 &&  side == 1)||(headsOrTailsSelection == 1 &&  side == 2)||(headsOrTailsSelection == 2 &&  side == 0))
+    {
+        //Lost
+        msg = "<h1 class='lost'>You lost!</h1>";
+    }
+    else if ((headsOrTailsSelection == 0 &&  side == 2)||(headsOrTailsSelection == 1 &&  side == 0)||(headsOrTailsSelection == 2 &&  side == 1))
+    {
+        //win 
+        msg = "<h1 class='won'>You won!</h1>";
+    }
 
     swissFranc.stopAnimation(side).then(function (r) {
       console.log(r);
