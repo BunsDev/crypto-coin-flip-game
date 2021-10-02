@@ -984,7 +984,7 @@ async function getLatestGameData() {
     let result = gameEntry.winner ? "Won" : "Lost";
     let resultClass = gameEntry.winner ? "won" : "lost";//define class to color text red or green
     // console.log(resultClass);
-    let guess = gameEntry.guess;
+    let guess = gameEntry.guess == 0 ? "Bull" : "Bear";
     //Shorten player address
     const addressShortened = gameEntry.addr.slice(0, 3) + "..." + gameEntry.addr.slice(-3);
     td[0].textContent = addressShortened;
@@ -1065,8 +1065,8 @@ function three() {
   const textureCirc = new THREE.TextureLoader().load("img/circumference.jpg");
   textureCirc.wrapS = THREE.RepeatWrapping;//repeat texture horizontally
   textureCirc.repeat.set(20, 0);//repeat 20x
-  const textureHeads = new THREE.TextureLoader().load("img/bull.png");
-  const textureTails = new THREE.TextureLoader().load("img/bear.png");
+  const textureHeads = new THREE.TextureLoader().load("img/waiting.png");
+  const textureTails = new THREE.TextureLoader().load("img/waiting.png");
   const metalness = 0.7;
   const roughness = 0.3;
 
