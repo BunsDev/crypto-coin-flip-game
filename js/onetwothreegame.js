@@ -944,7 +944,7 @@ function logEvent() {
         //win 
         msg = "<h1 class='won'>You won!</h1>";
     }
-    if(side==0) imgrs="<img src='img/Rock.png' alt='rock>";
+    if(side==0) imgrs="<img src='img/Rock.png' alt='rock'>";
     else if(side == 1) imgrs="<img src='img/Paper.png' alt='paper'>";
     else if(side == 2) imgrs="<img src='img/Scissors.png' alt='scissors'>";
 
