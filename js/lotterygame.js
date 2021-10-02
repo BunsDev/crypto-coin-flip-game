@@ -978,7 +978,7 @@ async function getLatestGameData() {
     let result = gameEntry.winner ? "Won" : "Lost";
     let resultClass = gameEntry.winner ? "won" : "lost";//define class to color text red or green
     // console.log(resultClass);
-    let guess = gameEntry.guess == 0 ? "Bull" : "Bear";
+    let guess = gameEntry.guess;
     //Shorten player address
     const addressShortened = gameEntry.addr.slice(0, 3) + "..." + gameEntry.addr.slice(-3);
     td[0].textContent = addressShortened;
