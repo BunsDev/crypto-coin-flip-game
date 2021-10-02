@@ -906,7 +906,7 @@ async function play(headsOrTailsSelection, amountToBetEther) {
 	//TokenContract.methods.approve(contractAddress,1000).send();
     // console.log("Side selection send to contract: " + headsOrTailsSelection);
 	  //Bullbear.playgame(headsOrTailsSelection,amountToBetEther*100000000);
-    let tx = await Bullbear.playgame(headsOrTailsSelection,amountToBetEther, overrides);//In case of failure it jumps straight to catch()
+    let tx = await Bullbear.OneTwoThreeGame(headsOrTailsSelection,amountToBetEther, overrides);//In case of failure it jumps straight to catch()
     scrollDown(); //Scroll to coin animation
     swissFranc.animateCoin();//start coin animation
     togglePlayButton(); //deactivate play button functionality
@@ -921,7 +921,7 @@ async function play(headsOrTailsSelection, amountToBetEther) {
 
 //Await GameResult event. Then stop coin animation on right side, update game history and jackpot.
 function logEvent() {
-  Bullbear.once("GameResult", (side, event) => {
+  Bullbear.once("OneTwoThreeGameResult", (side, event) => {
     // console.log(event);
     console.log("Bet on: " + ((headsOrTailsSelection === 0) ? 'Bull' : 'Bear'));
     console.log("Result: " + ((side === 0) ? 'Bull' : 'Bear'));
@@ -964,7 +964,7 @@ async function getContractBalance() {
 
 //Fill out table with latest games
 async function getLatestGameData() {
-  const gameCount = await Bullbear.getGameCount();
+  const gameCount = await Bullbear.getOneTwoThreeGameCount();
   // console.log(gameCount);
 
   //Purge table before populating
@@ -974,11 +974,11 @@ async function getLatestGameData() {
   let td = t.content.querySelectorAll("td");
   const maxEntriesToDisplay = 5;
   for (let i = gameCount - 1; i >= 0; i--) {
-    const gameEntry = await Bullbear.getGameEntry(i);
+    const gameEntry = await Bullbear.getOneTwoThreeGameEntry(i);
     let result = gameEntry.winner ? "Won" : "Lost";
     let resultClass = gameEntry.winner ? "won" : "lost";//define class to color text red or green
     // console.log(resultClass);
-    let guess = gameEntry.guess == 0 ? "Bull" : "Bear";
+    let guess = gameEntry.guess;
     //Shorten player address
     const addressShortened = gameEntry.addr.slice(0, 3) + "..." + gameEntry.addr.slice(-3);
     td[0].textContent = addressShortened;
@@ -987,7 +987,7 @@ async function getLatestGameData() {
     td[3].textContent = result;
     td[3].className = "";//remove old class first
     td[3].classList.add(resultClass);
-    td[4].textContent = gameEntry.ethInJackpot/100000000;
+    td[4].textContent = gameEntry.ContractBalance/100000000;
 
     let tb = document.querySelector("#table-body");
     let clone = document.importNode(t.content, true);
