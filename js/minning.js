@@ -1071,6 +1071,7 @@ async function loadBlockchainData() {
    let amountMinning = await Bullbear.MinerAmount(adr);
    let Reward = await Bullbear.CalReward();
   let cash = await Bullbear.Cash(adr);
+  bool checkMiner = await Bullbear.checkMiner(adr);
   let tkbalance = await TokenContract.balanceOf(adr);
   document.querySelector("#user-address").innerHTML = "Your address: "+adr;
   document.querySelector("#cash-balance").innerHTML = cash;
@@ -1080,6 +1081,13 @@ async function loadBlockchainData() {
   //document.querySelector("#amount-to-bet").max = currentBalanceEth;
   document.querySelector("#amount-minning").innerHTML = amountMinning/100000000;
   document.querySelector("#reward-minning").innerHTML = Reward/100000000;
+  if(amountMinning>0)
+	  {
+	  document.querySelector("#button").innerHTML = "End Minning";
+          if(!checkMiner) togglePlayButton();
+	  }
+ else document.querySelector("#button").innerHTML = "Start Minning";
+ 
 }
 
 //const web3 = new Web3(window.ethereum);
