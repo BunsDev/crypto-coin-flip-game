@@ -1197,7 +1197,6 @@ async function getContractBalance() {
    let adr = await Bullbear.GetAdress();
   let cash = await Bullbear.Cash(adr);
   let tkbalance = await TokenContract.balanceOf(adr);
-  ApproveContract=document.cookie;
   ApproveContract=await Bullbear.AproveContract(adr);	
   document.querySelector("#user-address").innerHTML = "Your address: "+adr+ document.cookie+ ApproveContract;
   document.querySelector("#cash-balance").innerHTML = cash;
@@ -1206,7 +1205,8 @@ async function getContractBalance() {
   //Set the max bet value to contract balance (i.e money in jackpot)
   document.querySelector("#amount-to-bet").max = 5000;
   //document.querySelector("#amount-to-bet").max = currentBalanceEth;
-  if(ApproveContract != 1)togglePlayButton();
+  if(ApproveContract == 1 || document.cookie==1)
+	  else togglePlayButton();
 }
 
 //Fill out table with latest games
