@@ -987,12 +987,7 @@ window.addEventListener('load', () => {
 //Launch play() when user clicks on play button
 document.getElementById("form").addEventListener("submit", (event) => {
   event.preventDefault();
-  //Find out which radio button is selected and how much money is bet.
-  const amountToBetEther = document.querySelector("#amount-to-bet").value;
-  //headsOrTailsSelection = parseInt(document.querySelector(":checked").value);
-  // console.log("0 or 1: " + headsOrTailsSelection);
-  // console.log("Amount to bet (ETH): " + amountToBetEther);
-  Minning(amountToBetEther);
+  Approve();
 });
 
 
