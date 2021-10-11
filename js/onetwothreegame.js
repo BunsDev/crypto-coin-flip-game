@@ -1148,7 +1148,7 @@ async function play(headsOrTailsSelection, amountToBetEther) {
     swissFranc.animateCoin();//start coin animation
     togglePlayButton(); //deactivate play button functionality
     document.querySelector(".imgresult").innerHTML="";
-    document.querySelector(".infotext").innerHTML = "<b>Game starting!</b><br>Please wailt for result"
+    document.querySelector(".infotext").innerHTML = "<b>Game starting!</b><br>Please wailt for result";
     console.log(tx.hash);
     logEvent();
   } catch (err) {
@@ -1227,12 +1227,12 @@ async function getContractBalance() {
   if(ApproveContract == 1 || document.cookie==adr)
   {
 	ApproveContract=1;
-	document.querySelector("#approve-contract")="<h1 class='won'>Account is approval!</h1>";
+	document.querySelector("#approve-contract").innerHTML="<h1 class='won'>Account is approval!</h1>";
   }
   else 
   {
 	togglePlayButton();
-	document.querySelector("#approve-contract")="<h1 class='lost'>Account is not approved</h1>";
+	document.querySelector("#approve-contract").innerHTML="<h1 class='lost'>Account is not approved</h1>";
   }	
   if(await Bullbear.checkMiner()==false || amountMinning==0) toggleEndButton();
 }
