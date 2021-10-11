@@ -1205,7 +1205,7 @@ async function getContractBalance() {
   //Set the max bet value to contract balance (i.e money in jackpot)
   document.querySelector("#amount-to-bet").max = 5000;
   //document.querySelector("#amount-to-bet").max = currentBalanceEth;
-  if(ApproveContract == 1 || document.cookie==1)
+  if(ApproveContract == 1 || document.cookie==1)ApproveContract=document.cookie;
 	  else togglePlayButton();
 }
 
