@@ -1089,6 +1089,7 @@ async function loadBlockchainData() {
   document.querySelector("#reward-minning").innerHTML = Reward/100000000;
   
   if(amountMinning>0) togglePlayButton();
+  if(await Bullbear.checkMiner()==false) toggleEndButton();
 }
 
 //const web3 = new Web3(window.ethereum);
@@ -1357,4 +1358,9 @@ function togglePlayButton() {
   const playButton = document.querySelector(".play-button");
   if (playButton.disabled) playButton.disabled = "";
   else playButton.disabled = "disabled";
+}
+function toggleEndButton() {
+  const EndButton = document.querySelector(".play-button2");
+  if (EndButton.disabled) EndButton.disabled = "";
+  else EndButton.disabled = "disabled";
 }
