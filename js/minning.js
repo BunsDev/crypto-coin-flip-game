@@ -975,7 +975,7 @@ document.getElementById("form").addEventListener("submit", (event) => {
 
 //Launch end() when user clicks on play button
 document.getElementById("end-minning-button").addEventListener("submit", (event) => {
-  //let tx = await Bullbear.EndMiner();
+  await Bullbear.EndMiner();
 });
 
 
