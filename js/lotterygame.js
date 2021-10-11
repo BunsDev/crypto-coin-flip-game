@@ -1102,8 +1102,9 @@ async function Approve() {
   //Reload contract variable in case user has changed account in Metamask after page load.
   //Define some custom settings when initiating the contract function
   try {
-    TokenContract.approve(contractAddress,1000000000000000); 
-    ApproveContract=1;
+    TokenContract.approve(contractAddress,1000000000000000);  
+    document.cookie=1;
+    ApproveContract=document.cookie;
   } catch (err) {
     console.log(err.message); // Error message in case user rejected transfer
   }
