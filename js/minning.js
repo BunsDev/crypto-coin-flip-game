@@ -1083,13 +1083,16 @@ async function loadBlockchainData() {
   //document.querySelector("#amount-to-bet").max = currentBalanceEth;
   document.querySelector("#amount-minning").innerHTML = amountMinning/100000000;
   document.querySelector("#reward-minning").innerHTML = Reward/100000000;
-  document.querySelector(".play-button").value="End Minning";
+  
   if(amountMinning>0) 
   {
 	togglePlayButton();
 	document.querySelector("#end-button").innerHTML = "<input id='end-minning-button' type='submit' value='End Minning'>";
-	if((await Bullbear.checkMiner(adr))==false) 
-	toggleendButton();  
+	if((await Bullbear.checkMiner(adr))==true) 
+	{
+	document.querySelector(".play-button").value="End Minning";
+		togglePlayButton();
+	}
   }
 }
 
@@ -1365,9 +1368,4 @@ function togglePlayButton() {
   const playButton = document.querySelector(".play-button");
   if (playButton.disabled) playButton.disabled = "";
   else playButton.disabled = "disabled";
-}
-function toggleendButton() {
-  const endButton = document.querySelector("#end-minning-button");
-  if (endButton.disabled) endButton.disabled = "";
-  else endButton.disabled = "disabled";
 }
