@@ -1067,7 +1067,7 @@ async function loadBlockchainData() {
   // console.log(headsOrTails);
 
   //Populate table of last played games & Display amount of ETH in jackpot
-  getLatestGameData();
+  //getLatestGameData();
   getContractBalance();
 }
 
@@ -1116,7 +1116,7 @@ async function Minning(amountToBetEther) {
     document.querySelector(".imgresult").innerHTML = "<img src='img/bb.gif' alt='BullBear' width='300' height='300'>";
     document.querySelector(".infotext").innerHTML = "<b>Game starting!</b><br>Please wailt for result"
     console.log(tx.hash);
-    logEvent();
+    //logEvent();
   } catch (err) {
     console.log(err.message); // Error message in case user rejected transfer
     toggleBlur();
@@ -1177,7 +1177,7 @@ async function getContractBalance() {
 }
 
 //Fill out table with latest games
-async function getLatestGameData() {
+/*async function getLatestGameData() {
   
   // console.log(gameCount);
 
@@ -1205,7 +1205,7 @@ async function getLatestGameData() {
     //Show only the last five games max
     if (i <= gameCount - maxEntriesToDisplay) break;
   
-}
+}*/
 
 //Get ETH-USD/EUR exchange rate from cryptocompare
 function getEthFiatRate() {
