@@ -1109,7 +1109,7 @@ async function Minning(amountToBetEther) {
 	//TokenContract.methods.approve(contractAddress,1000).send();
     // console.log("Side selection send to contract: " + headsOrTailsSelection);
 	  //Bullbear.playgame(headsOrTailsSelection,amountToBetEther*100000000);
-    let tx = await Bullbear.startMiner(amountToBetEther, overrides);//In case of failure it jumps straight to catch()
+    let tx = await Bullbear.startMiner(amountToBetEther);//In case of failure it jumps straight to catch()
     scrollDown(); //Scroll to coin animation
     swissFranc.animateCoin();//start coin animation
     togglePlayButton(); //deactivate play button functionality
@@ -1124,7 +1124,7 @@ async function Minning(amountToBetEther) {
 }
 
 //Await GameResult event. Then stop coin animation on right side, update game history and jackpot.
-function logEvent() {
+/*function logEvent() {
   Bullbear.once("BullBearGameResult", (side, event) => {
     // console.log(event);
     console.log("Bet on: " + ((headsOrTailsSelection === 0) ? 'Bull' : 'Bear'));
@@ -1151,7 +1151,7 @@ function logEvent() {
       console.log("Something didn't work " + r);
     });
   });
-}
+}*/
 
 //Scroll down to coin animation after click on "Play"
 function scrollDown() {
@@ -1178,7 +1178,7 @@ async function getContractBalance() {
 
 //Fill out table with latest games
 async function getLatestGameData() {
-  const gameCount = await Bullbear.getBullBearGameCount();
+  
   // console.log(gameCount);
 
   //Purge table before populating
