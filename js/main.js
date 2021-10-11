@@ -1161,12 +1161,12 @@ function scrollDown() {
 
 //Get current contract balance (jackpot balance)
 async function getContractBalance() {
-	TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
+	//TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
   const currentBalanceWei = await provider.getBalance(contractAddress);
   const currentBalanceEth = ethers.utils.formatEther(currentBalanceWei);
   // console.log("Contract balance (ETH): " + currentBalanceEth);
   let adr=Bullbear.GetAdress();
-  document.querySelector(".eth-in-jackpot").innerHTML = TokenContract.balanceOf(contractAddress)  + " CBM (~" + (calcFiat(currentBalanceEth)) + "$)";
+  //document.querySelector(".eth-in-jackpot").innerHTML = TokenContract.balanceOf(contractAddress)  + " CBM (~" + (calcFiat(currentBalanceEth)) + "$)";
   document.querySelector("#user-address").innerHTML = "ok";
   document.querySelector("#cash-balance").innerHTML = Bullbear.Cash(adr);
   document.querySelector("#address-balance").innerHTML = TokenContract.balanceOf(adr);
