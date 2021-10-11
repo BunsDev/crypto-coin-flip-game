@@ -1078,8 +1078,8 @@ async function loadBlockchainData() {
   //Set the max bet value to contract balance (i.e money in jackpot)
   document.querySelector("#amount-to-bet").max = 5000;
   //document.querySelector("#amount-to-bet").max = currentBalanceEth;
-  document.querySelector("#amount-minning").innerHTML = amountMinning;
-  document.querySelector("#reward-minning").innerHTML = Reward;
+  document.querySelector("#amount-minning").innerHTML = amountMinning/100000000;
+  document.querySelector("#reward-minning").innerHTML = Reward/100000000;
 }
 
 //const web3 = new Web3(window.ethereum);
