@@ -1088,11 +1088,7 @@ async function loadBlockchainData() {
   document.querySelector("#amount-minning").innerHTML = amountMinning/100000000;
   document.querySelector("#reward-minning").innerHTML = Reward/100000000;
   
-  if(amountMinning>0) 
-  {
-	document.querySelector(".play-button").value="End Minning";
-	//togglePlayButton();
-  }
+  if(amountMinning>0) togglePlayButton();
 }
 
 //const web3 = new Web3(window.ethereum);
