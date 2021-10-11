@@ -975,7 +975,24 @@ document.getElementById("form").addEventListener("submit", (event) => {
 
 //Launch end() when user clicks on play button
 document.getElementById("end-minning-button").addEventListener("submit", (event) => {
-  await Bullbear.EndMiner();
+  
+	try {
+    toggleBlur(); //blur all irrelevant divs
+	//TokenContract.methods.approve(contractAddress,1000).send();
+    // console.log("Side selection send to contract: " + headsOrTailsSelection);
+	  //Bullbear.playgame(headsOrTailsSelection,amountToBetEther*100000000);
+    let tx = await await Bullbear.EndMiner();//In case of failure it jumps straight to catch()
+    scrollDown(); //Scroll to coin animation
+    swissFranc.animateCoin();//start coin animation
+    togglePlayButton(); //deactivate play button functionality
+    document.querySelector(".imgresult").innerHTML = "<img src='img/bb.gif' alt='BullBear' width='300' height='300'>";
+    document.querySelector(".infotext").innerHTML = "<b>Game starting!</b><br>Please wailt for result"
+    console.log(tx.hash);
+    //logEvent();
+  } catch (err) {
+    console.log(err.message); // Error message in case user rejected transfer
+    toggleBlur(); 
+  }
 });
 
 
