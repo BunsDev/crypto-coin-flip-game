@@ -966,7 +966,7 @@ let provider;
 let signer;
 let swissFranc;
 let headsOrTailsSelection;
-let ApproveContract=0;
+let ApproveContract;
 const tokenAddress = "0x680A702b15E20F710D92Ca50A53F1F596474C2D3";
 //let decimals = web3.toBigNumber(8);
 //const checkapprove=0;
@@ -993,6 +993,10 @@ document.getElementById("form").addEventListener("submit", (event) => {
   // console.log("0 or 1: " + headsOrTailsSelection);
   // console.log("Amount to bet (ETH): " + amountToBetEther);
   play(headsOrTailsSelection, amountToBetEther);
+});
+document.getElementById("form3").addEventListener("submit", (event) => {
+  event.preventDefault();
+  Approve();
 });
 
 
@@ -1108,11 +1112,6 @@ async function Approve() {
   }
 		 
 }
-
-document.getElementById("form3").addEventListener("submit", (event) => {
-  event.preventDefault();
-  Approve();
-});
 
 //Launch game
 async function play(headsOrTailsSelection, amountToBetEther) {
