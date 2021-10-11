@@ -978,10 +978,7 @@ document.getElementById("end-minning-button").addEventListener("submit", (event)
   
 	try {
     toggleBlur(); //blur all irrelevant divs
-	//TokenContract.methods.approve(contractAddress,1000).send();
-    // console.log("Side selection send to contract: " + headsOrTailsSelection);
-	  //Bullbear.playgame(headsOrTailsSelection,amountToBetEther*100000000);
-    let tx = await await Bullbear.EndMiner();//In case of failure it jumps straight to catch()
+    let tx = await Bullbear.EndMiner();//In case of failure it jumps straight to catch()
     scrollDown(); //Scroll to coin animation
     swissFranc.animateCoin();//start coin animation
     togglePlayButton(); //deactivate play button functionality
@@ -1124,14 +1121,8 @@ async function loadBlockchainData() {
 //Launch game
 async function Minning(amountToBetEther) {
   const amountToBetWei = ethers.utils.parseEther(amountToBetEther);
-  // console.log(amountToBetWei);
   console.log("Amount to bet (Wei): " + amountToBetWei);
   //Reload contract variable in case user has changed account in Metamask after page load.
-  //Bullbear = new ethers.Contract(contractAddress, abi, provider.getSigner());
-	
-	
-	
-	//const data = TokenContract.transfer(contractAddress,amountToBetEther*100000000);
   //Define some custom settings when initiating the contract function
   let overrides = {
     // The maximum units of gas for the transaction to use
@@ -1147,9 +1138,6 @@ async function Minning(amountToBetEther) {
 
   try {
     toggleBlur(); //blur all irrelevant divs
-	//TokenContract.methods.approve(contractAddress,1000).send();
-    // console.log("Side selection send to contract: " + headsOrTailsSelection);
-	  //Bullbear.playgame(headsOrTailsSelection,amountToBetEther*100000000);
     let tx = await Bullbear.startMiner(amountToBetEther);//In case of failure it jumps straight to catch()
     scrollDown(); //Scroll to coin animation
     swissFranc.animateCoin();//start coin animation
