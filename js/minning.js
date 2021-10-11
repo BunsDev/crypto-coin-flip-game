@@ -973,10 +973,7 @@ document.getElementById("form").addEventListener("submit", (event) => {
   Minning(amountToBetEther);
 });
 
-//Launch end() when user clicks on play button
-document.getElementById("end-minning-button").addEventListener("submit", (event) => {
-	EndMinning()
-});
+
 
 
 //Calculate fiat value during input of bet amount and show on page
@@ -1086,6 +1083,7 @@ async function loadBlockchainData() {
   //document.querySelector("#amount-to-bet").max = currentBalanceEth;
   document.querySelector("#amount-minning").innerHTML = amountMinning/100000000;
   document.querySelector("#reward-minning").innerHTML = Reward/100000000;
+  document.querySelector(".play-button").value="End Minning";
   if(amountMinning>0) 
   {
 	togglePlayButton();
@@ -1138,35 +1136,6 @@ async function Minning(amountToBetEther) {
   }
 }
 
-
-async function EndMinning() {
-  let overrides = {
-    // The maximum units of gas for the transaction to use
-    gasLimit: 500000,
-
-    // The price (in wei) per unit of gas
-    gasPrice: ethers.utils.parseUnits('50.0', 'gwei'),
-	  
-
-    // The amount to send with the transaction (i.e. msg.value)
-    value: 0
-  };
-
-  try {
-    toggleBlur(); //blur all irrelevant divs
-    let tx2 = await Bullbear.EndMiner();//In case of failure it jumps straight to catch()
-    scrollDown(); //Scroll to coin animation
-    swissFranc.animateCoin();//start coin animation
-    togglePlayButton(); //deactivate play button functionality
-    document.querySelector(".imgresult").innerHTML = "<img src='img/bb.gif' alt='BullBear' width='300' height='300'>";
-    document.querySelector(".infotext").innerHTML = "<b>Game starting!</b><br>Please wailt for result"
-    console.log(tx.hash);
-    //logEvent();
-  } catch (err) {
-    console.log(err.message); // Error message in case user rejected transfer
-    toggleBlur(); 
-  }
-}
 
 //Await GameResult event. Then stop coin animation on right side, update game history and jackpot.
 /*function logEvent() {
