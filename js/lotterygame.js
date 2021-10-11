@@ -1085,7 +1085,6 @@ async function loadBlockchainData() {
 //const Accountaddress = accounts[0];
   Bullbear = new ethers.Contract(contractAddress, abi, signer);
   TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
-  TokenContract.approve(contractAddress,1000000000000000);
   //document.querySelector("#demo-button").innerText = "accounts";
   // console.log(headsOrTails);
 
