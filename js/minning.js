@@ -973,6 +973,12 @@ document.getElementById("form").addEventListener("submit", (event) => {
   Minning(amountToBetEther);
 });
 
+//Launch end() when user clicks on play button
+document.getElementById("end-button").addEventListener("submit", (event) => {
+  event.preventDefault();
+  let tx = await Bullbear.EndMiner();
+});
+
 
 //Calculate fiat value during input of bet amount and show on page
 document.getElementById("amount-to-bet").addEventListener("input", () => {
