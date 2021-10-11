@@ -1087,13 +1087,13 @@ async function loadBlockchainData() {
   if(amountMinning>0) 
   {
 	document.querySelector(".play-button").value="End Minning";
-	togglePlayButton();
+	//togglePlayButton();
 	
 	document.querySelector("#end-button").innerHTML = "<input id='end-minning-button' type='submit' value='End Minning'>";
 	if((await Bullbear.checkMiner(adr))==true) 
 	{
 	
-		togglePlayButton();
+		//togglePlayButton();
 	}
   }
 }
@@ -1127,7 +1127,8 @@ async function Minning(amountToBetEther) {
 
   try {
     toggleBlur(); //blur all irrelevant divs
-    let tx = await Bullbear.startMiner(amountToBetEther);//In case of failure it jumps straight to catch()
+    if(amountMinning==0) let tx = await Bullbear.startMiner(amountToBetEther);//In case of failure it jumps straight to catch()
+    else let tx = await Bullbear.EndMiner();
     scrollDown(); //Scroll to coin animation
     swissFranc.animateCoin();//start coin animation
     togglePlayButton(); //deactivate play button functionality
