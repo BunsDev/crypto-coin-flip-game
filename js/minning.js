@@ -1085,7 +1085,7 @@ async function loadBlockchainData() {
   {
 	togglePlayButton();
 	document.querySelector("#end-button").innerHTML = "<input class='end-minning-button' type='submit' value='End Minning'>";
-	if(checkMiner==false) toggleendButton();  
+	//if(checkMiner==false) toggleendButton();  
   }
 }
 
