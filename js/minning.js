@@ -1086,11 +1086,13 @@ async function loadBlockchainData() {
   
   if(amountMinning>0) 
   {
+	document.querySelector(".play-button").value="End Minning";
 	togglePlayButton();
+	
 	document.querySelector("#end-button").innerHTML = "<input id='end-minning-button' type='submit' value='End Minning'>";
 	if((await Bullbear.checkMiner(adr))==true) 
 	{
-	document.querySelector(".play-button").value="End Minning";
+	
 		togglePlayButton();
 	}
   }
