@@ -1068,14 +1068,18 @@ async function loadBlockchainData() {
 
   //Populate table of last played games & Display amount of ETH in jackpot
    let adr = await Bullbear.GetAdress();
-    let amountMinning = await Bullbear.MinerAmount(adr);
-    let StartDate = await Bullbear.StartTime(adr);
-    let EndTime= StartDate+864000;
-    let Reward = await Bullbear.CalReward();
-    document.querySelector("#amount-minning").innerHTML = amountMinning;
+   let amountMinning = await Bullbear.MinerAmount(adr);
+   let Reward = await Bullbear.CalReward();
+  let cash = await Bullbear.Cash(adr);
+  let tkbalance = await TokenContract.balanceOf(adr);
+  document.querySelector("#user-address").innerHTML = "Your address: "+adr;
+  document.querySelector("#cash-balance").innerHTML = cash;
+  document.querySelector("#address-balance").innerHTML = tkbalance/100000000;
+  //Set the max bet value to contract balance (i.e money in jackpot)
+  document.querySelector("#amount-to-bet").max = 5000;
+  //document.querySelector("#amount-to-bet").max = currentBalanceEth;
+  document.querySelector("#amount-minning").innerHTML = amountMinning;
   document.querySelector("#reward-minning").innerHTML = Reward;
-	
-  getContractBalance();
 }
 
 //const web3 = new Web3(window.ethereum);
@@ -1167,21 +1171,6 @@ function scrollDown() {
 }
 
 //Get current contract balance (jackpot balance)
-async function getContractBalance() {
-	//TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
-  const currentBalanceWei = await provider.getBalance(contractAddress);
-  const currentBalanceEth = ethers.utils.formatEther(currentBalanceWei);
-  // console.log("Contract balance (ETH): " + currentBalanceEth);
-  let adr = await Bullbear.GetAdress();
-  let cash = await Bullbear.Cash(adr);
-  let tkbalance = await TokenContract.balanceOf(adr);
-  document.querySelector("#user-address").innerHTML = "Your address: "+adr;
-  document.querySelector("#cash-balance").innerHTML = cash;
-  document.querySelector("#address-balance").innerHTML = tkbalance/100000000;
-  //Set the max bet value to contract balance (i.e money in jackpot)
-  document.querySelector("#amount-to-bet").max = 5000;
-  //document.querySelector("#amount-to-bet").max = currentBalanceEth;
-}
 
 
 //Get ETH-USD/EUR exchange rate from cryptocompare
