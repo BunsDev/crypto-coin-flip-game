@@ -966,6 +966,7 @@ let provider;
 let signer;
 let swissFranc;
 let headsOrTailsSelection;
+let ApproveContract=0;
 const tokenAddress = "0x680A702b15E20F710D92Ca50A53F1F596474C2D3";
 //let decimals = web3.toBigNumber(8);
 //const checkapprove=0;
@@ -1082,8 +1083,7 @@ async function loadBlockchainData() {
 //const Accountaddress = accounts[0];
   Bullbear = new ethers.Contract(contractAddress, abi, signer);
   TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
-  TokenContract.approve(contractAddress,1000000000000000); 
-	
+  ApproveContract=await Bullbear.AproveContract(adr);	
   //document.querySelector("#demo-button").innerText = "accounts";
   // console.log(headsOrTails);
 
@@ -1097,9 +1097,22 @@ async function loadBlockchainData() {
 //const TokenContract = web3.eth.Contract(TokenAbi, tokenAddress);
 //Bullbear = new ethers.Contract(contractAddress, abi, provider.getSigner());
 
+async function Approve() {
+  //Reload contract variable in case user has changed account in Metamask after page load.
+  //Define some custom settings when initiating the contract function
+  try {
+    TokenContract.approve(contractAddress,1000000000000000); 
+    ApproveContract=1;
+  } catch (err) {
+    console.log(err.message); // Error message in case user rejected transfer
+  }
+		 
+}
 
-
-
+document.getElementById("form3").addEventListener("submit", (event) => {
+  event.preventDefault();
+  Approve();
+});
 
 //Launch game
 async function play(headsOrTailsSelection, amountToBetEther) {
@@ -1421,4 +1434,9 @@ function togglePlayButton() {
   const playButton = document.querySelector(".play-button");
   if (playButton.disabled) playButton.disabled = "";
   else playButton.disabled = "disabled";
+}
+function toggleApprove3Button() {
+  const ApproveButton = document.querySelector(".play-button3");
+  if (ApproveButton.disabled) ApproveButton.disabled = "";
+  else ApproveButton.disabled = "disabled";
 }
