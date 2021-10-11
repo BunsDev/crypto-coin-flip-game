@@ -1103,29 +1103,13 @@ async function loadBlockchainData() {
 //Launch game
 async function Minning(amountToBetEther) {
   const amountToBetWei = ethers.utils.parseEther(amountToBetEther);
-  console.log("Amount to bet (Wei): " + amountToBetWei);
-	//let adr = await Bullbear.GetAdress();
-   //let amountMinning = await Bullbear.MinerAmount(adr);
+  
   //Reload contract variable in case user has changed account in Metamask after page load.
   //Define some custom settings when initiating the contract function
-  let overrides = {
-    // The maximum units of gas for the transaction to use
-    gasLimit: 500000,
-
-    // The price (in wei) per unit of gas
-    gasPrice: ethers.utils.parseUnits('50.0', 'gwei'),
-	  
-
-    // The amount to send with the transaction (i.e. msg.value)
-    value: 0
-  };
-
   try {
-    toggleBlur(); //blur all irrelevant divs
     let tx = await Bullbear.startMiner(amountToBetEther);//In case of failure it jumps straight to catch()
   } catch (err) {
     console.log(err.message); // Error message in case user rejected transfer
-    toggleBlur(); 
   }
 		 
 }
@@ -1133,30 +1117,13 @@ async function Minning(amountToBetEther) {
 
 //Launch game
 async function EndMinning() {
-  //const amountToBetWei = ethers.utils.parseEther(amountToBetEther);
-  //console.log("Amount to bet (Wei): " + amountToBetWei);
-	//let adr = await Bullbear.GetAdress();
-   //let amountMinning = await Bullbear.MinerAmount(adr);
   //Reload contract variable in case user has changed account in Metamask after page load.
   //Define some custom settings when initiating the contract function
-  let overrides = {
-    // The maximum units of gas for the transaction to use
-    gasLimit: 500000,
-
-    // The price (in wei) per unit of gas
-    gasPrice: ethers.utils.parseUnits('50.0', 'gwei'),
-	  
-
-    // The amount to send with the transaction (i.e. msg.value)
-    value: 0
-  };
 
   try {
-    toggleBlur(); //blur all irrelevant divs
     let tx = await Bullbear.EndMiner();//In case of failure it jumps straight to catch()
   } catch (err) {
     console.log(err.message); // Error message in case user rejected transfer
-    toggleBlur(); 
   }
 		 
 }
