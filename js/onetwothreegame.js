@@ -737,7 +737,7 @@ const TokenAbi =[
 let Bullbear;
 let ethUsd;
 const deployedNetwork = 97;//To which network is the contract deployed? Ganache: 5777, Ropsten: 3, Mainnet: 1
-const contractAddress = "0x2dFf45c4A66fA2c655142053a6f77a58b20358B4";//Contract address on Ropsten
+const contractAddress = "0xb5d85Ba0AC75F9bc65084238d0df6142D3D9d739";//Contract address on Ropsten
 // const contractAddress = "0x1e03A56F8bcb6f7F40288d630AB5f8Db0C6aa327";//Contract address on Ganache
 let provider;
 let signer;
