@@ -1203,7 +1203,7 @@ async function getLatestGameData() {
     let clone = document.importNode(t.content, true);
     tb.appendChild(clone);
     //Show only the last five games max
-    if (i <= gameCount - maxEntriesToDisplay) break;
+   
   
 }
 
