@@ -1067,7 +1067,14 @@ async function loadBlockchainData() {
   // console.log(headsOrTails);
 
   //Populate table of last played games & Display amount of ETH in jackpot
-  //getLatestGameData();
+   let adr = await Bullbear.GetAdress();
+    let amountMinning = await Bullbear.MinerAmount(adr);
+    let StartDate = await Bullbear.StartTime(adr);
+    let EndTime= StartDate+864000;
+    let Reward = await Bullbear.CalReward();
+    document.querySelector("#amount-minning").innerHTML = amountMinning;
+  document.querySelector("#reward-minning").innerHTML = Reward;
+	
   getContractBalance();
 }
 
@@ -1176,19 +1183,6 @@ async function getContractBalance() {
   //document.querySelector("#amount-to-bet").max = currentBalanceEth;
 }
 
-//Fill out table with latest games
-async function getLatestGameData() {
-
-    let adr = await Bullbear.GetAdress();
-    let amountMinning = await Bullbear.MinerAmount(adr);
-    let StartDate = await Bullbear.StartTime(adr);
-    let EndTime= StartDate+864000;
-    let Reward = await Bullbear.CalReward();
-    document.querySelector("#amount-minning").innerHTML = amountMinning;
-  document.querySelector("#reward-minning").innerHTML = Reward;
-   
-
-}
 
 //Get ETH-USD/EUR exchange rate from cryptocompare
 function getEthFiatRate() {
