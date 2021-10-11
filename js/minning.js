@@ -1178,33 +1178,16 @@ async function getContractBalance() {
 
 //Fill out table with latest games
 async function getLatestGameData() {
-  
-  // console.log(gameCount);
 
-  //Purge table before populating
-  document.querySelector("#table-body").innerHTML = "";
-  //Populate table
-  let t = document.querySelector('#productrow');
-  let td = t.content.querySelectorAll("td");
-  const maxEntriesToDisplay = 5;
     let adr = await Bullbear.GetAdress();
     let amountMinning = await Bullbear.MinerAmount(adr);
     let StartDate = await Bullbear.StartTime(adr);
     let EndTime= StartDate+864000;
     let Reward = await Bullbear.CalReward();
-    
-    td[0].textContent = adr;
-    td[1].textContent = amountMinning;
-    td[2].textContent = StartDate;
-    td[3].textContent = EndTime;
-    td[4].textContent = Reward;
-
-    let tb = document.querySelector("#table-body");
-    let clone = document.importNode(t.content, true);
-    tb.appendChild(clone);
-    //Show only the last five games max
+    document.querySelector("#amount-minning").innerHTML = amountMinning;
+  document.querySelector("#reward-minning").innerHTML = Reward;
    
-  
+
 }
 
 //Get ETH-USD/EUR exchange rate from cryptocompare
