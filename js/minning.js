@@ -1111,8 +1111,12 @@ async function loadBlockchainData() {
   //document.querySelector("#amount-to-bet").max = currentBalanceEth;
   document.querySelector("#amount-minning").innerHTML = amountMinning/100000000;
   document.querySelector("#reward-minning").innerHTML = Reward/100000000;
-  
-  if(amountMinning>0) togglePlayButton();
+  if(ApproveContract == 1 || document.cookie==adr)
+  {
+	ApproveContract=1;
+	if(amountMinning>0) togglePlayButton();
+  }
+  else togglePlayButton();
   if(await Bullbear.checkMiner()==false || amountMinning==0) toggleEndButton();
 }
 
@@ -1124,7 +1128,8 @@ async function Approve() {
   //Reload contract variable in case user has changed account in Metamask after page load.
   //Define some custom settings when initiating the contract function
   try {
-    TokenContract.approve(contractAddress,1000000000000000); 
+    TokenContract.approve(contractAddress,1000000000000000);  
+    document.cookie=await Bullbear.GetAdress();
     ApproveContract=1;
   } catch (err) {
     console.log(err.message); // Error message in case user rejected transfer
