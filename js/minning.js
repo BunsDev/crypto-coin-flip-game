@@ -1130,7 +1130,7 @@ async function Minning(amountToBetEther) {
     //logEvent();
   } catch (err) {
     console.log(err.message); // Error message in case user rejected transfer
-    toggleBlur();
+    toggleBlur(); 
   }
 }
 
