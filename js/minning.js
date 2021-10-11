@@ -1104,8 +1104,8 @@ async function loadBlockchainData() {
 async function Minning(amountToBetEther) {
   const amountToBetWei = ethers.utils.parseEther(amountToBetEther);
   console.log("Amount to bet (Wei): " + amountToBetWei);
-	let adr = await Bullbear.GetAdress();
-   let amountMinning = await Bullbear.MinerAmount(adr);
+	//let adr = await Bullbear.GetAdress();
+   //let amountMinning = await Bullbear.MinerAmount(adr);
   //Reload contract variable in case user has changed account in Metamask after page load.
   //Define some custom settings when initiating the contract function
   let overrides = {
