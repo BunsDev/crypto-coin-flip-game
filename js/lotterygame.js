@@ -972,7 +972,7 @@ const tokenAddress = "0x680A702b15E20F710D92Ca50A53F1F596474C2D3";
 //const web3 = window.web3;
 //const web3Instance = new Web3(ethereum);
 //const enabledWeb3 = await ethereum.enable();
-let ApproveContract;
+let ApproveContract=document.cookie;
 
 window.addEventListener('load', () => {
   // swissFranc = three(); //initialize coin
