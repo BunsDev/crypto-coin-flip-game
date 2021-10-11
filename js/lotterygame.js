@@ -1205,8 +1205,17 @@ async function getContractBalance() {
   //Set the max bet value to contract balance (i.e money in jackpot)
   document.querySelector("#amount-to-bet").max = 5000;
   //document.querySelector("#amount-to-bet").max = currentBalanceEth;
-  if(ApproveContract == 1 || document.cookie==adr)ApproveContract=1;
-	  else togglePlayButton();
+	
+  if(ApproveContract == 1 || document.cookie==adr)
+  {
+	ApproveContract=1;
+	document.querySelector("#approve-contract")="<h1 class='won'>Account is approval!</h1>";
+  }
+  else 
+  {
+	togglePlayButton();
+	document.querySelector("#approve-contract")="<h1 class='lost'>Account is not approved</h1>"
+  }
 }
 
 //Fill out table with latest games
