@@ -1165,10 +1165,11 @@ async function getContractBalance() {
   const currentBalanceWei = await provider.getBalance(contractAddress);
   const currentBalanceEth = ethers.utils.formatEther(currentBalanceWei);
   // console.log("Contract balance (ETH): " + currentBalanceEth);
+  let adr=Bullbear.GetAdress();
   document.querySelector(".eth-in-jackpot").innerHTML = TokenContract.balanceOf(contractAddress)  + " CBM (~" + (calcFiat(currentBalanceEth)) + "$)";
-  document.querySelector(".User-Address").innerHTML = Bullbear.GetAdress();
-  document.querySelector(".Cash-Balance").innerHTML = Bullbear.Cash(Bullbear.GetAdress());
-  document.querySelector(".Address-Balance").innerHTML = TokenContract.balanceOf(Bullbear.GetAdress());
+  document.querySelector(".User-Address").innerHTML = adr;
+  document.querySelector(".Cash-Balance").innerHTML = Bullbear.Cash(adr);
+  document.querySelector(".Address-Balance").innerHTML = TokenContract.balanceOf(adr);
   //Set the max bet value to contract balance (i.e money in jackpot)
   document.querySelector("#amount-to-bet").max = 5000;
   //document.querySelector("#amount-to-bet").max = currentBalanceEth;
