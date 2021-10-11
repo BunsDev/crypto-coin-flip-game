@@ -1071,7 +1071,7 @@ async function loadBlockchainData() {
    let amountMinning = await Bullbear.MinerAmount(adr);
    let Reward = await Bullbear.CalReward();
   let cash = await Bullbear.Cash(adr);
-  let checkMiner = await Bullbear.checkMiner(adr);
+  //let checkMiner = await ;
   let tkbalance = await TokenContract.balanceOf(adr);
   document.querySelector("#user-address").innerHTML = "Your address: "+adr;
   document.querySelector("#cash-balance").innerHTML = cash;
@@ -1084,8 +1084,8 @@ async function loadBlockchainData() {
   if(amountMinning>0) 
   {
 	togglePlayButton();
-	//document.querySelector("#end-button").innerHTML = "<input class='end-minning-button' type='submit' value='End Minning'>";
-	//if(checkMiner==false) toggleendButton();  
+	document.querySelector("#end-button").innerHTML = "<input class='end-minning-button' type='submit' value='End Minning'>";
+	if(Bullbear.checkMiner(adr)==false) toggleendButton();  
   }
 }
 
