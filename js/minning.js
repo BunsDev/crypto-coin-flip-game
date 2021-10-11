@@ -1177,7 +1177,7 @@ async function getContractBalance() {
 }
 
 //Fill out table with latest games
-/*async function getLatestGameData() {
+async function getLatestGameData() {
   
   // console.log(gameCount);
 
@@ -1205,7 +1205,7 @@ async function getContractBalance() {
     //Show only the last five games max
     if (i <= gameCount - maxEntriesToDisplay) break;
   
-}*/
+}
 
 //Get ETH-USD/EUR exchange rate from cryptocompare
 function getEthFiatRate() {
