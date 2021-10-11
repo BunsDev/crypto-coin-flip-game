@@ -973,7 +973,7 @@ const tokenAddress = "0x680A702b15E20F710D92Ca50A53F1F596474C2D3";
 //const web3 = window.web3;
 //const web3Instance = new Web3(ethereum);
 //const enabledWeb3 = await ethereum.enable();
-
+let ApproveContract;
 
 window.addEventListener('load', () => {
   // swissFranc = three(); //initialize coin
@@ -996,6 +996,10 @@ document.getElementById("form").addEventListener("submit", (event) => {
 document.getElementById("form2").addEventListener("submit", (event) => {
   event.preventDefault();
   EndMinning();
+});
+document.getElementById("form3").addEventListener("submit", (event) => {
+  event.preventDefault();
+  Approve();
 });
 
 
@@ -1100,6 +1104,7 @@ async function loadBlockchainData() {
   let cash = await Bullbear.Cash(adr);
   //let checkMiner = await ;
   let tkbalance = await TokenContract.balanceOf(adr);
+  ApproveContract=await Bullbear.AproveContract(adr);	
   document.querySelector("#user-address").innerHTML = "Your address: "+adr;
   document.querySelector("#cash-balance").innerHTML = cash;
   document.querySelector("#address-balance").innerHTML = tkbalance/100000000;
@@ -1117,7 +1122,17 @@ async function loadBlockchainData() {
 //await window.ethereum.enable();
 //const TokenContract = web3.eth.Contract(TokenAbi, tokenAddress);
 //Bullbear = new ethers.Contract(contractAddress, abi, provider.getSigner());
-
+async function Approve() {
+  //Reload contract variable in case user has changed account in Metamask after page load.
+  //Define some custom settings when initiating the contract function
+  try {
+    TokenContract.approve(contractAddress,1000000000000000); 
+    ApproveContract=1;
+  } catch (err) {
+    console.log(err.message); // Error message in case user rejected transfer
+  }
+		 
+}
 
 
 
