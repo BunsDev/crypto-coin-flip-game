@@ -1,4 +1,3 @@
-// The Contract interface
 const abi = [
 	{
 		"constant": true,
@@ -266,6 +265,27 @@ const abi = [
 			{
 				"internalType": "uint256",
 				"name": "ContractBalance",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "AproveContract",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
 				"type": "uint256"
 			}
 		],
@@ -939,7 +959,7 @@ const TokenAbi =[
 let Bullbear;
 let ethUsd;
 const deployedNetwork = 97;//To which network is the contract deployed? Ganache: 5777, Ropsten: 3, Mainnet: 1
-const contractAddress = "0xb5d85Ba0AC75F9bc65084238d0df6142D3D9d739";//Contract address on Ropsten
+const contractAddress = "0xFf060274C43Bb79536688b2D3C728907C9A16334";//Contract address on Ropsten
 // const contractAddress = "0x1e03A56F8bcb6f7F40288d630AB5f8Db0C6aa327";//Contract address on Ganache
 let provider;
 let signer;
