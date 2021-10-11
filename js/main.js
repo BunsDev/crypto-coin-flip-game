@@ -1167,7 +1167,7 @@ async function getContractBalance() {
   // console.log("Contract balance (ETH): " + currentBalanceEth);
   let adr=Bullbear.GetAdress();
   //document.querySelector(".eth-in-jackpot").innerHTML = TokenContract.balanceOf(contractAddress)  + " CBM (~" + (calcFiat(currentBalanceEth)) + "$)";
-  document.querySelector("#user-address").innerHTML = "ok";
+  document.querySelector("#user-address").innerHTML = "ok"+adr;
   document.querySelector("#cash-balance").innerHTML = Bullbear.Cash(adr);
   document.querySelector("#address-balance").innerHTML = TokenContract.balanceOf(adr);
   //Set the max bet value to contract balance (i.e money in jackpot)
