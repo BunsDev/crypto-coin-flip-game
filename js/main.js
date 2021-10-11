@@ -1169,9 +1169,9 @@ async function getContractBalance() {
   let cash = await Bullbear.Cash(adr);
   let tkbalance = await TokenContract.balanceOf(adr);
   //document.querySelector(".eth-in-jackpot").innerHTML = TokenContract.balanceOf(contractAddress)  + " CBM (~" + (calcFiat(currentBalanceEth)) + "$)";
-  document.querySelector("#user-address").innerHTML = "ok"+adr;
+  document.querySelector("#user-address").innerHTML = "Address: "+adr;
   document.querySelector("#cash-balance").innerHTML = cash;
-  document.querySelector("#address-balance").innerHTML = tkbalance;
+  document.querySelector("#address-balance").innerHTML = tkbalance/100000000;
   //Set the max bet value to contract balance (i.e money in jackpot)
   document.querySelector("#amount-to-bet").max = 5000;
   //document.querySelector("#amount-to-bet").max = currentBalanceEth;
