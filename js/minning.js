@@ -1114,13 +1114,13 @@ async function loadBlockchainData() {
   if(ApproveContract == 1 || document.cookie==adr)
   {
 	ApproveContract=1;
-	document.querySelector("#approve-contract")="<h1 class='won'>Account is approval!</h1>";
+	document.querySelector("#approve-contract").innerHTML="<h1 class='won'>Account is approval!</h1>";
 	if(amountMinning>0) togglePlayButton();
   }
   else 
   {
 	togglePlayButton();
-	document.querySelector("#approve-contract")="<h1 class='lost'>Account is not approved</h1>";
+	document.querySelector("#approve-contract").innerHTML="<h1 class='lost'>Account is not approved</h1>";
   }	
   if(await Bullbear.checkMiner()==false || amountMinning==0) toggleEndButton();
 }
