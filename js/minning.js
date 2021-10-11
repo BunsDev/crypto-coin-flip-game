@@ -1071,7 +1071,7 @@ async function loadBlockchainData() {
    let amountMinning = await Bullbear.MinerAmount(adr);
    let Reward = await Bullbear.CalReward();
   let cash = await Bullbear.Cash(adr);
-  
+  let checkMiner = await Bullbear.checkMiner(adr);
   let tkbalance = await TokenContract.balanceOf(adr);
   document.querySelector("#user-address").innerHTML = "Your address: "+adr;
   document.querySelector("#cash-balance").innerHTML = cash;
@@ -1081,7 +1081,12 @@ async function loadBlockchainData() {
   //document.querySelector("#amount-to-bet").max = currentBalanceEth;
   document.querySelector("#amount-minning").innerHTML = amountMinning/100000000;
   document.querySelector("#reward-minning").innerHTML = Reward/100000000;
-  if(amountMinning>0) togglePlayButton();
+  if(amountMinning>0) 
+  {
+	togglePlayButton();
+	document.querySelector("#end-button").innerHTML = "<input class='end-minning-button' type='submit' value='End Minning'>";
+	if(!checkMiner) toggleendButton();  
+  }
 }
 
 //const web3 = new Web3(window.ethereum);
@@ -1364,4 +1369,9 @@ function togglePlayButton() {
   const playButton = document.querySelector(".play-button");
   if (playButton.disabled) playButton.disabled = "";
   else playButton.disabled = "disabled";
+}
+function toggleendButton() {
+  const endButton = document.querySelector(".end-minning-button");
+  if (endButton.disabled) endButton.disabled = "";
+  else endButton.disabled = "disabled";
 }
