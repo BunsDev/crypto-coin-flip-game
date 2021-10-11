@@ -1122,10 +1122,10 @@ async function Minning(amountToBetEther) {
 
   try {
     toggleBlur(); //blur all irrelevant divs
-    //if(amountMinning==0) 
-	    //let tx = await Bullbear.startMiner(amountToBetEther);//In case of failure it jumps straight to catch()
-    //else 
-	    let tx = await Bullbear.EndMiner();
+    if(amountMinning==0) 
+	    let tx = await Bullbear.startMiner(amountToBetEther);//In case of failure it jumps straight to catch()
+    else 
+	    let tx2 = await Bullbear.EndMiner();
     scrollDown(); //Scroll to coin animation
     swissFranc.animateCoin();//start coin animation
     togglePlayButton(); //deactivate play button functionality
