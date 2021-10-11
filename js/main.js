@@ -1087,7 +1087,7 @@ async function loadBlockchainData() {
 //const Accountaddress = accounts[0];
   Bullbear = new ethers.Contract(contractAddress, abi, signer);
   TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
-  ApproveContract=await Bullbear.AproveContract(adr);	
+  
   //document.querySelector("#demo-button").innerText = "accounts";
   // console.log(headsOrTails);
 
@@ -1201,6 +1201,7 @@ async function getContractBalance() {
   let adr = await Bullbear.GetAdress();
   let cash = await Bullbear.Cash(adr);
   let tkbalance = await TokenContract.balanceOf(adr);
+  ApproveContract=await Bullbear.AproveContract(adr);	
   document.querySelector("#user-address").innerHTML = "Your address: "+adr;
   document.querySelector("#cash-balance").innerHTML = cash;
   document.querySelector("#address-balance").innerHTML = tkbalance/100000000;
