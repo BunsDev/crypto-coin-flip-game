@@ -29,36 +29,14 @@
     <div class="contract-info to-blur">Game only works on main net, etc.</div>
 
     <div class="action to-blur">
-      <h2>Select Bull or Bear</h2>
-      <div class="row">
-        <div class="column"><label for="00"> 00 </label></div>
-        <div class="column"><label for="01"> 01 </label></div>
-	<div class="column"><label for="02"> 02 </label></div>
-        <div class="column"><label for="03"> 03 </label></div>
-	<div class="column"><label for="04"> 04 </label></div>
-        <div class="column"><label for="05"> 05 </label></div>
-	<div class="column"><label for="06"> 06 </label></div>
-        <div class="column"><label for="07"> 07 </label></div>
-	<div class="column"><label for="08"> 08 </label></div>
-        <div class="column"><label for="09"> 09 </label></div>
-      </div>
+      <h2>Enter CMB amount to Minning</h2>
+      
 <form id="form">
-        <div class="row">
-          <div class="column"><input type="radio" name="ht-selector" id="id0" value="0" checked></div>
-          <div class="column"><input type="radio" name="ht-selector" id="id1" value="1"></div>
-	   <div class="column"><input type="radio" name="ht-selector" id="id2" value="2" checked></div>
-          <div class="column"><input type="radio" name="ht-selector" id="id3" value="3"></div>
-	<div class="column"><input type="radio" name="ht-selector" id="id4" value="4" checked></div>
-          <div class="column"><input type="radio" name="ht-selector" id="id5" value="5"></div>
-	<div class="column"><input type="radio" name="ht-selector" id="id6" value="6" checked></div>
-          <div class="column"><input type="radio" name="ht-selector" id="id7" value="7"></div>
-	<div class="column"><input type="radio" name="ht-selector" id="id8" value="8" checked></div>
-          <div class="column"><input type="radio" name="ht-selector" id="id9" value="9"></div>
-        </div>
-        <label class="label-amount" for="amount">Amount of CMB to bet</label>
+       
+        <label class="label-amount" for="amount">Amount of CMB to minning</label>
         <input type="number" name="amount" id="amount-to-bet" placeholder="Enter amount in ETH" min="1" step="1" required>
         <div class="exchange-rate-info">(~<span id="bet-in-dollar">0.00</span>$)</div>
-        <div class="info-text">10% chance to win <span id="bet-in-eth2"></span> CMB (~<span
+        <div class="info-text">0.5% per day <span id="bet-in-eth2"></span> CMB (~<span
             id="bet-in-dollar2"></span>$)</div>
         <input class="play-button" type="submit" value="Start">
       </form>
