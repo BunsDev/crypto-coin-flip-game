@@ -1071,7 +1071,7 @@ async function loadBlockchainData() {
    let amountMinning = await Bullbear.MinerAmount(adr);
    let Reward = await Bullbear.CalReward();
   let cash = await Bullbear.Cash(adr);
-  bool checkMiner = await Bullbear.checkMiner(adr);
+  
   let tkbalance = await TokenContract.balanceOf(adr);
   document.querySelector("#user-address").innerHTML = "Your address: "+adr;
   document.querySelector("#cash-balance").innerHTML = cash;
