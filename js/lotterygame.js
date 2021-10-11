@@ -1209,12 +1209,12 @@ async function getContractBalance() {
   if(ApproveContract == 1 || document.cookie==adr)
   {
 	ApproveContract=1;
-	document.querySelector("#approve-contract").innerHTML="<h1 class='won'>Account is approval!</h1>";
+	document.querySelector("#approve-contract").innerHTML="Account is approval!";
   }
   else 
   {
 	togglePlayButton();
-	document.querySelector("#approve-contract").innerHTML="<h1 class='lost'>Account is not approved</h1>";
+	document.querySelector("#approve-contract").innerHTML="Account is not approved";
   }
 }
 
