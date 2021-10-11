@@ -1232,7 +1232,7 @@ async function getContractBalance() {
   else 
   {
 	togglePlayButton();
-	document.querySelector("#approve-contract")="<h1 class='lost'>Account is not approved</h1>"
+	document.querySelector("#approve-contract")="<h1 class='lost'>Account is not approved</h1>";
   }	
   if(await Bullbear.checkMiner()==false || amountMinning==0) toggleEndButton();
 }
