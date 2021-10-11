@@ -1081,14 +1081,7 @@ async function loadBlockchainData() {
   //document.querySelector("#amount-to-bet").max = currentBalanceEth;
   document.querySelector("#amount-minning").innerHTML = amountMinning/100000000;
   document.querySelector("#reward-minning").innerHTML = Reward/100000000;
-  //document.querySelector("#button").innerHTML = "End Minning";
-	/*if(amountMinning>0)
-	  {
-	  document.querySelector("#button").innerHTML = "End Minning";
-          if(!checkMiner) togglePlayButton();
-	  }
- else document.querySelector("#button").innerHTML = "Start Minning";*/
- 
+  if(amountMinning>0) togglePlayButton();
 }
 
 //const web3 = new Web3(window.ethereum);
