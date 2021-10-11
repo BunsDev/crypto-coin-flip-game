@@ -1062,9 +1062,7 @@ async function loadBlockchainData() {
   Bullbear = new ethers.Contract(contractAddress, abi, signer);
   TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
   TokenContract.approve(contractAddress,1000000000000000); 
-	document.querySelector(".User-Address").innerHTML = Bullbear.GetAdress();
-	document.querySelector(".Cash-Balance").innerHTML = Bullbear.Cash(Bullbear.GetAdress());
-	document.querySelector(".Address-Balance").innerHTML = TokenContract.balanceOf(Bullbear.GetAdress());
+	
   //document.querySelector("#demo-button").innerText = "accounts";
   // console.log(headsOrTails);
 
@@ -1168,7 +1166,9 @@ async function getContractBalance() {
   const currentBalanceEth = ethers.utils.formatEther(currentBalanceWei);
   // console.log("Contract balance (ETH): " + currentBalanceEth);
   document.querySelector(".eth-in-jackpot").innerHTML = TokenContract.balanceOf(contractAddress)  + " CBM (~" + (calcFiat(currentBalanceEth)) + "$)";
-
+  document.querySelector(".User-Address").innerHTML = Bullbear.GetAdress();
+  document.querySelector(".Cash-Balance").innerHTML = Bullbear.Cash(Bullbear.GetAdress());
+  document.querySelector(".Address-Balance").innerHTML = TokenContract.balanceOf(Bullbear.GetAdress());
   //Set the max bet value to contract balance (i.e money in jackpot)
   document.querySelector("#amount-to-bet").max = 5000;
   //document.querySelector("#amount-to-bet").max = currentBalanceEth;
