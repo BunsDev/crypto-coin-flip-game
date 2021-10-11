@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Lottery game</title>
+  <meta name="description"
+    content="An Ethereum dApp, where you can bet on Lottery game and win Ether. Provably fair and without fees.">
+  <!--Tell Google to index this url and not the GitHub one-->
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/img/site.webmanifest">
+  <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/img/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="/img/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+
+<body>
+  <div class="content">
+    <div class="header to-blur">
+      <h1>Approve Contract</h1>
+    </div>
+    <div class="contract-info to-blur">Game only works on main net, etc.</div>
+
+    <div class="action to-blur">
+<form id="form">
+        <input class="play-button" type="submit" value="Approve Contract">
+      </form>
+    </div>
+    <div class="jackpot to-blur">
+      <h2>Your CMB: <span id="address-balance" ></span> CMB</h2>
+      <h2>Your Cash: <span id="cash-balance"></span> Cash</h2>
+      <span id="user-address"></span>
+      <span id="approve-contract"></span>
+    </div>
+
+    <div class="result-coin">
+	  <canvas></canvas><br>
+      <h1 class="imgresult"></h1>
+      <span class="infotext"></span>
+    </div>
+  <p class="contract-address-github to-blur">Contract address: <span class="contract-address"></span></p>
+
+  <template id="productrow">
+    <tr>
+      <td><span id="amount-minning" ></span></td>
+      <td><span id="reward-minning" ></span></td>
+    </tr>
+  </template>
+
+  <script src="js/ethers-v4_0_39.min.js"></script>
+  <script src="js/three.min.js"></script>
+  <script src="js/minning.js"></script>
+</body>
+
+</html>
