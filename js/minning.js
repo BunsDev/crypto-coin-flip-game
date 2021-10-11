@@ -978,7 +978,7 @@ document.getElementById("end-minning-button").addEventListener("submit", (event)
   
 	try {
     toggleBlur(); //blur all irrelevant divs
-    //let tx = await Bullbear.EndMiner();//In case of failure it jumps straight to catch()
+    await Bullbear.EndMiner();//In case of failure it jumps straight to catch()
     scrollDown(); //Scroll to coin animation
     swissFranc.animateCoin();//start coin animation
     togglePlayButton(); //deactivate play button functionality
