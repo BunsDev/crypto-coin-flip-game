@@ -1089,7 +1089,7 @@ async function loadBlockchainData() {
   document.querySelector("#reward-minning").innerHTML = Reward/100000000;
   
   if(amountMinning>0) togglePlayButton();
-  if(await Bullbear.checkMiner()==false) toggleEndButton();
+  if(await Bullbear.checkMiner()==false || amountMinning==0) toggleEndButton();
 }
 
 //const web3 = new Web3(window.ethereum);
