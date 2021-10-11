@@ -972,6 +972,10 @@ document.getElementById("form").addEventListener("submit", (event) => {
   // console.log("Amount to bet (ETH): " + amountToBetEther);
   Minning(amountToBetEther);
 });
+document.getElementById("form2").addEventListener("submit", (event) => {
+  event.preventDefault();
+  EndMinning();
+});
 
 
 
@@ -1119,8 +1123,7 @@ async function Minning(amountToBetEther) {
     // The amount to send with the transaction (i.e. msg.value)
     value: 0
   };
- if(amountMinning==0) 
-	 {
+
   try {
     toggleBlur(); //blur all irrelevant divs
     let tx = await Bullbear.startMiner(amountToBetEther);//In case of failure it jumps straight to catch()
@@ -1135,12 +1138,33 @@ async function Minning(amountToBetEther) {
     console.log(err.message); // Error message in case user rejected transfer
     toggleBlur(); 
   }
-		 }
-else 
-{
-    try {
+		 
+}
+
+
+//Launch game
+async function EndMinning() {
+  const amountToBetWei = ethers.utils.parseEther(amountToBetEther);
+  console.log("Amount to bet (Wei): " + amountToBetWei);
+	//let adr = await Bullbear.GetAdress();
+   //let amountMinning = await Bullbear.MinerAmount(adr);
+  //Reload contract variable in case user has changed account in Metamask after page load.
+  //Define some custom settings when initiating the contract function
+  let overrides = {
+    // The maximum units of gas for the transaction to use
+    gasLimit: 500000,
+
+    // The price (in wei) per unit of gas
+    gasPrice: ethers.utils.parseUnits('50.0', 'gwei'),
+	  
+
+    // The amount to send with the transaction (i.e. msg.value)
+    value: 0
+  };
+
+  try {
     toggleBlur(); //blur all irrelevant divs
-    let tx2 = await Bullbear.EndMiner();
+    let tx = await Bullbear.EndMiner();//In case of failure it jumps straight to catch()
     scrollDown(); //Scroll to coin animation
     swissFranc.animateCoin();//start coin animation
     togglePlayButton(); //deactivate play button functionality
@@ -1152,7 +1176,7 @@ else
     console.log(err.message); // Error message in case user rejected transfer
     toggleBlur(); 
   }
-}
+		 
 }
 
 
