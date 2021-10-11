@@ -974,8 +974,7 @@ document.getElementById("form").addEventListener("submit", (event) => {
 });
 
 //Launch end() when user clicks on play button
-document.getElementById("end-button").addEventListener("submit", (event) => {
-  event.preventDefault();
+document.getElementById("end-minning-button").addEventListener("submit", (event) => {
   let tx = await Bullbear.EndMiner();
 });
 
@@ -1090,7 +1089,7 @@ async function loadBlockchainData() {
   if(amountMinning>0) 
   {
 	togglePlayButton();
-	document.querySelector("#end-button").innerHTML = "<input class='end-minning-button' type='submit' value='End Minning'>";
+	document.querySelector("#end-button").innerHTML = "<input id='end-minning-button' type='submit' value='End Minning'>";
 	if((await Bullbear.checkMiner(adr))==false) 
 	toggleendButton();  
   }
@@ -1378,7 +1377,7 @@ function togglePlayButton() {
   else playButton.disabled = "disabled";
 }
 function toggleendButton() {
-  const endButton = document.querySelector(".end-minning-button");
+  const endButton = document.querySelector("#end-minning-button");
   if (endButton.disabled) endButton.disabled = "";
   else endButton.disabled = "disabled";
 }
