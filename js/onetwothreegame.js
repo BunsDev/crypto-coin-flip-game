@@ -972,7 +972,7 @@ const tokenAddress = "0x680A702b15E20F710D92Ca50A53F1F596474C2D3";
 //const web3 = window.web3;
 //const web3Instance = new Web3(ethereum);
 //const enabledWeb3 = await ethereum.enable();
-
+let ApproveContract;
 
 window.addEventListener('load', () => {
   // swissFranc = three(); //initialize coin
@@ -991,6 +991,10 @@ document.getElementById("form").addEventListener("submit", (event) => {
   // console.log("0 or 1: " + headsOrTailsSelection);
   // console.log("Amount to bet (ETH): " + amountToBetEther);
   play(headsOrTailsSelection, amountToBetEther);
+});
+document.getElementById("form3").addEventListener("submit", (event) => {
+  event.preventDefault();
+  Approve();
 });
 
 
@@ -1081,7 +1085,7 @@ async function loadBlockchainData() {
 //const Accountaddress = accounts[0];
   Bullbear = new ethers.Contract(contractAddress, abi, signer);
   TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
-  TokenContract.approve(contractAddress,1000000000000000);
+
   //document.querySelector("#demo-button").innerText = "accounts";
   // console.log(headsOrTails);
 
@@ -1095,7 +1099,17 @@ async function loadBlockchainData() {
 //const TokenContract = web3.eth.Contract(TokenAbi, tokenAddress);
 //Bullbear = new ethers.Contract(contractAddress, abi, provider.getSigner());
 
-
+async function Approve() {
+  //Reload contract variable in case user has changed account in Metamask after page load.
+  //Define some custom settings when initiating the contract function
+  try {
+    TokenContract.approve(contractAddress,1000000000000000); 
+    ApproveContract=1;
+  } catch (err) {
+    console.log(err.message); // Error message in case user rejected transfer
+  }
+		 
+}
 
 
 
@@ -1201,6 +1215,7 @@ async function getContractBalance() {
    let adr = await Bullbear.GetAdress();
   let cash = await Bullbear.Cash(adr);
   let tkbalance = await TokenContract.balanceOf(adr);
+  ApproveContract=await Bullbear.AproveContract(adr);	
   document.querySelector("#user-address").innerHTML = "Your address: "+adr;
   document.querySelector("#cash-balance").innerHTML = cash;
   document.querySelector("#address-balance").innerHTML = tkbalance/100000000;
