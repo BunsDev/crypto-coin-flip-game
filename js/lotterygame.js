@@ -1198,7 +1198,7 @@ async function getContractBalance() {
   let cash = await Bullbear.Cash(adr);
   let tkbalance = await TokenContract.balanceOf(adr);
   ApproveContract=await Bullbear.AproveContract(adr);	
-  document.querySelector("#user-address").innerHTML = "Your address: "+adr+ document.cookie;
+  document.querySelector("#user-address").innerHTML = "Your address: "+adr+ document.cookie+ ApproveContract;
   document.querySelector("#cash-balance").innerHTML = cash;
   document.querySelector("#address-balance").innerHTML = tkbalance/100000000;
 
