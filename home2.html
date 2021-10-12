@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Home</title>
+  <meta name="description"
+    content="An Ethereum dApp, where you can bet on Lottery game and win Ether. Provably fair and without fees.">
+  <!--Tell Google to index this url and not the GitHub one-->
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/img/site.webmanifest">
+  <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/img/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="/img/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+
+<body>
+	
+	
+
+	<div class="nav">
+       <!--logo-->
+	<input type="checkbox" id="nav-check">
+        <div class="nav-header">
+          <div class="nav-title">
+            Cypto Mini Game
+          </div>
+        </div>
+        <!--toggle button for mobile-->
+        <div class="nav-btn">
+          <label for="nav-check">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+        <div class="nav-links">
+            <ul>
+          <!--menu Item-->
+		 <li><a href="#" target="_blank">Home</a></li>
+          <li><a href="#" target="_blank">About</a></li>
+          <li><a href="#" target="_blank">Services</a></li>
+          <li><a href="#" target="_blank">Portfolio</a></li>
+          <li><a href="#" target="_blank">Contact</a></li>
+		    
+         <!--Social Icon-->
+		    <a class="icon">
+	<i>0x485...3754</i>
+	<i><span id="address-balance"></span>CMB</i>
+	<i><span id="cash-balance"></span> Cash</i>
+            <i class="fa fa-twitter"></i>
+            <i class="fa fa-linkedin"></i>
+            <i class="fa fa-youtube"></i>
+          </a>
+            </ul>
+        </div>
+      </div>
+		
+	
+	
+	
+	
+	
+	<div class="content">
+<div class="container">
+ <div class="timerDisplay">
+   <div class="row">
+        <div class="column">
+          <label for="Bull">
+            <img src="img/bull.png" alt="Bull" width="200" height="200">
+          </label>
+        </div>
+        <div class="column">
+          <label for="Bear">
+            <img src="img/bear.png" alt="Bear"width="200" height="200">
+          </label>
+        </div>
+    </div>
+</div>
+
+<form id="form">
+        
+    <input align="center" type="number" name="amount" id="amount-to-bet" placeholder="Enter amount in CMB" min="1" step="1" required>
+        <div class="exchange-rate-info">(~<span id="bet-in-dollar">0.00</span>$)</div>
+        <div class="info-text">50% chance to win <span id="bet-in-eth2"></span> CMB (~<span
+            id="bet-in-dollar2"></span>$)</div>   
+<div class="buttons">
+  <button id="startTimer" class="play-button" type="submit">Bull</button>
+  <button id="resetTimer" class="play-button" type="submit">Bear</button>
+</div>
+</form>
+</div>
+	</div>
+	
+	
+
+
+	
+	<div class="jackpot to-blur">
+      <h2>Your CMB: <span id="address-balance" ></span> CMB</h2>
+      <h2>Your Cash: <span id="cash-balance"></span> Cash</h2>
+      <span id="user-address"></span>
+      <span id="approve-contract"></span>
+      <form id="form3"><input class="play-button3" type="submit" value="Approve"></form>
+    </div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="result-coin">
+      
+	  <canvas></canvas><br>
+      <span class="imgresult"></span>
+      <span class="infotext"></span>
+    </div>
+	 
+	<p class="contract-address-github to-blur">Contract address: <span class="contract-address"></span></p>
+	
+
+  <script src="js/ethers-v4_0_39.min.js"></script>
+  <script src="js/three.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
