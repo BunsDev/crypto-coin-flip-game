@@ -188,11 +188,12 @@ body{
     background-color: #ffffff;
     width: 40%;
     min-width: 500px;
-    position: absolute;
+    /*position: absolute;*/
     transform: translate(-50%,-50%);
     padding: 20px 0;
     padding-bottom: 50px;
     border-radius: 10px;
+   
 }
 .timerDisplay{
     width: 92%;
