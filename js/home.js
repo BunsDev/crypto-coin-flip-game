@@ -1158,7 +1158,7 @@ async function play(headsOrTailsSelection, amountToBetEther) {
     swissFranc.animateCoin();//start coin animation
     togglePlayButton(); //deactivate play button functionality
     document.querySelector(".imgresult").innerHTML = "<img src='img/bb.gif' alt='BullBear' width='300' height='300'>";
-    document.querySelector(".infotext").innerHTML = "<b>Game starting!</b><br>Please wailt for result";
+    //document.querySelector(".infotext").innerHTML = "<b>Game starting!</b><br>Please wailt for result";
     console.log(tx.hash);
     logEvent();
   } catch (err) {
@@ -1173,7 +1173,7 @@ function logEvent() {
     // console.log(event);
     console.log("Bet on: " + ((headsOrTailsSelection === 0) ? 'Bull' : 'Bear'));
     console.log("Result: " + ((side === 0) ? 'Bull' : 'Bear'));
-    const msg = (side === headsOrTailsSelection) ? "<b class='won'>You won!</b>" : "<b class='lost'>You lost!</b>";
+    const msg = (side === headsOrTailsSelection) ? "<b style="color:Tomato;">You won!</b>" : "<b style="color:MediumSeaGreen;">You lost!</b>";
     // console.log(msg);
     let imgrs="";
     if(side==0) imgrs="<img src='img/bull.png' alt='bull' width='120' height='120'>";
@@ -1213,7 +1213,7 @@ async function getContractBalance() {
   let cash = await Bullbear.Cash(adr);
   let tkbalance = await TokenContract.balanceOf(adr);
   ApproveContract=await Bullbear.AproveContract(adr);	
-  document.querySelector(".imgresult").innerHTML = "<img src='img/bullbear.png' alt='BullBear' width='500' height='250'>";
+  document.querySelector(".imgresult").innerHTML = "<img src='img/bullbear.png' alt='BullBear' width='400' height='220'>";
   document.querySelector("#user-address").innerHTML = "Your address: "+adr;
   document.querySelector("#cash-balance").innerHTML = cash;
   document.querySelector("#address-balance").innerHTML = tkbalance/100000000;
