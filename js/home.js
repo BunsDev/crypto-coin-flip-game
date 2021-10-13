@@ -994,6 +994,16 @@ document.getElementById("form").addEventListener("submit", (event) => {
   // console.log("Amount to bet (ETH): " + amountToBetEther);
   play(headsOrTailsSelection, amountToBetEther);
 });
+document.getElementById('bull').onclick = function()
+   {
+       const amountToBetEther = document.querySelector("#amount-to-bet").value;
+       play(0, amountToBetEther);
+   }
+document.getElementById('bear').onclick = function()
+   {
+       const amountToBetEther = document.querySelector("#amount-to-bet").value;
+       play(1, amountToBetEther);
+   }
 document.getElementById("form3").addEventListener("submit", (event) => {
   event.preventDefault();
   Approve();
