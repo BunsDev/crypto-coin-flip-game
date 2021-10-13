@@ -289,7 +289,7 @@ body{
 
 /* Blog post design starts from here */
 .card {
-  overflow: hidden;
+  /*overflow: hidden;*/
   box-shadow: 0px 2px 20px #d7dfe2; /* Card outline shadow */
   background: white; /* post background color */
   border-radius: 0.5rem;
