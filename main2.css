@@ -186,7 +186,7 @@ body{
 
 .container{
     background-color: #ffffff;
-    width: 40%;
+    width: 500px;
     min-width: 500px;
     position: relative;
     transform: translate(-50%,-50%);
@@ -296,7 +296,7 @@ body{
   background: white; /* post background color */
   border-radius: 0.5rem;
   position: relative;
-  width: 45%; /* post card width */
+  width: 510px; /* post card width */
   margin: 1rem;
   transition: 250ms all ease-in-out;
   cursor: pointer;
