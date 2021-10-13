@@ -186,7 +186,7 @@ body{
 
 .container{
     background-color: #ffffff;
-    width: 500px;
+    width: 700px;
     min-width: 500px;
     /*position: absolute;*/
     /*transform: translate(-50%,-50%);*/
@@ -294,12 +294,12 @@ body{
   background: white; /* post background color */
   border-radius: 0.5rem;
   position: relative;
-  width: 510px; /* post card width */
+  width: 710px; /* post card width */
   margin: 1rem;
   transition: 250ms all ease-in-out;
   cursor: pointer;
   top: 50%;
-  left: 50%;
+  left: 300px;
 }
 
 /*.card:hover {  /* blog post hover */
