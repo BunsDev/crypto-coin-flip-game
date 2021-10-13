@@ -321,7 +321,8 @@ input[type=number] {
   border: 1px solid #00C3FF;
   box-sizing: border-box;
   border-radius: 6px;
-  color: white;
+  color: black;
   background: transparent;
   transition: all 0.30s ease-in-out;
+  left: 50%;
 }
