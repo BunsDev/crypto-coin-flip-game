@@ -282,7 +282,6 @@ body{
 
   /* Basic design of blog card */
 .wrapper {
-  display: flex;
   flex-wrap: wrap;
   justify-content: center;
   top: 10%;
