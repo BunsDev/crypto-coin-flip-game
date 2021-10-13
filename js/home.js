@@ -989,7 +989,7 @@ document.getElementById("form").addEventListener("submit", (event) => {
   event.preventDefault();
   //Find out which radio button is selected and how much money is bet.
   const amountToBetEther = document.querySelector("#amount-to-bet").value;
-  headsOrTailsSelection = parseInt(document.querySelector(":checked").value);
+  //headsOrTailsSelection = parseInt(document.querySelector(":checked").value);
   // console.log("0 or 1: " + headsOrTailsSelection);
   // console.log("Amount to bet (ETH): " + amountToBetEther);
   play(headsOrTailsSelection, amountToBetEther);
@@ -998,11 +998,13 @@ document.getElementById('bull').onclick = function()
    {
        const amountToBetEther = document.querySelector("#amount-to-bet").value;
        play(0, amountToBetEther);
+       headsOrTailsSelection=0;
    }
 document.getElementById('bear').onclick = function()
    {
        const amountToBetEther = document.querySelector("#amount-to-bet").value;
        play(1, amountToBetEther);
+       headsOrTailsSelection=1;
    }
 document.getElementById("form3").addEventListener("submit", (event) => {
   event.preventDefault();
@@ -1173,7 +1175,7 @@ function logEvent() {
     // console.log(event);
     console.log("Bet on: " + ((headsOrTailsSelection === 0) ? 'Bull' : 'Bear'));
     console.log("Result: " + ((side === 0) ? 'Bull' : 'Bear'));
-    const msg = (side === headsOrTailsSelection) ? "<b style='color:Tomato;'>You won!</b>" : "<b style='color:MediumSeaGreen;'>You lost!</b>";
+    const msg = (side === headsOrTailsSelection) ? "<b style='color:MediumSeaGreen;'>You won!</b>" : "<b style='color:Tomato;'>You lost!</b>";
     // console.log(msg);
     let imgrs="";
     if(side==0) imgrs="<img src='img/bull.png' alt='bull' width='120' height='120'>";
