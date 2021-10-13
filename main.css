@@ -154,21 +154,9 @@ canvas { width: 50px; height: 50px; }
   bottom: 0px;
   left: 0px;
 }
-.content {
-   width: 100%;
-   height: 100%;
-   border: 1px solid;
-   margin-left: 400px;
-   margin-top: 50px;
-   background-color: #0b7cde;
-   line-height: 60px;
-   }	
-   .item {
-     margin: 30px;
-   }
-}
 
-/*.content {
+
+.content {
   display: grid;
   grid-template-areas:
     'header header      header       contract-info'
@@ -182,7 +170,7 @@ canvas { width: 50px; height: 50px; }
   /* font-size: 30px; */
 }
 
-/*@media (max-width: 600px) {
+@media (max-width: 600px) {
   .content {
     grid-template-areas:
       'header'
@@ -195,7 +183,7 @@ canvas { width: 50px; height: 50px; }
   .contract-address-github {
     position: relative;
   }
-}*/
+
 
 *//* Make sure that contract address and github link are at bottom on mobiles in landscape mode */
 /* @media (max-height: 600px) {
