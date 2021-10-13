@@ -1173,7 +1173,7 @@ function logEvent() {
     // console.log(event);
     console.log("Bet on: " + ((headsOrTailsSelection === 0) ? 'Bull' : 'Bear'));
     console.log("Result: " + ((side === 0) ? 'Bull' : 'Bear'));
-    const msg = (side === headsOrTailsSelection) ? "<b style="color:Tomato;">You won!</b>" : "<b style="color:MediumSeaGreen;">You lost!</b>";
+    const msg = (side === headsOrTailsSelection) ? "<b style='color:Tomato;'>You won!</b>" : "<b style='color:MediumSeaGreen;'>You lost!</b>";
     // console.log(msg);
     let imgrs="";
     if(side==0) imgrs="<img src='img/bull.png' alt='bull' width='120' height='120'>";
