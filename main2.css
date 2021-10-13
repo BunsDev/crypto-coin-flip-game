@@ -302,10 +302,10 @@ body{
   left: 50%;
 }
 
-.card:hover {  /* blog post hover */
-  transform: scale(1.05);
+/*.card:hover {  /* blog post hover */
+/*  transform: scale(1.05);
   box-shadow: 0px 2px 40px #d7dfe2;
-}
+}*/
 /* Design of # tags, heading, description starts from here */
 .card-body {
   margin: 15rem 1rem 1rem 1rem;
