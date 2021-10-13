@@ -190,7 +190,7 @@ body{
     min-width: 500px;
     position: relative;
     transform: translate(-50%,-50%);
-    top: 10%;
+    top: 50%;
     left: 10%;
     padding: 20px 0;
     padding-bottom: 50px;
@@ -287,6 +287,7 @@ body{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  top: 10%;
 }
 
 /* Blog post design starts from here */
