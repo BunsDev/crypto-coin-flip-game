@@ -227,10 +227,10 @@ body{
     cursor: pointer;
     outline: none;
 }
-.buttons button:nth-last-child(2){
+.buttons button:nth-last-child(1){
   background-color: #d23332;
 }
-.buttons button:nth-last-child(1){
+.buttons button:nth-last-child(2){
   background-color: #20b380;
 }
 .form .input-icon{
