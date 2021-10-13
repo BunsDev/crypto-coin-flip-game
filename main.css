@@ -388,10 +388,10 @@ body{
     background-color: #ffffff;
     width: 40%;
     min-width: 500px;
-    position: absolute;
+    position: relative;
     transform: translate(-50%,-50%);
-    top: 50%;
-    left: 50%;
+    top: 10%;
+    left: 10%;
     padding: 20px 0;
     padding-bottom: 50px;
     border-radius: 10px;
@@ -453,6 +453,9 @@ body{
     font-family: sans-serif;
     min-width: 400px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    top: 10%;
+    left: 50px;
+    position: relative;
 }
 .styled-table thead tr {
     background-color: #009879;
