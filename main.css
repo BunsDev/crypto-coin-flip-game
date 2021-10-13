@@ -482,3 +482,28 @@ body{
     font-weight: bold;
     color: #009879;
 }
+
+  /* Basic design of blog card */
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Blog post design starts from here */
+.card {
+  overflow: hidden;
+  box-shadow: 0px 2px 20px #d7dfe2; /* Card outline shadow */
+  background: white; /* post background color */
+  border-radius: 0.5rem;
+  position: relative;
+  width: 350px; /* post card width */
+  margin: 1rem;
+  transition: 250ms all ease-in-out;
+  cursor: pointer;
+}
+
+.card:hover {  /* blog post hover */
+  transform: scale(1.05);
+  box-shadow: 0px 2px 40px #d7dfe2;
+}
