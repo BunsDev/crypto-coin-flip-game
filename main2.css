@@ -196,6 +196,7 @@ body{
    
 }
 .timerDisplay{
+  margin: 20px auto 0 auto;
     width: 92%;
     background: #ffffff;
     left: 8%;
