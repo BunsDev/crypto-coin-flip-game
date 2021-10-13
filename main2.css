@@ -300,7 +300,6 @@ body{
   margin: 1rem;
   transition: 250ms all ease-in-out;
   cursor: pointer;
-  left: 50%;
 }
 
 .card:hover {  /* blog post hover */
