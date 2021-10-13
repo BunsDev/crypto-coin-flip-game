@@ -252,7 +252,7 @@ body{
     min-width: 400px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     top: 10%;
-    position: relative;
+    /*position: relative;*/
 }
 .styled-table thead tr {
     background-color: #009879;
@@ -293,7 +293,7 @@ body{
   box-shadow: 0px 2px 20px #d7dfe2; /* Card outline shadow */
   background: white; /* post background color */
   border-radius: 0.5rem;
-  position: relative;
+  /*position: relative;*/
   width: 710px; /* post card width */
   margin: 1rem;
   transition: 250ms all ease-in-out;
