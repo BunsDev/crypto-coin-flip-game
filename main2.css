@@ -186,7 +186,7 @@ body{
 
 .container{
     background-color: #ffffff;
-    width: 40%;
+    width: 500px;
     min-width: 500px;
     /*position: absolute;*/
     /*transform: translate(-50%,-50%);*/
