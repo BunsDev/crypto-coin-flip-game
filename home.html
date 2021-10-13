@@ -64,8 +64,11 @@
         </div>
       </div>
 	
-	<div class="content">
-<div class="container">
+<div class="wrapper"> 
+
+  <!-- Game Form -->
+  <div class="card">
+	<div class="container">
  <div class="timerDisplay">
    <div class="row">
         <div class="column">
@@ -92,7 +95,48 @@
   <button id="resetTimer" class="play-button" type="submit">Bear</button>
 </div>
 </form>
+</div>  
+  </div>
+  <!-- recent game -->
+  <div class="card">
+	<div class="recent-games to-blur">
+      <h2>Recent Games</h2>
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>Address</th>
+            <th>Amount (CMB)</th>
+            <th>Bet on</th>
+            <th>Status</th>
+            <th>Contract Balance(CMB)</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  
+
+  <template id="productrow">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </template>  
+	  
+  </div>
 </div>
+	
+	
+	
+	
+	
+	<div class="content">
+
 	
 		
 		
@@ -117,36 +161,9 @@
       <span class="infotext"></span>
     </div>
 
-    <div class="recent-games to-blur">
-      <h2>Recent Games</h2>
-      <table class="styled-table">
-        <thead>
-          <tr>
-            <th>Address</th>
-            <th>Amount (CMB)</th>
-            <th>Bet on</th>
-            <th>Status</th>
-            <th>Contract Balance(CMB)</th>
-          </tr>
-        </thead>
-        <tbody id="table-body"></tbody>
-      </table>
-    </div>
-  </div>
+    
 
-  <p class="contract-address-github to-blur">Contract address: <span class="contract-address"></span></p>
-
-  <template id="productrow">
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </template>
-
-	
+	<p class="contract-address-github to-blur">Contract address: <span class="contract-address"></span></p>
 
   <script src="js/ethers-v4_0_39.min.js"></script>
   <script src="js/three.min.js"></script>
