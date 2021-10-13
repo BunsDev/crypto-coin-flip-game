@@ -133,13 +133,13 @@ canvas { width: 50px; height: 50px; }
   /* background-color: yellowgreen; */
 }
 
-.recent-games-table {
+/*.recent-games-table {
   margin: 0 auto;
 }
 
 #table-body tr:nth-child(even) {
   background-color: #353535;
-}
+}*/
 
 .won {
   color: green;
