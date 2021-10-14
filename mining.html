@@ -62,15 +62,28 @@
             </ul>
         </div>
       </div>
-  <div class="content">
-    <div class="header to-blur">
-      <h1>Minning CMB</h1>
-    </div>
-    <div class="contract-info to-blur">Game only works on main net, etc.</div>
+  
+	
+	
+	
+	
+<div class="wrapper" text-align="center"> 
+	
+  <!-- Approve contract -->
+  <div class="card">
+      <center><h3>Approve contract</h3></center>
+      <center><h3><span id="approve-contract"></span></h3></center>
+      <form id="form3"><input class="play-button3" type="submit" value="Approve"></form>
+  </div>
+	
+  <!-- Mining Form -->
+  <div class="card" text-align="center">
+<div class="container" text-align="center">
+ <div class="timerDisplay" text-align="center">
+        <span class="imgresult"></span><br />
+      <span class="infotext"></span>
+</div>
 
-    <div class="action to-blur">
-      <h2>Enter CMB amount to Minning</h2>
-      
 <form id="form">
        
         <label class="label-amount" for="amount">CMB will Locked for 5 days</label>
@@ -80,22 +93,56 @@
             id="bet-in-dollar2"></span>$)</div>
         <input class="play-button" type="submit" value="Start Mining">
       </form>
+</div>  
+</div>
+	
+	
+  <!-- Mining status-->
+  <div class="card">
+        <h3>Minning status</h3>
+      <table class="recent-games-table">
+        <thead>
+          <tr>
+            <th>Amount (CMB)</th>
+            <th>Reward (CMB)</th>
+            <th>End Minning</th>
+          </tr>
+        </thead>
+	<tr>
+      		<td><span id="amount-minning" ></span></td>
+      		<td><span id="reward-minning" ></span></td>
+		<td><form id="form2"><input class="play-button2" type="submit" value="End Mining"></form></td>
     </div>
-    <div class="jackpot to-blur">
-      <h2>Your CMB: <span id="address-balance" ></span> CMB</h2>
-      <h2>Your Cash: <span id="cash-balance"></span> Cash</h2>
-      <span id="user-address"></span>
-      <span id="approve-contract"></span>
-      <form id="form3"><input class="play-button3" type="submit" value="Approve"></form>
-    </div>
+    	</tr>
+	<tr id="end-button"></tr>
+        <tbody id="table-body"></tbody>
+      </table> 
+  </div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="content">
+    <div class="contract-info to-blur">Game only works on main net, etc.</div>
 
-    <div class="result-coin">
+ 
+    <div class="result-coin" style="display: none">
 	  <canvas></canvas><br>
       <h1 class="imgresult"></h1>
       <span class="infotext"></span>
     </div>
 
-    <div class="recent-games to-blur">
+    <div class="recent-games to-blur" style="display: none">
       <h2>Minning status</h2>
       <table class="recent-games-table">
         <thead>
@@ -119,7 +166,7 @@
 
   <p class="contract-address-github to-blur">Contract address: <span class="contract-address"></span></p>
 
-  <template id="productrow">
+  <template id="productrow" style="display: none">
     <tr>
       <td><span id="amount-minning" ></span></td>
       <td><span id="reward-minning" ></span></td>
