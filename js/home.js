@@ -1040,7 +1040,7 @@ async function loadWeb3() {
       // Request account access if needed
       await ethereum.enable();//If this doesn't work an error is thrown
       console.log("User has a MODERN dapp browser!");
-      //showAlert("You are ready to play!", "success");
+      showAlert("You are ready to play!", "success");
       document.querySelector(".imgconnect").innerHTML = "<img src='img/connected.png' width='20' height='20'>";
       provider = new ethers.providers.Web3Provider(ethereum);
       // console.log(provider);
