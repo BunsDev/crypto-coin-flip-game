@@ -1041,7 +1041,6 @@ async function loadWeb3() {
       await ethereum.enable();//If this doesn't work an error is thrown
       console.log("User has a MODERN dapp browser!");
       showAlert("You are ready to play!", "success");
-      //document.querySelector(".imgconnect").innerHTML = "<img src='img/connected.png' width='20' height='20'>";
       provider = new ethers.providers.Web3Provider(ethereum);
       // console.log(provider);
 	
@@ -1220,6 +1219,7 @@ async function getContractBalance() {
   document.querySelector("#user-address").innerHTML = "Your address: "+adr;
   document.querySelector("#cash-balance").innerHTML = cash;
   document.querySelector("#address-balance").innerHTML = tkbalance/100000000;
+  document.querySelector(".imgconnect").innerHTML = "<img src='img/connected.png' width='20' height='20'>";
   //Set the max bet value to contract balance (i.e money in jackpot)
   document.querySelector("#amount-to-bet").max = 5000;
   //document.querySelector("#amount-to-bet").max = currentBalanceEth;
