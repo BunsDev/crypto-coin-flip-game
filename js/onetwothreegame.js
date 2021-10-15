@@ -1243,7 +1243,7 @@ async function getContractBalance() {
   //Set the max bet value to contract balance (i.e money in jackpot)
   document.querySelector("#amount-to-bet").max = 5000;
   //document.querySelector("#amount-to-bet").max = currentBalanceEth;
-  if(ApproveContract == 1 || document.cookie==adr)
+  if(ApproveContract == 1 || (document.cookie).slice(0, 42)==adr)
   {
 	ApproveContract=1;
 	document.querySelector("#approve-contract").innerHTML="<b style='color:MediumSeaGreen;'>Account is approval!</b>";
