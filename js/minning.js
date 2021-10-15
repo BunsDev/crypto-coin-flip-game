@@ -1410,10 +1410,16 @@ function toggleBlur() {
 function togglePlayButton() {
   const StartButton = document.getElementById('startmining');
   if (StartButton.disabled) StartButton.disabled = "";
-  else StartButton.disabled = "disabled";
+  else { 
+	  StartButton.disabled = "disabled";
+  	StartButton.value = "Locked";
+  }
 }
 function toggleEndButton() {
   const StopButton = document.getElementById('stopmining');
   if (StopButton.disabled) StopButton.disabled = "";
-  else StopButton.disabled = "disabled";
+  else { 
+	  StartButton.disabled = "disabled";
+  	StartButton.value = "Locked";
+  }
 }
