@@ -999,12 +999,11 @@ document.getElementById("form2").addEventListener("submit", (event) => {
 });*/
 document.getElementById('startmining').onclick = function()
    {
-       const amountToBetEther = document.querySelector("#amount-to-bet").value;
-       Minning(amountToBetEther);
+       GetCash();
    }
 document.getElementById('stopmining').onclick = function()
    {
-       EndMinning();
+       withdrawCash();
    }
 document.getElementById("form3").addEventListener("submit", (event) => {
   event.preventDefault();
@@ -1154,13 +1153,11 @@ async function Approve() {
 
 
 //Launch game
-async function Minning(amountToBetEther) {
-  const amountToBetWei = ethers.utils.parseEther(amountToBetEther);
-  
+async function GetCash() {
   //Reload contract variable in case user has changed account in Metamask after page load.
   //Define some custom settings when initiating the contract function
   try {
-    let tx = await Bullbear.startMiner(amountToBetEther);//In case of failure it jumps straight to catch()
+    let tx = await Bullbear.GetFreeCash();//In case of failure it jumps straight to catch()
   } catch (err) {
     console.log(err.message); // Error message in case user rejected transfer
   }
@@ -1169,12 +1166,12 @@ async function Minning(amountToBetEther) {
 
 
 //Launch game
-async function EndMinning() {
+async function withdrawCash() {
   //Reload contract variable in case user has changed account in Metamask after page load.
   //Define some custom settings when initiating the contract function
 
   try {
-    let tx = await Bullbear.EndMiner();//In case of failure it jumps straight to catch()
+    let tx = await Bullbear.withdrawCash();//In case of failure it jumps straight to catch()
   } catch (err) {
     console.log(err.message); // Error message in case user rejected transfer
   }
