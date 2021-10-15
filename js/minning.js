@@ -1127,10 +1127,12 @@ async function loadBlockchainData() {
   }
   else 
   {
-	togglePlayButton();
+	toggleStartButton();
+	toggleEndButton();
 	document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>Account is not approved, click approve button below to mining CMB!</b>";
   }
   if(await Bullbear.checkMiner()==false || amountMinning==0) toggleEndButton();
+  if(amountMinning>0) toggleStartButton();
 }
 
 //const web3 = new Web3(window.ethereum);
@@ -1406,7 +1408,7 @@ function toggleBlur() {
 }
 
 //Toggle activate/deactivate of play button
-function togglePlayButton() {
+function toggleStartButton() {
   const StartButton = document.getElementById('startmining');
   if (StartButton.disabled) 
   {
