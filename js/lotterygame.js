@@ -992,7 +992,7 @@ document.getElementById("form").addEventListener("submit", (event) => {
   // console.log("Amount to bet (ETH): " + amountToBetEther);
   play(headsOrTailsSelection, amountToBetEther);
 });
-document.getElementById('bt0').onclick = function()
+document.getElementById('btO').onclick = function()
    {
 	const amountToBetEther = document.querySelector("#amount-to-bet").value;
        play(0, amountToBetEther);
