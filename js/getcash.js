@@ -997,11 +997,11 @@ document.getElementById("form2").addEventListener("submit", (event) => {
   event.preventDefault();
   EndMinning();
 });*/
-document.getElementById('startmining').onclick = function()
+document.getElementById('getcash').onclick = function()
    {
        GetCash();
    }
-document.getElementById('stopmining').onclick = function()
+document.getElementById('withdraw').onclick = function()
    {
        withdrawCash();
    }
