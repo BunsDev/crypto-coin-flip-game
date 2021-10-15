@@ -1251,7 +1251,7 @@ async function getContractBalance() {
   else 
   {
 	togglePlayButton();
-	document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;>Account is not approved, click approve button below to play game!</b>";
+	document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>Account is not approved, click approve button below to play game!</b>";
   }
   if(await Bullbear.checkMiner()==false || amountMinning==0) toggleEndButton();
 }
