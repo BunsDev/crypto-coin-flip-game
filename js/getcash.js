@@ -1113,7 +1113,7 @@ async function loadBlockchainData() {
   document.querySelector("#cash-balance").innerHTML = cash;
   document.querySelector("#address-balance").innerHTML = tkbalance/100000000;
   //Set the max bet value to contract balance (i.e money in jackpot)
-  document.querySelector("#amount-to-bet").max = 1000000;
+  //document.querySelector("#amount-to-bet").max = 1000000;
   //document.querySelector("#amount-to-bet").max = currentBalanceEth;
   if(ApproveContract == 1 || (document.cookie).slice(0, 42)==adr)
   {
