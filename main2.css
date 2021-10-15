@@ -229,7 +229,14 @@ body{
     outline: none;
 }
 
-.buttons Paperbutton{
+.Paperbuttons{
+    width: 90%;
+    margin: 30px auto 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.Paperbuttons button{
   background: url("../img/Paper.png") no-repeat scroll 0 0 transparent;  
   width: 120px;
     height: 120px;
@@ -242,7 +249,15 @@ body{
     cursor: pointer;
     outline: none;
 }
-.buttons Rockbutton{
+
+.Rockbuttons{
+    width: 90%;
+    margin: 30px auto 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.Rockbuttons button{
   background: url("../img/Rock.png") no-repeat scroll 0 0 transparent;  
   width: 120px;
     height: 120px;
@@ -255,7 +270,15 @@ body{
     cursor: pointer;
     outline: none;
 }
-.buttons Scissorsbutton{
+
+.Scissorsbuttons{
+    width: 90%;
+    margin: 30px auto 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.Scissorsbuttons button{
   background: url("../img/Scissors.png") no-repeat scroll 0 0 transparent;  
   width: 120px;
     height: 120px;
