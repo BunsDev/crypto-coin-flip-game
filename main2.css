@@ -237,7 +237,7 @@ body{
 }
 
 .Paperbuttons button{
-  background: url("../img/Paper.png") no-repeat scroll 0 0 transparent;  
+  background: url(img/Paper.png) no-repeat scroll 0 0 transparent;  
   width: 120px;
     height: 120px;
     background-color: #205e94;
@@ -258,7 +258,7 @@ body{
 }
 
 .Rockbuttons button{
-  background: url("../img/Rock.png") no-repeat scroll 0 0 transparent;  
+  background: url(img/Rock.png) no-repeat scroll 0 0 transparent;  
   width: 120px;
     height: 120px;
     background-color: #205e94;
@@ -279,7 +279,7 @@ body{
 }
 
 .Scissorsbuttons button{
-  background: url("../img/Scissors.png") no-repeat scroll 0 0 transparent;  
+  background: url(img/Scissors.png) no-repeat scroll 0 0 transparent;  
   width: 120px;
     height: 120px;
     background-color: #205e94;
