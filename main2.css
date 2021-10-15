@@ -229,17 +229,17 @@ body{
     outline: none;
 }
 
-.Paperbuttons{
+.Onetwothreebuttons{
     width: 90%;
     margin: 30px auto 0 auto;
     display: flex;
     justify-content: space-around;
 }
 
-.Paperbuttons button{
+.Onetwothreebuttons .Paperbuttons button{
   background: url(img/Paper.png) no-repeat scroll 0 0 transparent;  
-  width: 120px;
-    height: 120px;
+  width: 90px;
+    height: 90px;
     background-color: #205e94;
     color: #ffffff;
     border: none;
@@ -250,17 +250,11 @@ body{
     outline: none;
 }
 
-.Rockbuttons{
-    width: 90%;
-    margin: 30px auto 0 auto;
-    display: flex;
-    justify-content: space-around;
-}
-
-.Rockbuttons button{
+.Onetwothreebuttons .Rockbuttons button{
   background: url(img/Rock.png) no-repeat scroll 0 0 transparent;  
-  width: 120px;
-    height: 120px;
+  background-position: 50% 50%;
+  width: 90px;
+    height: 90px;
     background-color: #205e94;
     color: #ffffff;
     border: none;
@@ -271,17 +265,11 @@ body{
     outline: none;
 }
 
-.Scissorsbuttons{
-    width: 90%;
-    margin: 30px auto 0 auto;
-    display: flex;
-    justify-content: space-around;
-}
 
-.Scissorsbuttons button{
-  /*background: url(img/Scissors.png) no-repeat scroll 0 0 transparent;  */
-  width: 120px;
-    height: 120px;
+.Onetwothreebuttons .Scissorsbuttons button{
+  background: url(img/Scissors.png) no-repeat scroll 0 0 transparent;  
+  width: 90px;
+    height: 90px;
     background-color: #205e94;
     color: #ffffff;
     border: none;
