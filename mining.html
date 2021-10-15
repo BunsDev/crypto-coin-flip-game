@@ -91,7 +91,10 @@
         <div class="exchange-rate-info">(~<span id="bet-in-dollar">0.00</span>$)</div>
         <div class="info-text">0.5% per day <span id="bet-in-eth2"></span> CMB (~<span
             id="bet-in-dollar2"></span>$)</div>
-        <input class="play-button" type="submit" value="Start Mining">
+	<div class="buttons">
+  	<button id="startmining" type="button" >Start Mining</button>
+  	<button id="stopmining" type="button" >Stop mining</button>
+	</div>
       </form>
 </div>  
 </div>
@@ -105,13 +108,11 @@
           <tr>
             <th>Amount (CMB)</th>
             <th>Reward (CMB)</th>
-            <th>End Minning</th>
           </tr>
         </thead>
 	<tr>
       		<td><span id="amount-minning" ></span></td>
       		<td><span id="reward-minning" ></span></td>
-		<td><form id="form2"><input class="play-button2" type="submit" value="End Mining"></form></td>
     </div>
     	</tr>
 	<tr id="end-button"></tr>
