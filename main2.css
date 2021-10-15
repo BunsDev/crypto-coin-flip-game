@@ -228,6 +228,25 @@ body{
     cursor: pointer;
     outline: none;
 }
+
+.Loterrybuttons{
+    width: 90%;
+    margin: 60px auto 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+.Loterrybuttons button{
+    width: 45px;
+    height: 45px;
+    background-color: #d23332;
+    color: #ffffff;
+    border: none;
+    font-family: 'Poppins',sans-serif;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}
 .buttons button:nth-last-child(1){
   background-color: #d23332;
 }
