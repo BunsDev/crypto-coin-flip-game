@@ -63,54 +63,97 @@
         </div>
       </div>
 	
-  <div class="content">
-    <div class="header to-blur">
-      <h1>One - Two - Three game</h1>
-    </div>
-    <div class="contract-info to-blur">Game only works on main net, etc.</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="wrapper" text-align="center"> 
+	
+  <!-- Approve contract -->
+  <div class="card">
+      <center><h3>Approve contract</h3></center>
+      <center><h3><span id="approve-contract"></span></h3></center>
+      <form id="form3"><input class="play-button3" type="submit" value="Approve"></form>
+  </div>
+	
+  <!-- Game Form -->
+  <div class="card" text-align="center">
+<div class="container" text-align="center">
+ <div class="timerDisplay" text-align="center">
+        <span class="imgresult"></span><br />
+      <span class="infotext"></span>
+</div>
 
-    <div class="action to-blur">
-      <h2>Select rock, paper or scissors</h2>
-      <div class="row">
-        <div class="column">
-          <label for="Rock">
-            <img src="img/Rock.png" alt="rock">
-          </label>
-        </div>
-        <div class="column">
-          <label for="Paper">
-            <img src="img/Paper.png" alt="paper">
-          </label>
-        </div>
-        <div class="column">
-          <label for="Scissors">
-            <img src="img/Scissors.png" alt="scissors">
-          </label>
-        </div>
-	    </div>
-	    <form id="form">
-        <div class="row">
-          <div class="column">
-            <input type="radio" name="ht-selector" id="rock" value="0" checked>
-          </div>
-          <div class="column">
-            <input type="radio" name="ht-selector" id="paper" value="1">
-          </div>
-          <div class="column">
-            <input type="radio" name="ht-selector" id="scissors" value="2">
-          </div>
-        </div>
-        <label class="label-amount" for="amount">Amount of CMB to bet</label>
-        <input type="number" name="amount" id="amount-to-bet" placeholder="Enter amount in ETH" min="1" step="1" required>
+<form id="form">   
+    <input align="center" type="number" name="amount" id="amount-to-bet" placeholder="Enter amount in CMB" min="1" step="1" required>
         <div class="exchange-rate-info">(~<span id="bet-in-dollar">0.00</span>$)</div>
         <div class="info-text">50% chance to win <span id="bet-in-eth2"></span> CMB (~<span
-            id="bet-in-dollar2"></span>$)</div>
-        <input class="play-button" type="submit" value="Start">
-      </form>
-    </div>
+            id="bet-in-dollar2"></span>$)</div>   
+<div class="buttons">
+  <button id="rock" class="Rockbutton" type="button" ></button>
+  <button id="paper" class="Paperbutton" type="button" ></button>
+  <button id="scissor" class="Scissorsbutton" type="button" ></button>
+</div>
+</form>
+</div>  
+</div>
+  <!-- recent game -->
+  <div class="card">
+      <center><h3>Recent Games</h3></center>
+      <table class="styled-table" text-align="center">
+        <thead>
+          <tr>
+            <th>Address</th>
+            <th>Amount (CMB)</th>
+            <th>Bet on</th>
+            <th>Status</th>
+            <th>Contract Balance(CMB)</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>  
+  </div>
+
+	
+<template id="productrow">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </template>  
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+  <div class="content" >
+    
+    <div class="contract-info to-blur">Game only works on main net, etc.</div>
+
+
 	  
 
-    <div class="jackpot to-blur">
+    <div class="jackpot to-blur" style="display: none">
       <h2>Your CMB: <span id="address-balance" ></span> CMB</h2>
       <h2>Your Cash: <span id="cash-balance"></span> Cash</h2>
       <span id="user-address"></span>
@@ -118,13 +161,13 @@
       <form id="form3"><input class="play-button3" type="submit" value="Approve"></form>
     </div>
 
-    <div class="result-coin">
+    <div class="result-coin" style="display: none">
 	  <canvas></canvas><br>
       <span class="imgresult"></span>
       <span class="infotext"></span>
     </div>
 
-    <div class="recent-games to-blur">
+    <div class="recent-games to-blur"style="display: none">
       <h2>Recent Games</h2>
       <table class="recent-games-table">
         <thead>
@@ -142,16 +185,6 @@
   </div>
 
   <p class="contract-address-github to-blur">Contract address: <span class="contract-address"></span></p>
-
-  <template id="productrow">
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </template>
 
   <script src="js/ethers-v4_0_39.min.js"></script>
   <script src="js/three.min.js"></script>
