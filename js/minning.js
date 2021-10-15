@@ -1128,7 +1128,7 @@ async function loadBlockchainData() {
   else 
   {
 	togglePlayButton();
-	document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;>Account is not approved, click approve button below to mining CMB!</b>";
+	document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>Account is not approved, click approve button below to mining CMB!</b>";
   }
   if(await Bullbear.checkMiner()==false || amountMinning==0) toggleEndButton();
 }
