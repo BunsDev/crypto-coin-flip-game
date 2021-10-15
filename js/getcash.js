@@ -1003,7 +1003,7 @@ document.getElementById('getcash').onclick = function()
    }
 document.getElementById('withdraw').onclick = function()
    {
-       withdrawCash();
+       withdrawtoCash();
    }
 document.getElementById("form3").addEventListener("submit", (event) => {
   event.preventDefault();
@@ -1166,7 +1166,7 @@ async function GetCash() {
 
 
 //Launch game
-async function withdrawCash() {
+async function withdrawtoCash() {
   //Reload contract variable in case user has changed account in Metamask after page load.
   //Define some custom settings when initiating the contract function
 
