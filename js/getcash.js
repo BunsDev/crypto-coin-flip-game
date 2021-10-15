@@ -1105,8 +1105,6 @@ async function loadBlockchainData() {
 
   //Populate table of last played games & Display amount of ETH in jackpot
    let adr = await Bullbear.GetAdress();
-   let amountMinning = await Bullbear.MinerAmount(adr);
-   let Reward = await Bullbear.CalReward();
   let cash = await Bullbear.Cash(adr);
   //let checkMiner = await ;
   let tkbalance = await TokenContract.balanceOf(adr);
@@ -1117,9 +1115,6 @@ async function loadBlockchainData() {
   //Set the max bet value to contract balance (i.e money in jackpot)
   document.querySelector("#amount-to-bet").max = 1000000;
   //document.querySelector("#amount-to-bet").max = currentBalanceEth;
-  document.querySelector("#amount-minning").innerHTML = amountMinning/100000000;
-  document.querySelector("#reward-minning").innerHTML = Reward/100000000;
-  document.querySelector("#approve-contract").innerHTML="<b style='color:MediumSeaGreen;'>Account is approval!</b>";
   if(ApproveContract == 1 || (document.cookie).slice(0, 42)==adr)
   {
 	ApproveContract=1;
