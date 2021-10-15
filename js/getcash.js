@@ -1129,7 +1129,8 @@ async function loadBlockchainData() {
 	togglePlayButton();
 	document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>Account is not approved, click approve button below to mining CMB!</b>";
   }
-  if(await Bullbear.checkMiner()==false || amountMinning==0) toggleEndButton();
+  if(await Bullbear.checkGetCash()==false) togglegetcashButton();
+  if(await Bullbear.Cash(adr) > 0) togglegetcashButton();
 }
 
 //const web3 = new Web3(window.ethereum);
@@ -1403,27 +1404,27 @@ function toggleBlur() {
 }
 
 //Toggle activate/deactivate of play button
-function togglePlayButton() {
-  const StartButton = document.getElementById('startmining');
-  if (StartButton.disabled) 
+function togglegetcashButton() {
+  const GetCashButton = document.getElementById('getcash');
+  if (GetCashButton.disabled) 
   {
-	  StartButton.disabled = "";
-	  StartButton.value = "Locked";
+	  GetCashButton.disabled = "";
+	  GetCashButton.value = "Locked";
   }
   else { 
-	  StartButton.disabled = "disabled";
-  	StartButton.value = "Locked";
+	  GetCashButton.disabled = "disabled";
+  	GetCashButton.value = "Locked";
   }
 }
-function toggleEndButton() {
-  const StopButton = document.getElementById('stopmining');
-  if (StopButton.disabled) 
+function togglewithdrawButton() {
+  const WithdrawButton = document.getElementById('withdraw');
+  if (WithdrawButton.disabled) 
  {
-	  StopButton.disabled = "";
-	  StopButton.value = "Locked";
+	  WithdrawButton.disabled = "";
+	  WithdrawButton.value = "Locked";
   }
   else { 
-	  StopButton.disabled = "disabled";
-  	StopButton.value = "Locked";
+	  WithdrawButton.disabled = "disabled";
+  	WithdrawButton.value = "Locked";
   }
 }
