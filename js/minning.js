@@ -1409,7 +1409,11 @@ function toggleBlur() {
 //Toggle activate/deactivate of play button
 function togglePlayButton() {
   const StartButton = document.getElementById('startmining');
-  if (StartButton.disabled) StartButton.disabled = "";
+  if (StartButton.disabled) 
+  {
+	  StartButton.disabled = "";
+	  StartButton.value = "Locked";
+  }
   else { 
 	  StartButton.disabled = "disabled";
   	StartButton.value = "Locked";
@@ -1417,9 +1421,13 @@ function togglePlayButton() {
 }
 function toggleEndButton() {
   const StopButton = document.getElementById('stopmining');
-  if (StopButton.disabled) StopButton.disabled = "";
+  if (StopButton.disabled) 
+ {
+	  StopButton.disabled = "";
+	  StopButton.value = "Locked";
+  }
   else { 
-	  StartButton.disabled = "disabled";
-  	StartButton.value = "Locked";
+	  StopButton.disabled = "disabled";
+  	StopButton.value = "Locked";
   }
 }
