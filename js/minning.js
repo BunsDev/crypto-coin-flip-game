@@ -1112,7 +1112,7 @@ async function loadBlockchainData() {
   //let checkMiner = await ;
   let tkbalance = await TokenContract.balanceOf(adr);
   ApproveContract=await Bullbear.AproveContract(adr);	
-  document.querySelector("#user-address").innerHTML = adr.slice(0, 4) + "..." + contractAddress.slice(-4);
+  document.querySelector("#user-address").innerHTML = adr.slice(0, 4) + "..." + adr.slice(-4);
   document.querySelector("#cash-balance").innerHTML = cash;
   document.querySelector("#address-balance").innerHTML = tkbalance/100000000;
   //Set the max bet value to contract balance (i.e money in jackpot)
