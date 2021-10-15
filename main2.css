@@ -236,7 +236,7 @@ body{
     justify-content: space-around;
 }
 
-.Onetwothreebuttons .Paperbuttons button{
+.Onetwothreebuttons .Paperbuttons{
   background: url(img/Paper.png) no-repeat scroll 0 0 transparent;  
   width: 90px;
     height: 90px;
@@ -250,7 +250,7 @@ body{
     outline: none;
 }
 
-.Onetwothreebuttons .Rockbuttons button{
+.Onetwothreebuttons .Rockbuttons{
   background: url(img/Rock.png) no-repeat scroll 0 0 transparent;  
   background-position: 50% 50%;
   width: 90px;
@@ -266,7 +266,7 @@ body{
 }
 
 
-.Onetwothreebuttons .Scissorsbuttons button{
+.Onetwothreebuttons .Scissorsbuttons{
   background: url(img/Scissors.png) no-repeat scroll 0 0 transparent;  
   width: 90px;
     height: 90px;
