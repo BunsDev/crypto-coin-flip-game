@@ -63,50 +63,89 @@
         </div>
       </div>
 
-  <div class="content">
-    <div class="header to-blur">
-      <h1>Lottery game</h1>
-    </div>
-    <div class="contract-info to-blur">Game only works on main net, etc.</div>
+  
+	
+	
+	
+	
+	
+<div class="wrapper" text-align="center"> 
+	
+  <!-- Approve contract -->
+  <div class="card">
+      <center><h3>Approve contract</h3></center>
+      <center><h3><span id="approve-contract"></span></h3></center>
+      <form id="form3"><input class="play-button3" type="submit" value="Approve"></form>
+  </div>
+	
+  <!-- Game Form -->
+  <div class="card" text-align="center">
+<div class="container" text-align="center">
+ <div class="timerDisplay" text-align="center">
+        <span class="imgresult"></span><br />
+      <span class="infotext"></span>
+</div>
 
-    <div class="action to-blur">
-      <h2>Select Bull or Bear</h2>
-      <div class="row">
-        <div class="column"><label for="00"> 00 </label></div>
-        <div class="column"><label for="01"> 01 </label></div>
-	<div class="column"><label for="02"> 02 </label></div>
-        <div class="column"><label for="03"> 03 </label></div>
-	<div class="column"><label for="04"> 04 </label></div>
-        <div class="column"><label for="05"> 05 </label></div>
-	<div class="column"><label for="06"> 06 </label></div>
-        <div class="column"><label for="07"> 07 </label></div>
-	<div class="column"><label for="08"> 08 </label></div>
-        <div class="column"><label for="09"> 09 </label></div>
-      </div>
-<form id="form">
-        <div class="row">
-          <div class="column"><input type="radio" name="ht-selector" id="id0" value="0" checked></div>
-          <div class="column"><input type="radio" name="ht-selector" id="id1" value="1"></div>
-	   <div class="column"><input type="radio" name="ht-selector" id="id2" value="2" checked></div>
-          <div class="column"><input type="radio" name="ht-selector" id="id3" value="3"></div>
-	<div class="column"><input type="radio" name="ht-selector" id="id4" value="4" checked></div>
-          <div class="column"><input type="radio" name="ht-selector" id="id5" value="5"></div>
-	<div class="column"><input type="radio" name="ht-selector" id="id6" value="6" checked></div>
-          <div class="column"><input type="radio" name="ht-selector" id="id7" value="7"></div>
-	<div class="column"><input type="radio" name="ht-selector" id="id8" value="8" checked></div>
-          <div class="column"><input type="radio" name="ht-selector" id="id9" value="9"></div>
-        </div>
-        <label class="label-amount" for="amount">Amount of CMB to bet</label>
-        <input type="number" name="amount" id="amount-to-bet" placeholder="Enter amount in ETH" min="1" step="1" required>
+<form id="form">   
+    <input align="center" type="number" name="amount" id="amount-to-bet" placeholder="Enter amount in CMB" min="1" step="1" required>
         <div class="exchange-rate-info">(~<span id="bet-in-dollar">0.00</span>$)</div>
-        <div class="info-text">10% chance to win <span id="bet-in-eth2"></span> CMB (~<span
-            id="bet-in-dollar2"></span>$)</div>
-        <input class="play-button" type="submit" value="Start">
-      </form>
-    </div>
+        <div class="info-text">50% chance to win <span id="bet-in-eth2"></span> CMB (~<span
+            id="bet-in-dollar2"></span>$)</div>   
+<div class="buttons">
+  <button id="bt0" class="play-button" type="button" >00</button>  
+  <button id="bt1" class="play-button" type="button" >01</button>
+  <button id="bt2" class="play-button" type="button" >02</button>
+  <button id="bt3" class="play-button" type="button" >03</button>
+  <button id="bt4" class="play-button" type="button" >04</button><br />
+  <button id="bt5" class="play-button" type="button" >05</button>
+  <button id="bt6" class="play-button" type="button" >06</button>
+  <button id="bt7" class="play-button" type="button" >07</button>
+  <button id="bt8" class="play-button" type="button" >08</button> 
+  <button id="bt9" class="play-button" type="button" >09</button>
+</div>
+</form>
+</div>  
+</div>
+  <!-- recent game -->
+  <div class="card">
+      <center><h3>Recent Games</h3></center>
+      <table class="styled-table" text-align="center">
+        <thead>
+          <tr>
+            <th>Address</th>
+            <th>Amount (CMB)</th>
+            <th>Bet on</th>
+            <th>Status</th>
+            <th>Contract Balance(CMB)</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>  
+  </div>
+
+	
+<template id="productrow">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </template>  
+
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="content">
 	  
 
-    <div class="jackpot to-blur">
+    <div class="jackpot to-blur" style="display: none">
       <h2>Your CMB: <span id="address-balance" ></span> CMB</h2>
       <h2>Your Cash: <span id="cash-balance"></span> Cash</h2>
       <span id="user-address"></span><br>
@@ -114,13 +153,13 @@
       <form id="form3"><input class="play-button3" type="submit" value="Approve"></form>
     </div>
 	  
-    <div class="result-coin">
+    <div class="result-coin" style="display: none">
 	  <canvas></canvas><br>
       <h1 class="imgresult"></h1>
       <span class="infotext"></span>
     </div>
 
-    <div class="recent-games to-blur">
+    <div class="recent-games to-blur" style="display: none">
       <h2>Recent Games</h2>
       <table class="recent-games-table">
         <thead>
@@ -139,15 +178,6 @@
 
   <p class="contract-address-github to-blur">Contract address: <span class="contract-address"></span></p>
 
-  <template id="productrow">
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </template>
 
   <script src="js/ethers-v4_0_39.min.js"></script>
   <script src="js/three.min.js"></script>
