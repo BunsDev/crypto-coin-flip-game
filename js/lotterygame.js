@@ -992,6 +992,57 @@ document.getElementById("form").addEventListener("submit", (event) => {
   // console.log("Amount to bet (ETH): " + amountToBetEther);
   play(headsOrTailsSelection, amountToBetEther);
 });
+const amountToBetEther = document.querySelector("#amount-to-bet").value;
+document.getElementById('bt0').onclick = function()
+   {
+       play(0, amountToBetEther);
+       headsOrTailsSelection=0;
+   }
+document.getElementById('bt1').onclick = function()
+   {
+       play(1, amountToBetEther);
+       headsOrTailsSelection=1;
+   }
+document.getElementById('bt2').onclick = function()
+   {
+       play(2, amountToBetEther);
+       headsOrTailsSelection=2;
+   }
+document.getElementById('bt3').onclick = function()
+   {
+       play(3, amountToBetEther);
+       headsOrTailsSelection=3;
+   }
+document.getElementById('bt4').onclick = function()
+   {
+       play(4, amountToBetEther);
+       headsOrTailsSelection=4;
+   }
+document.getElementById('bt5').onclick = function()
+   {
+       play(5, amountToBetEther);
+       headsOrTailsSelection=5;
+   }
+document.getElementById('bt6').onclick = function()
+   {
+       play(6, amountToBetEther);
+       headsOrTailsSelection=6;
+   }
+document.getElementById('bt7').onclick = function()
+   {
+       play(7, amountToBetEther);
+       headsOrTailsSelection=7;
+   }
+document.getElementById('bt8').onclick = function()
+   {
+       play(8, amountToBetEther);
+       headsOrTailsSelection=8;
+   }
+document.getElementById('bt9').onclick = function()
+   {
+       play(9, amountToBetEther);
+       headsOrTailsSelection=9;
+   }
 document.getElementById("form3").addEventListener("submit", (event) => {
   event.preventDefault();
   Approve();
