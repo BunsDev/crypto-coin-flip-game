@@ -984,7 +984,7 @@ window.addEventListener('load', () => {
 });
 
 //Launch play() when user clicks on play button
-document.getElementById("form").addEventListener("submit", (event) => {
+/*document.getElementById("form").addEventListener("submit", (event) => {
   event.preventDefault();
   //Find out which radio button is selected and how much money is bet.
   const amountToBetEther = document.querySelector("#amount-to-bet").value;
@@ -996,7 +996,16 @@ document.getElementById("form").addEventListener("submit", (event) => {
 document.getElementById("form2").addEventListener("submit", (event) => {
   event.preventDefault();
   EndMinning();
-});
+});*/
+document.getElementById('startmining').onclick = function()
+   {
+       const amountToBetEther = document.querySelector("#amount-to-bet").value;
+       Minning(amountToBetEther);
+   }
+document.getElementById('stopmining').onclick = function()
+   {
+       EndMinning();
+   }
 document.getElementById("form3").addEventListener("submit", (event) => {
   event.preventDefault();
   Approve();
@@ -1399,12 +1408,12 @@ function toggleBlur() {
 
 //Toggle activate/deactivate of play button
 function togglePlayButton() {
-  const playButton = document.querySelector(".play-button");
-  if (playButton.disabled) playButton.disabled = "";
-  else playButton.disabled = "disabled";
+  const StartButton = document.getElementById('startmining');
+  if (StartButton.disabled) StartButton.disabled = "";
+  else StartButton.disabled = "disabled";
 }
 function toggleEndButton() {
-  const EndButton = document.querySelector(".play-button2");
-  if (EndButton.disabled) EndButton.disabled = "";
-  else EndButton.disabled = "disabled";
+  const StopButton = document.getElementById('stopmining');
+  if (StopButton.disabled) StopButton.disabled = "";
+  else StopButton.disabled = "disabled";
 }
