@@ -229,6 +229,46 @@ body{
     outline: none;
 }
 
+.buttons Paperbutton{
+  background: url("../img/Paper.png") no-repeat scroll 0 0 transparent;  
+  width: 120px;
+    height: 120px;
+    background-color: #205e94;
+    color: #ffffff;
+    border: none;
+    font-family: 'Poppins',sans-serif;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}
+.buttons Rockbutton{
+  background: url("../img/Rock.png") no-repeat scroll 0 0 transparent;  
+  width: 120px;
+    height: 120px;
+    background-color: #205e94;
+    color: #ffffff;
+    border: none;
+    font-family: 'Poppins',sans-serif;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}
+.buttons Scissorsbutton{
+  background: url("../img/Scissors.png") no-repeat scroll 0 0 transparent;  
+  width: 120px;
+    height: 120px;
+    background-color: #205e94;
+    color: #ffffff;
+    border: none;
+    font-family: 'Poppins',sans-serif;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}
+
 .Loterrybuttons{
     width: 90%;
     margin: 60px auto 0 auto;
