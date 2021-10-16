@@ -1147,7 +1147,7 @@ async function loadBlockchainData() {
   TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
   //document.querySelector("#demo-button").innerText = "accounts";
   // console.log(headsOrTails);
-
+  document.querySelector(".infotext").innerHTML = "<b>Select 1 unique numbers from 0 to 9</b>";
   //Populate table of last played games & Display amount of ETH in jackpot
   getLatestGameData();
   getContractBalance();
@@ -1207,7 +1207,6 @@ async function play(headsOrTailsSelection, amountToBetEther) {
     swissFranc.animateCoin();//start coin animation
     togglePlayButton(); //deactivate play button functionality
     document.querySelector(".imgresult").innerHTML = "<img src='img/numberrun.gif' width='150' height='150'>";
-    //document.querySelector(".infotext").innerHTML = "<b>Game starting!</b><br>Please wailt for result";
     console.log(tx.hash);
     logEvent();
   } catch (err) {
