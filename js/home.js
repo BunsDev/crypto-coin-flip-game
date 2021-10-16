@@ -1160,7 +1160,7 @@ async function play(headsOrTailsSelection, amountToBetEther) {
     swissFranc.animateCoin();//start coin animation
     togglePlayButton(); //deactivate play button functionality
     document.querySelector(".imgresult").innerHTML = "<img src='img/bb.gif' alt='BullBear' width='300' height='300'>";
-    //document.querySelector(".infotext").innerHTML = "<b>Game starting!</b><br>Please wailt for result";
+    document.querySelector(".infotext").innerHTML = "<b>Game starting!</b><br>Please wailt for result";
     console.log(tx.hash);
     logEvent();
   } catch (err) {
@@ -1215,7 +1215,7 @@ async function getContractBalance() {
   let cash = await Bullbear.Cash(adr);
   let tkbalance = await TokenContract.balanceOf(adr);
   ApproveContract=await Bullbear.AproveContract(adr);	
-  document.querySelector(".imgresult").innerHTML = "<img src='img/bullbear.png' alt='BullBear' width='400' height='220'>";
+  //document.querySelector(".imgresult").innerHTML = "<img src='img/bullbear.png' alt='BullBear' width='400' height='220'>";
   document.querySelector("#user-address").innerHTML = adr.slice(0, 4) + "..." + adr.slice(-4);
   document.querySelector("#cash-balance").innerHTML = cash;
   document.querySelector("#address-balance").innerHTML = (tkbalance/100000000).toFixed(2);
