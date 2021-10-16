@@ -1107,7 +1107,7 @@ async function loadBlockchainData() {
 
   //document.querySelector("#demo-button").innerText = "accounts";
   // console.log(headsOrTails);
-
+  document.querySelector(".infotext").innerHTML = "<b>Select Rock, Paper or Scissors</b>";
   //Populate table of last played games & Display amount of ETH in jackpot
   getLatestGameData();
   getContractBalance();
