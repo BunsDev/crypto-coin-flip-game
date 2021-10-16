@@ -1110,11 +1110,20 @@ async function loadBlockchainData() {
   let tkbalance = await TokenContract.balanceOf(adr);
   ApproveContract=await Bullbear.AproveContract(adr);	
   document.querySelector("#user-address").innerHTML = adr.slice(0, 4) + "..." + adr.slice(-4);
-  document.querySelector("#cash-balance").innerHTML = cash;
+  
   document.querySelector("#address-balance").innerHTML = (tkbalance/100000000).toFixed(2);
   //Set the max bet value to contract balance (i.e money in jackpot)
   //document.querySelector("#amount-to-bet").max = 1000000;
   //document.querySelector("#amount-to-bet").max = currentBalanceEth;
+  let getcashtime = Bullbear.GetCashTime(adr);
+  let datenext= getcashtime+ 864000;
+  if (!Date.now) {
+    Date.now = function() { return new Date().getTime(); }
+  }
+  let datenow=Date.now/100;
+  
+	document.querySelector("#cash-balance").innerHTML = cash+" "+ datenow+" "+ Date.now+" "+ getcashtime+" "+ datenext;
+
   if(ApproveContract == 1 || (document.cookie).slice(0, 42)==adr)
   {
 	ApproveContract=1;
