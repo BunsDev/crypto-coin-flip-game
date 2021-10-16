@@ -1118,8 +1118,11 @@ async function loadBlockchainData() {
   let getcashtime = await Bullbear.GetCashTime(adr);
   let datenext= getcashtime+ 864000;
   let date_now = new Date();
+  let timcount=datenext-date_now;
+  let minutes = Math.floor(timcount/60);
+  let hours = Math.floor(minutes/60);
   
-	document.querySelector("#cash-balance").innerHTML = cash+" "+ getcashtime+" "+ datenext+" "+ date_now ;
+	document.querySelector("#cash-balance").innerHTML = cash+" "+ hours+":"+minutes ;
 
   if(ApproveContract == 1 || (document.cookie).slice(0, 42)==adr)
   {
