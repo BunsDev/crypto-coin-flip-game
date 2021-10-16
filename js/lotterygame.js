@@ -1206,8 +1206,8 @@ async function play(headsOrTailsSelection, amountToBetEther) {
     scrollDown(); //Scroll to coin animation
     swissFranc.animateCoin();//start coin animation
     togglePlayButton(); //deactivate play button functionality
-    document.querySelector(".imgresult").innerHTML = "";
-    document.querySelector(".infotext").innerHTML = "<b>Game starting!</b><br>Please wailt for result";
+    document.querySelector(".imgresult").innerHTML = "<img src='img/numberrun.g' alt='numberrun' width='300' height='300'>";
+    //document.querySelector(".infotext").innerHTML = "<b>Game starting!</b><br>Please wailt for result";
     console.log(tx.hash);
     logEvent();
   } catch (err) {
