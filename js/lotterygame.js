@@ -1206,7 +1206,7 @@ async function play(headsOrTailsSelection, amountToBetEther) {
     scrollDown(); //Scroll to coin animation
     swissFranc.animateCoin();//start coin animation
     togglePlayButton(); //deactivate play button functionality
-    document.querySelector(".imgresult").innerHTML = "<img src='img/numberrun.gif' width='120' height='120'>";
+    document.querySelector(".imgresult").innerHTML = "<img src='img/numberrun.gif' width='150' height='150'>";
     //document.querySelector(".infotext").innerHTML = "<b>Game starting!</b><br>Please wailt for result";
     console.log(tx.hash);
     logEvent();
@@ -1223,7 +1223,7 @@ function logEvent() {
     console.log("Bet on: " + ((headsOrTailsSelection === 0) ? 'Bull' : 'Bear'));
     console.log("Result: " + ((side === 0) ? 'Bull' : 'Bear'));
     const msg = (side === headsOrTailsSelection) ? "<b style='color:MediumSeaGreen;'>You won!</b>" : "<h1 style='color:Tomato;'>You lost!</h1>";
-    let imgrs="<img src='img/n0" + side + ".png' width='120' height='120'>";
+    let imgrs="<img src='img/n0" + side + ".png' width='150' height='150'>";
     // console.log(msg);
 
     swissFranc.stopAnimation(side).then(function (r) {
