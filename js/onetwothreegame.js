@@ -1188,17 +1188,17 @@ function logEvent() {
     // console.log(msg);
     if (headsOrTailsSelection == side) {
       //Draw!
-	msg = "<h1>Draw!</h1>";
+	msg = "<b>Draw!</b>";
     }
     else if ((headsOrTailsSelection == 0 &&  side == 1)||(headsOrTailsSelection == 1 &&  side == 2)||(headsOrTailsSelection == 2 &&  side == 0))
     {
         //Lost
-        msg = "<h1 class='lost'>You lost!</h1>";
+        msg = "<b style='color:Tomato;'>You lost!</b>";
     }
     else if ((headsOrTailsSelection == 0 &&  side == 2)||(headsOrTailsSelection == 1 &&  side == 0)||(headsOrTailsSelection == 2 &&  side == 1))
     {
         //win 
-        msg = "<h1 class='won'>You won!</h1>";
+        msg = "<b style='color:MediumSeaGreen;'>You won!</b>";
     }
     if(side==0) imgrs="<img src='img/Rock.png' alt='rock'>";
     else if(side == 1) imgrs="<img src='img/Paper.png' alt='paper'>";
