@@ -1117,9 +1117,6 @@ async function loadBlockchainData() {
   //document.querySelector("#amount-to-bet").max = currentBalanceEth;
   let getcashtime = Bullbear.GetCashTime(adr);
   let datenext= getcashtime+ 864000;
-  if (!Date.now) {
-    Date.now = function() { return new Date().getTime(); }
-  }
   let datenow=Date.now/100;
   
 	document.querySelector("#cash-balance").innerHTML = cash+" "+ datenow+" "+ Date.now+" "+ getcashtime+" "+ datenext;
