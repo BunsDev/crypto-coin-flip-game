@@ -1099,7 +1099,7 @@ async function loadBlockchainData() {
 //const Accountaddress = accounts[0];
   Bullbear = new ethers.Contract(contractAddress, abi, signer);
   TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
-  
+  document.querySelector(".infotext").innerHTML = "<b>Select Bull or Bear</b>";
   //document.querySelector("#demo-button").innerText = "accounts";
   // console.log(headsOrTails);
 
