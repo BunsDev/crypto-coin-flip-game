@@ -1115,11 +1115,11 @@ async function loadBlockchainData() {
   //Set the max bet value to contract balance (i.e money in jackpot)
   //document.querySelector("#amount-to-bet").max = 1000000;
   //document.querySelector("#amount-to-bet").max = currentBalanceEth;
-  let getcashtime = Bullbear.GetCashTime(adr);
-  //let datenext= getcashtime+ 864000;
+  let getcashtime = await Bullbear.GetCashTime(adr);
+  let datenext= getcashtime+ 864000;
   
   
-	document.querySelector("#cash-balance").innerHTML = cash+" "+ getcashtime;
+	document.querySelector("#cash-balance").innerHTML = cash+" "+ getcashtime+" "+ datenext;
 
   if(ApproveContract == 1 || (document.cookie).slice(0, 42)==adr)
   {
