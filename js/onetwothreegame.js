@@ -1492,7 +1492,13 @@ function toggleBlur() {
 
 //Toggle activate/deactivate of play button
 function togglePlayButton() {
-  const playButton = document.querySelector(".play-button");
-  if (playButton.disabled) playButton.disabled = "";
-  else playButton.disabled = "disabled";
+  const Rockbuttons = document.querySelector(".Rockbuttons");
+  const Paperbuttons = document.querySelector(".Paperbuttons");
+  const Scissorsbuttons = document.querySelector(".Scissorsbuttons");
+  if (Rockbuttons.disabled) Rockbuttons.disabled = "";
+  else Rockbuttons.disabled = "disabled";
+  if (Paperbuttons.disabled) Paperbuttons.disabled = "";
+  else Paperbuttons.disabled = "disabled";
+  if (Scissorsbuttons.disabled) Scissorsbuttons.disabled = "";
+  else Scissorsbuttons.disabled = "disabled";
 }
