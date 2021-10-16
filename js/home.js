@@ -1160,7 +1160,7 @@ async function play(headsOrTailsSelection, amountToBetEther) {
     swissFranc.animateCoin();//start coin animation
     togglePlayButton(); //deactivate play button functionality
     document.querySelector(".imgresult").innerHTML = "<img src='img/bb.gif' alt='BullBear' width='300' height='300'>";
-    document.querySelector(".infotext").innerHTML = "<b>Game starting!</b><br>Please wailt for result";
+    //document.querySelector(".infotext").innerHTML = "<b>Game starting!</b><br>Please wailt for result";
     console.log(tx.hash);
     logEvent();
   } catch (err) {
@@ -1178,8 +1178,8 @@ function logEvent() {
     const msg = (side === headsOrTailsSelection) ? "<b style='color:MediumSeaGreen;'>You won!</b>" : "<b style='color:Tomato;'>You lost!</b>";
     // console.log(msg);
     let imgrs="";
-    if(side==0) imgrs="<img src='img/bull.png' alt='bull' width='120' height='120'>";
-    else if(side == 1) imgrs="<img src='img/bear.png' alt='bear' alt='bull' width='120' height='120'>";
+    if(side==0) imgrs="<img src='img/bull.png' alt='bull' width='300' height='300'>";
+    else if(side == 1) imgrs="<img src='img/bear.png' alt='bear' alt='bull' width='300' height='300'>";
     
 	  
 	  
