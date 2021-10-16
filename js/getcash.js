@@ -1122,11 +1122,12 @@ async function loadBlockchainData() {
   }
   else 
   {
-	togglePlayButton();
+	togglegetcashButton();
+	togglewithdrawButton();
 	document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>Account is not approved, click approve button below to mining CMB!</b>";
   }
   if(await Bullbear.checkGetCash()==false) togglegetcashButton();
-  if(await Bullbear.Cash(adr) > 0) togglegetcashButton();
+  if(await Bullbear.Cash(adr) <= 0)togglewithdrawButton();
 }
 
 //const web3 = new Web3(window.ethereum);
