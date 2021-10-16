@@ -1222,7 +1222,7 @@ function logEvent() {
     // console.log(event);
     console.log("Bet on: " + ((headsOrTailsSelection === 0) ? 'Bull' : 'Bear'));
     console.log("Result: " + ((side === 0) ? 'Bull' : 'Bear'));
-    const msg = (side === headsOrTailsSelection) ? "<h1 class='won'>You won!</h1>" : "<h1 class='lost'>You lost!</h1>";
+    const msg = (side === headsOrTailsSelection) ? "<b style='color:MediumSeaGreen;'>You won!</b>" : "<h1 style='color:Tomato;'>You lost!</h1>";
     let imgrs=side;
     // console.log(msg);
 
