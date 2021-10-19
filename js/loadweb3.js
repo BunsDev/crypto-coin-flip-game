@@ -78,8 +78,8 @@ async function loadBlockchainData() {
   // console.log(headsOrTails);
 
   //Populate table of last played games & Display amount of ETH in jackpot
-  getLatestGameData();
-  getContractBalance();
+  //getLatestGameData();
+  //getContractBalance();
 }
 
 //const web3 = new Web3(window.ethereum);
