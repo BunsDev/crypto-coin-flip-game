@@ -266,7 +266,7 @@ async function getContractBalance() {
 async function getLatestGameData() {
   const gameCount = await Bullbear.getLotteryGameCount();
   //Purge table before populating
-  document.querySelector(".infotext").innerHTML = "<b>demo game</b>";
+  
   document.querySelector("#table-body").innerHTML = "";
   //Populate table
   let t = document.querySelector('#productrow');
@@ -292,6 +292,7 @@ async function getLatestGameData() {
     //Show only the last five games max
     if (i <= gameCount - maxEntriesToDisplay) break;
   }
+	document.querySelector(".infotext").innerHTML = "<b>demo game</b>";
 }
 
 //Get ETH-USD/EUR exchange rate from cryptocompare
