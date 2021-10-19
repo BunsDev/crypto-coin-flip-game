@@ -1,6 +1,6 @@
 window.addEventListener('load', () => {
   // swissFranc = three(); //initialize coin
-  setTimeout(1000); ////initialize coin 1sec after load. Without the timeout there are issues due to div resizing
+  //setTimeout(1000); ////initialize coin 1sec after load. Without the timeout there are issues due to div resizing
   //setTimeout(() => swissFranc.stopAnimation("heads"), 2000); //stop initial coin animation after 2sec
   loadWeb3(); //load all relevant infos in order to interact with Ethereum
   getEthFiatRate(); //Get current ETH-fiat exchange rate from Cryptocompare
@@ -165,22 +165,13 @@ async function loadBlockchainData() {
     signer = provider; //read only
   }
 
-//const accounts = await ether.getAccounts();
-//const Accountaddress = accounts[0];
   Bullbear = new ethers.Contract(contractAddress, abi, signer);
   TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
-  //document.querySelector("#demo-button").innerText = "accounts";
-  // console.log(headsOrTails);
   document.querySelector(".infotext").innerHTML = "<b>Select 1 unique numbers from 0 to 9</b>";
   //Populate table of last played games & Display amount of ETH in jackpot
   getLatestGameData();
   getContractBalance();
 }
-
-//const web3 = new Web3(window.ethereum);
-//await window.ethereum.enable();
-//const TokenContract = web3.eth.Contract(TokenAbi, tokenAddress);
-//Bullbear = new ethers.Contract(contractAddress, abi, provider.getSigner());
 
 async function Approve() {
   //Reload contract variable in case user has changed account in Metamask after page load.
@@ -200,14 +191,8 @@ async function Approve() {
 //Launch game
 async function play(headsOrTailsSelection, amountToBetEther) {
   const amountToBetWei = ethers.utils.parseEther(amountToBetEther);
-  // console.log(amountToBetWei);
   console.log("Amount to bet (Wei): " + amountToBetWei);
   //Reload contract variable in case user has changed account in Metamask after page load.
-  //Bullbear = new ethers.Contract(contractAddress, abi, provider.getSigner());
-	
-	
-	
-	//const data = TokenContract.transfer(contractAddress,amountToBetEther*100000000);
   //Define some custom settings when initiating the contract function
   let overrides = {
     // The maximum units of gas for the transaction to use
@@ -223,12 +208,7 @@ async function play(headsOrTailsSelection, amountToBetEther) {
 
   try {
     toggleBlur(); //blur all irrelevant divs
-	//TokenContract.methods.approve(contractAddress,1000).send();
-    // console.log("Side selection send to contract: " + headsOrTailsSelection);
-	  //Bullbear.playgame(headsOrTailsSelection,amountToBetEther*100000000);
     let tx = await Bullbear.LotteryGame(headsOrTailsSelection,amountToBetEther, overrides);//In case of failure it jumps straight to catch()
-    scrollDown(); //Scroll to coin animation
-    swissFranc.animateCoin();//start coin animation
     togglePlayButton(); //deactivate play button functionality
     document.querySelector(".imgresult").innerHTML = "<img src='img/numberrun.gif' width='150' height='150'>";
     console.log(tx.hash);
@@ -252,18 +232,12 @@ function logEvent() {
   });
 }
 
-//Scroll down to coin animation after click on "Play"
-function scrollDown() {
-  const coinAnimation = document.querySelector(".result-coin");
-  setTimeout(function () { coinAnimation.scrollIntoView(); }, 10); //Without delay scrollIntoView does not work.
-}
 
 //Get current contract balance (jackpot balance)
 async function getContractBalance() {
 	TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
   const currentBalanceWei = await provider.getBalance(contractAddress);
   const currentBalanceEth = ethers.utils.formatEther(currentBalanceWei);
-  // console.log("Contract balance (ETH): " + currentBalanceEth);
    let adr = await Bullbear.GetAdress();
   let cash = await Bullbear.Cash(adr);
   let tkbalance = await TokenContract.balanceOf(adr);
@@ -274,7 +248,6 @@ async function getContractBalance() {
 
   //Set the max bet value to contract balance (i.e money in jackpot)
   document.querySelector("#amount-to-bet").max = 5000;
-  //document.querySelector("#amount-to-bet").max = currentBalanceEth;
 	
  if(ApproveContract == 1 || (document.cookie).slice(0, 42)==adr)
   {
@@ -291,8 +264,6 @@ async function getContractBalance() {
 //Fill out table with latest games
 async function getLatestGameData() {
   const gameCount = await Bullbear.getLotteryGameCount();
-  // console.log(gameCount);
-
   //Purge table before populating
   document.querySelector("#table-body").innerHTML = "";
   //Populate table
@@ -303,7 +274,6 @@ async function getLatestGameData() {
     const gameEntry = await Bullbear.getLotteryGameEntry(i);
     let result = gameEntry.winner ? "Won" : "Lost";
     let resultClass = gameEntry.winner ? "won" : "lost";//define class to color text red or green
-    // console.log(resultClass);
     let guess = gameEntry.guess;
     //Shorten player address
     const addressShortened = gameEntry.addr.slice(0, 3) + "..." + gameEntry.addr.slice(-3);
@@ -317,7 +287,6 @@ async function getLatestGameData() {
 
     let tb = document.querySelector("#table-body");
     let clone = document.importNode(t.content, true);
-    tb.appendChild(clone);
     //Show only the last five games max
     if (i <= gameCount - maxEntriesToDisplay) break;
   }
@@ -344,7 +313,7 @@ function getEthFiatRate() {
 
 //Handle errors from fetch operation
 function handleErrors(response) {
-  //console.log(response);
+
   if (!response.ok) {
     throw Error(response.statusText);
   }
@@ -353,8 +322,6 @@ function handleErrors(response) {
 
 //Convert ETH in USD
 function calcFiat(etherToConvert) {
-  // console.log(etherToConvert);
-  // console.log(ethUsd);
   return (etherToConvert * ethUsd).toFixed(2);
 }
 
