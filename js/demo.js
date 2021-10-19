@@ -325,18 +325,6 @@ function calcFiat(etherToConvert) {
   return (etherToConvert * ethUsd).toFixed(2);
 }
 
-
-
-  function initializeScene() {
-    scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera(55, 1, 1, 10);
-    renderer = new THREE.WebGLRenderer({ canvas: document.querySelector(".result-coin canvas") });
-    scene.background = new THREE.Color(0x000000);
-  }
-
-  
-}
-
 //Show alert with custom message
 function showAlert(text, colorClass) {
   var contractInfo = document.querySelector(".contract-info");
