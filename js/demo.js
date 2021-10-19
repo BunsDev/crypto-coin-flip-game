@@ -233,6 +233,11 @@ function logEvent() {
   });
 }
 
+//Scroll down to coin animation after click on "Play"
+function scrollDown() {
+  const coinAnimation = document.querySelector(".result-coin");
+  setTimeout(function () { coinAnimation.scrollIntoView(); }, 10); //Without delay scrollIntoView does not work.
+}
 
 //Get current contract balance (jackpot balance)
 async function getContractBalance() {
