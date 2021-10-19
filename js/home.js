@@ -119,9 +119,6 @@ async function loadBlockchainData() {
 
 //const accounts = await ether.getAccounts();
 //const Accountaddress = accounts[0];
-  Bullbear = new ethers.Contract(contractAddress, abi, signer);
-  TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
-  document.querySelector(".infotext").innerHTML = "<b>Select Bull or Bear</b>";
   //document.querySelector("#demo-button").innerText = "accounts";
   // console.log(headsOrTails);
 
@@ -230,6 +227,8 @@ function scrollDown() {
 //Get current contract balance (jackpot balance)
 async function getContractBalance() {
 	//TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
+  Bullbear = new ethers.Contract(contractAddress, abi, signer);
+  TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
   const currentBalanceWei = await provider.getBalance(contractAddress);
   const currentBalanceEth = ethers.utils.formatEther(currentBalanceWei);
   // console.log("Contract balance (ETH): " + currentBalanceEth);
@@ -237,6 +236,7 @@ async function getContractBalance() {
   let cash = await Bullbear.Cash(adr);
   let tkbalance = await TokenContract.balanceOf(adr);
   ApproveContract=await Bullbear.AproveContract(adr);	
+  document.querySelector(".infotext").innerHTML = "<b>Select Bull or Bear</b>";
   //document.querySelector(".imgresult").innerHTML = "<img src='img/bullbear.png' alt='BullBear' width='400' height='220'>";
   document.querySelector("#user-address").innerHTML = adr.slice(0, 4) + "..." + adr.slice(-4);
   document.querySelector("#cash-balance").innerHTML = cash;
