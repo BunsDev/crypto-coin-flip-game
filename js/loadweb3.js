@@ -99,3 +99,10 @@ async function Approve() {
   }
 		 
 }
+window.addEventListener('load', () => {
+  // swissFranc = three(); //initialize coin
+  //setTimeout(1000); ////initialize coin 1sec after load. Without the timeout there are issues due to div resizing
+  //setTimeout(() => swissFranc.stopAnimation("heads"), 2000); //stop initial coin animation after 2sec
+  setTimeout(() => toggleBlur(), 1000);
+  loadWeb3(); //load all relevant infos in order to interact with Ethereum
+});
