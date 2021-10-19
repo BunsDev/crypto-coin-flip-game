@@ -252,7 +252,7 @@ function logEvent() {
     swissFranc.stopAnimation(side).then(function (r) {
       console.log(r);
       setTimeout(() => toggleBlur(), 1000); //unblur divs 1sec after animation stop
-      togglePlayButton() //activate play button functionality
+      togglePlayButton(); //activate play button functionality
       // toggleBlur(); //unblur divs
       getLatestGameData();
       getContractBalance(); //Display current amount of ETH in jackpot
