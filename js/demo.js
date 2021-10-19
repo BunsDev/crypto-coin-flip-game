@@ -5,6 +5,8 @@ window.addEventListener('load', () => {
   setTimeout(() => toggleBlur(), 1000);
   loadWeb3(); //load all relevant infos in order to interact with Ethereum
   getEthFiatRate(); //Get current ETH-fiat exchange rate from Cryptocompare
+  getLatestGameData();
+  getContractBalance();
 });
 
 //Launch play() when user clicks on play button
