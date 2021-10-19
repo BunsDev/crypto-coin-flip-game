@@ -236,7 +236,7 @@ function logEvent() {
 
 //Get current contract balance (jackpot balance)
 async function getContractBalance() {
-	TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
+	//TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
   const currentBalanceWei = await provider.getBalance(contractAddress);
   const currentBalanceEth = ethers.utils.formatEther(currentBalanceWei);
    let adr = await Bullbear.GetAdress();
