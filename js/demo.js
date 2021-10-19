@@ -289,7 +289,8 @@ async function getLatestGameData() {
 
     let tb = document.querySelector("#table-body");
     let clone = document.importNode(t.content, true);
-    //Show only the last five games max
+    //Show only the last five games max 
+    document.querySelector(".infotext").innerHTML = gameCount;
     if (i <= gameCount - maxEntriesToDisplay) break;
   }
 	document.querySelector(".infotext").innerHTML = "<b>demo game</b>";
