@@ -94,7 +94,7 @@ document.getElementById("amount-to-bet").addEventListener("input", () => {
 
 //Reload web3 on network change (setTimeout needed, because else "window.ethereum.on('networkChanged',..."
 //would be triggered on page load --> loadWeb3() would be fired twice)
-setTimeout(() => {
+/*setTimeout(() => {
   if(!window.ethereum) return;//ignore this function in case of non-ethereum browser
   window.ethereum.on('networkChanged', function (netId) {
     console.log("network has changed. New id: " + netId);
@@ -187,7 +187,7 @@ async function Approve() {
 		 
 }
 
-
+*/
 
 //Launch game
 async function play(headsOrTailsSelection, amountToBetEther) {
