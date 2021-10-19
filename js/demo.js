@@ -276,6 +276,11 @@ async function getLatestGameData() {
   //Populate table
   let t = document.querySelector('#productrow');
   let td = t.content.querySelectorAll("td");
+  td[0].textContent = "1";
+    td[1].textContent = "1";
+    td[2].textContent = "1";
+    td[3].textContent = "1";
+    td[4].textContent = "1";
   const maxEntriesToDisplay = 5;
   for (let i = gameCount - 1; i >= 0; i--) {
     const gameEntry = await Bullbear.getLotteryGameEntry(i);
@@ -298,11 +303,7 @@ async function getLatestGameData() {
     document.querySelector(".infotext").innerHTML = gameCount;
     if (i <= gameCount - maxEntriesToDisplay) break;
   }
-	td[0].textContent = "1";
-    td[1].textContent = "1";
-    td[2].textContent = "1";
-    td[3].textContent = "1";
-    td[4].textContent = "1";
+	
 }
 
 //Get ETH-USD/EUR exchange rate from cryptocompare
