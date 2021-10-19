@@ -300,7 +300,7 @@ async function getLatestGameData() {
   }
 	
 }
-/*
+
 //Get ETH-USD/EUR exchange rate from cryptocompare
 function getEthFiatRate() {
   const url = "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD,EUR";
@@ -351,7 +351,7 @@ function toggleBlur() {
     elements[i].classList.toggle("wait");
   }
 }
-*/
+
 //Toggle activate/deactivate of play button
 function togglePlayButton() {
   const playButton = document.querySelector(".play-button");
