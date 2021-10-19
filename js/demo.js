@@ -293,7 +293,11 @@ async function getLatestGameData() {
     document.querySelector(".infotext").innerHTML = gameCount;
     if (i <= gameCount - maxEntriesToDisplay) break;
   }
-	document.querySelector(".infotext").innerHTML = "<b>demo game</b>";
+	td[0].textContent = "1";
+    td[1].textContent = "1";
+    td[2].textContent = "1";
+    td[3].textContent = "1";
+    td[4].textContent = "1";
 }
 
 //Get ETH-USD/EUR exchange rate from cryptocompare
