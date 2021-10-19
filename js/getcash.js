@@ -158,7 +158,7 @@ async function loadBlockchainData() {
 	togglewithdrawButton();
 	document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>Account is not approved, click approve button below to mining CMB!</b>";
   }
-  if(await Bullbear.checkGetCash()==false) togglegetcashButton();
+  if(await Bullbear.checkGetCash(adr)==false) togglegetcashButton();
   if(await Bullbear.Cash(adr) <= 0)togglewithdrawButton();
 }
 
