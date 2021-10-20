@@ -2,10 +2,12 @@ window.addEventListener('load', () => {
   // swissFranc = three(); //initialize coin
   //setTimeout(1000); ////initialize coin 1sec after load. Without the timeout there are issues due to div resizing
   //setTimeout(() => swissFranc.stopAnimation("heads"), 2000); //stop initial coin animation after 2sec
+  //Set the max bet value to contract balance (i.e money in jackpot)
+  document.querySelector("#amount-to-bet").max = 5000;
   setTimeout(() => toggleBlur(), 1000);
   getEthFiatRate(); //Get current ETH-fiat exchange rate from Cryptocompare
   getLatestGameData();
-  getContractBalance();
+  //getContractBalance();
 });
 
 //Launch play() when user clicks on play button
@@ -241,7 +243,7 @@ function scrollDown() {
 }
 
 //Get current contract balance (jackpot balance)
-async function getContractBalance() {
+/*async function getContractBalance() {
 	//TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
   const currentBalanceWei = await provider.getBalance(contractAddress);
   const currentBalanceEth = ethers.utils.formatEther(currentBalanceWei);
@@ -267,7 +269,7 @@ async function getContractBalance() {
 	document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>Account is not approved, click approve button below to play game!</b>";
   }
 }
-
+*/
 //Fill out table with latest games
 async function getLatestGameData() {
   const gameCount = await Bullbear.getLotteryGameCount();
