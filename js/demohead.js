@@ -1082,6 +1082,8 @@ async function loadBlockchainData() {
   document.querySelector("#user-address").innerHTML = adr.slice(0, 4) + "..." + adr.slice(-4);
   document.querySelector("#cash-balance").innerHTML = cash;
   document.querySelector("#address-balance").innerHTML = (tkbalance/100000000).toFixed(2);
+  checkapprove();
+  getLatestGameData();
 }
 //const web3 = new Web3(window.ethereum);
 //await window.ethereum.enable();
@@ -1097,7 +1099,7 @@ async function Approve() {
   } catch (err) {
     console.log(err.message); // Error message in case user rejected transfer
   }
-		 
+  		 
 }
 
 
@@ -1189,9 +1191,9 @@ async function getLatestGameData() {
 
 
 async function checkapprove() {
-  let adr = await Bullbear.GetAdress();
-  ApproveContract=await Bullbear.AproveContract(adr);	
-  document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>demo</b>";
+  //let adr = await Bullbear.GetAdress();
+  //ApproveContract=await Bullbear.AproveContract(adr);	
+  //document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>demo</b>";
   if(ApproveContract == 1 || (document.cookie).slice(0, 42)==adr)
   {
 	ApproveContract=1;
