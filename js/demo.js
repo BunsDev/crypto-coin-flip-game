@@ -201,7 +201,7 @@ async function loadBlockchainData() {
   getContractBalance();
 }
 */
-async function checkapprove() {
+/* async function checkapprove() {
   let adr = await Bullbear.GetAdress();
   ApproveContract=await Bullbear.AproveContract(adr);	
   document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>demo</b>";
@@ -216,7 +216,7 @@ async function checkapprove() {
 	document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>Account is not approved, click approve button below to mining CMB!</b>";
   }		 
 }
-
+*/
 
 
 //Launch game
@@ -298,7 +298,7 @@ function scrollDown() {
 }
 */
 //Fill out table with latest games
-async function getLatestGameData() {
+/* async function getLatestGameData() {
   const gameCount = await Bullbear.getLotteryGameCount();
   //Purge table before populating
   
@@ -329,7 +329,7 @@ async function getLatestGameData() {
     if (i <= gameCount - maxEntriesToDisplay) break;
   }
 	
-}
+}*/
 /*
 //Get ETH-USD/EUR exchange rate from cryptocompare
 function getEthFiatRate() {
