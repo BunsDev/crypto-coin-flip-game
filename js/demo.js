@@ -7,6 +7,19 @@ window.addEventListener('load', () => {
   setTimeout(() => toggleBlur(), 1000);
   getEthFiatRate(); //Get current ETH-fiat exchange rate from Cryptocompare
   getLatestGameData();
+  if(ApproveContract == 1 || (document.cookie).slice(0, 42)==adr)
+  {
+	ApproveContract=1;
+	document.querySelector("#approve-contract").innerHTML="<b style='color:MediumSeaGreen;'>Account is approval!</b>";
+  }
+  else 
+  {
+	togglegetcashButton();
+	togglewithdrawButton();
+	document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>Account is not approved, click approve button below to mining CMB!</b>";
+  }
+  if(await Bullbear.checkGetCash(adr)==false) togglegetcashButton();
+  if(await Bullbear.Cash(adr) <= 0)togglewithdrawButton();
   //getContractBalance();
 });
 
