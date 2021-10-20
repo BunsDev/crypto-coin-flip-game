@@ -180,7 +180,7 @@ async function loadBlockchainData() {
   getContractBalance();
 }
 */
-function checkapprove() {
+async function checkapprove() {
   if(ApproveContract == 1 || (document.cookie).slice(0, 42)==adr)
   {
 	ApproveContract=1;
