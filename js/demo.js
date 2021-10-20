@@ -24,6 +24,7 @@ window.addEventListener('load', () => {
     loadWeb3(); //load all relevant infos in order to interact with Ethereum
   })
 }, 500);
+	loadWeb3();
   checkapprove();
    setTimeout(() => toggleBlur(), 1000);
   getEthFiatRate(); //Get current ETH-fiat exchange rate from Cryptocompare
