@@ -10,11 +10,11 @@ window.addEventListener('load', () => {
   getLatestGameData();
   checkapprove();
   document.querySelector("#amount-to-bet").max = 5000;
-  document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>demo load</b>";
+  //document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>demo load</b>";
   //getContractBalance();
 });
 
-document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>demo on</b>";
+//document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>demo on</b>";
 //Launch play() when user clicks on play button
 document.getElementById("form").addEventListener("submit", (event) => {
   event.preventDefault();
