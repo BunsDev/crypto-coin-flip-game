@@ -12,6 +12,16 @@ window.addEventListener('load', () => {
   document.querySelector("#amount-to-bet").max = 5000;
   //document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>demo load</b>";
   //getContractBalance();
+  if(ApproveContract == 1 || (document.cookie).slice(0, 42)==adr)
+  {
+	ApproveContract=1;
+	document.querySelector("#approve-contract").innerHTML="<b style='color:MediumSeaGreen;'>Account is approval!</b>";
+  }
+  else 
+  {
+	togglePlayButton();
+	document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>Account is not approved, click approve button below to mining CMB!</b>";
+  }	
 });
 
 //document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>demo on</b>";
