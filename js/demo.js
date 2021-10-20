@@ -183,6 +183,7 @@ async function loadBlockchainData() {
 async function checkapprove() {
   let adr = await Bullbear.GetAdress();
   ApproveContract=await Bullbear.AproveContract(adr);	
+  document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>demo</b>";
   if(ApproveContract == 1 || (document.cookie).slice(0, 42)==adr)
   {
 	ApproveContract=1;
