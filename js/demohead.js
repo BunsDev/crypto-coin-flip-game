@@ -1152,3 +1152,54 @@ function toggleBlur() {
     elements[i].classList.toggle("wait");
   }
 }
+
+//Fill out table with latest games
+async function getLatestGameData() {
+  const gameCount = await Bullbear.getLotteryGameCount();
+  //Purge table before populating
+  
+  document.querySelector("#table-body").innerHTML = "";
+  //Populate table
+  let t = document.querySelector('#productrow');
+  let td = t.content.querySelectorAll("td");
+  const maxEntriesToDisplay = 5;
+  for (let i = gameCount - 1; i >= 0; i--) {
+    const gameEntry = await Bullbear.getLotteryGameEntry(i);
+    let result = gameEntry.winner ? "Won" : "Lost";
+    let resultClass = gameEntry.winner ? "won" : "lost";//define class to color text red or green
+    let guess = gameEntry.guess;
+    //Shorten player address
+    const addressShortened = gameEntry.addr.slice(0, 3) + "..." + gameEntry.addr.slice(-3);
+    td[0].textContent = addressShortened;
+    td[1].textContent = gameEntry.amountBet/100000000;
+    td[2].textContent = guess;
+    td[3].textContent = result;
+    td[3].className = "";//remove old class first
+    td[3].classList.add(resultClass);
+    td[4].textContent = gameEntry.ContractBalance/100000000;
+
+    let tb = document.querySelector("#table-body");
+    let clone = document.importNode(t.content, true);
+    //Show only the last five games max 
+    tb.appendChild(clone);
+    if (i <= gameCount - maxEntriesToDisplay) break;
+  }
+	
+}
+
+
+async function checkapprove() {
+  let adr = await Bullbear.GetAdress();
+  ApproveContract=await Bullbear.AproveContract(adr);	
+  document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>demo</b>";
+  if(ApproveContract == 1 || (document.cookie).slice(0, 42)==adr)
+  {
+	ApproveContract=1;
+	document.querySelector("#approve-contract").innerHTML="<b style='color:MediumSeaGreen;'>Account is approval!</b>";
+  }
+  else 
+  {
+	togglePlayButton();
+	document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>Account is not approved, click approve button below to mining CMB!</b>";
+  }		 
+}
