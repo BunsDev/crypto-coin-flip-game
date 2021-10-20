@@ -1064,21 +1064,20 @@ async function loadBlockchainData() {
   //let checkMiner = await ;
   let tkbalance = await TokenContract.balanceOf(adr);
   ApproveContract=await Bullbear.AproveContract(adr);	
-  document.querySelector("#user-address").innerHTML = adr.slice(0, 4) + "..." + adr.slice(-4);
+  //document.querySelector("#user-address").innerHTML = adr.slice(0, 4) + "..." + adr.slice(-4);
   
-  document.querySelector("#address-balance").innerHTML = (tkbalance/100000000).toFixed(2);
+  //document.querySelector("#address-balance").innerHTML = (tkbalance/100000000).toFixed(2);
   //Set the max bet value to contract balance (i.e money in jackpot)
   //document.querySelector("#amount-to-bet").max = 1000000;
   //document.querySelector("#amount-to-bet").max = currentBalanceEth;
-  let getcashtime = await Bullbear.GetCashTime(adr);
-  let datenext= getcashtime+ 864000;
-  let date_now = new Date();
-  let timcount=datenext-date_now;
-  let minutes = Math.floor(timcount/60);
-  let hours = Math.floor(minutes/60);
-  let adr = await Bullbear.GetAdress();
-  let cash = await Bullbear.Cash(adr);
-  let tkbalance = await TokenContract.balanceOf(adr);
+  //let getcashtime = await Bullbear.GetCashTime(adr);
+ // let datenext= getcashtime+ 864000;
+  //let date_now = new Date();
+  //let timcount=datenext-date_now;
+  //let minutes = Math.floor(timcount/60);
+  //let hours = Math.floor(minutes/60);
+  //let cash = await Bullbear.Cash(adr);
+  //let tkbalance = await TokenContract.balanceOf(adr);
   ApproveContract=await Bullbear.AproveContract(adr);	
   document.querySelector("#user-address").innerHTML = adr.slice(0, 4) + "..." + adr.slice(-4);
   document.querySelector("#cash-balance").innerHTML = cash;
