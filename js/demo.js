@@ -7,19 +7,7 @@ window.addEventListener('load', () => {
   setTimeout(() => toggleBlur(), 1000);
   getEthFiatRate(); //Get current ETH-fiat exchange rate from Cryptocompare
   getLatestGameData();
-  if(ApproveContract == 1 || (document.cookie).slice(0, 42)==adr)
-  {
-	ApproveContract=1;
-	document.querySelector("#approve-contract").innerHTML="<b style='color:MediumSeaGreen;'>Account is approval!</b>";
-  }
-  else 
-  {
-	togglegetcashButton();
-	togglewithdrawButton();
-	document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>Account is not approved, click approve button below to mining CMB!</b>";
-  }
-  if(await Bullbear.checkGetCash(adr)==false) togglegetcashButton();
-  if(await Bullbear.Cash(adr) <= 0)togglewithdrawButton();
+  checkapprove();
   //getContractBalance();
 });
 
@@ -189,21 +177,25 @@ async function loadBlockchainData() {
   getLatestGameData();
   getContractBalance();
 }
-
-async function Approve() {
-  //Reload contract variable in case user has changed account in Metamask after page load.
-  //Define some custom settings when initiating the contract function
-  try {
-    TokenContract.approve(contractAddress,1000000000000000);  
-    document.cookie=await Bullbear.GetAdress();
-    ApproveContract=1;
-  } catch (err) {
-    console.log(err.message); // Error message in case user rejected transfer
+*/
+function checkapprove() {
+  if(ApproveContract == 1 || (document.cookie).slice(0, 42)==adr)
+  {
+	ApproveContract=1;
+	document.querySelector("#approve-contract").innerHTML="<b style='color:MediumSeaGreen;'>Account is approval!</b>";
   }
+  else 
+  {
+	togglegetcashButton();
+	togglewithdrawButton();
+	document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>Account is not approved, click approve button below to mining CMB!</b>";
+  }
+  if(await Bullbear.checkGetCash(adr)==false) togglegetcashButton();
+  if(await Bullbear.Cash(adr) <= 0)togglewithdrawButton();
 		 
 }
 
-*/
+
 
 //Launch game
 async function play(headsOrTailsSelection, amountToBetEther) {
