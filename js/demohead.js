@@ -979,13 +979,13 @@ let ApproveContract;
 
 //Reload web3 on network change (setTimeout needed, because else "window.ethereum.on('networkChanged',..."
 //would be triggered on page load --> loadWeb3() would be fired twice)
-setTimeout(() => {
+/*setTimeout(() => {
   if(!window.ethereum) return;//ignore this function in case of non-ethereum browser
   window.ethereum.on('networkChanged', function (netId) {
     console.log("network has changed. New id: " + netId);
     loadWeb3(); //load all relevant infos in order to interact with Ethereum
   })
-}, 500);
+}, 500);*/
 
 //Load web3 interface or get read access via Infura
 async function loadWeb3() {
