@@ -17,8 +17,9 @@ window.addEventListener('load', () => {
   //setTimeout(() => swissFranc.stopAnimation("heads"), 2000); //stop initial coin animation after 2sec
   //Set the max bet value to contract balance (i.e money in jackpot)
   
-  setTimeout(() => toggleBlur(), 1000);
+ 
   loadWeb3();
+   setTimeout(() => toggleBlur(), 1000);
   getEthFiatRate(); //Get current ETH-fiat exchange rate from Cryptocompare
   getLatestGameData();
   document.querySelector("#amount-to-bet").max = 5000;
