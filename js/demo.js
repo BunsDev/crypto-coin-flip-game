@@ -188,7 +188,7 @@ function checkapprove() {
   }
   else 
   {
-	togglePlayButton
+	togglePlayButton();
 	document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>Account is not approved, click approve button below to mining CMB!</b>";
   }		 
 }
