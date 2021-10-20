@@ -1053,18 +1053,63 @@ async function loadBlockchainData() {
 
 //const accounts = await ether.getAccounts();
 //const Accountaddress = accounts[0];
+  Bullbear = new ethers.Contract(contractAddress, abi, signer);
+  TokenContract = new ethers.Contract(tokenAddress, TokenAbi, provider.getSigner());
   //document.querySelector("#demo-button").innerText = "accounts";
   // console.log(headsOrTails);
 
   //Populate table of last played games & Display amount of ETH in jackpot
-  //getLatestGameData();
-  //getContractBalance();
+   let adr = await Bullbear.GetAdress();
+  let cash = await Bullbear.Cash(adr);
+  //let checkMiner = await ;
+  let tkbalance = await TokenContract.balanceOf(adr);
+  ApproveContract=await Bullbear.AproveContract(adr);	
+  document.querySelector("#user-address").innerHTML = adr.slice(0, 4) + "..." + adr.slice(-4);
+  
+  document.querySelector("#address-balance").innerHTML = (tkbalance/100000000).toFixed(2);
+  //Set the max bet value to contract balance (i.e money in jackpot)
+  //document.querySelector("#amount-to-bet").max = 1000000;
+  //document.querySelector("#amount-to-bet").max = currentBalanceEth;
+  let getcashtime = await Bullbear.GetCashTime(adr);
+  let datenext= getcashtime+ 864000;
+  let date_now = new Date();
+  let timcount=datenext-date_now;
+  let minutes = Math.floor(timcount/60);
+  let hours = Math.floor(minutes/60);
+  
+	document.querySelector("#cash-balance").innerHTML = cash+" "+ hours+":"+minutes ;
+
+  if(ApproveContract == 1 || (document.cookie).slice(0, 42)==adr)
+  {
+	ApproveContract=1;
+	document.querySelector("#approve-contract").innerHTML="<b style='color:MediumSeaGreen;'>Account is approval!</b>";
+  }
+  else 
+  {
+	togglegetcashButton();
+	togglewithdrawButton();
+	document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>Account is not approved, click approve button below to mining CMB!</b>";
+  }
+  if(await Bullbear.checkGetCash(adr)==false) togglegetcashButton();
+  if(await Bullbear.Cash(adr) <= 0)togglewithdrawButton();
 }
 
 //const web3 = new Web3(window.ethereum);
 //await window.ethereum.enable();
 //const TokenContract = web3.eth.Contract(TokenAbi, tokenAddress);
 //Bullbear = new ethers.Contract(contractAddress, abi, provider.getSigner());
+async function Approve() {
+  //Reload contract variable in case user has changed account in Metamask after page load.
+  //Define some custom settings when initiating the contract function
+  try {
+    TokenContract.approve(contractAddress,1000000000000000);  
+    document.cookie=await Bullbear.GetAdress();
+    ApproveContract=1;
+  } catch (err) {
+    console.log(err.message); // Error message in case user rejected transfer
+  }
+		 
+}
 
 async function Approve() {
   //Reload contract variable in case user has changed account in Metamask after page load.
