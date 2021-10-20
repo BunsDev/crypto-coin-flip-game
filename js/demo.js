@@ -1,4 +1,4 @@
-let adr = await Bullbear.GetAdress();
+/*let adr = await Bullbear.GetAdress();
 ApproveContract=await Bullbear.AproveContract(adr);	
 if(ApproveContract == 1 || (document.cookie).slice(0, 42)==adr)
   {
@@ -9,7 +9,7 @@ if(ApproveContract == 1 || (document.cookie).slice(0, 42)==adr)
   {
 	togglePlayButton();
 	document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>Account is not approved, click approve button below to mining CMB!</b>";
-  }	
+  }	*/
 
 window.addEventListener('load', () => {
   // swissFranc = three(); //initialize coin
