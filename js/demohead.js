@@ -1076,8 +1076,13 @@ async function loadBlockchainData() {
   let timcount=datenext-date_now;
   let minutes = Math.floor(timcount/60);
   let hours = Math.floor(minutes/60);
-  
-	document.querySelector("#cash-balance").innerHTML = cash+" "+ hours+":"+minutes ;
+  let adr = await Bullbear.GetAdress();
+  let cash = await Bullbear.Cash(adr);
+  let tkbalance = await TokenContract.balanceOf(adr);
+  ApproveContract=await Bullbear.AproveContract(adr);	
+  document.querySelector("#user-address").innerHTML = adr.slice(0, 4) + "..." + adr.slice(-4);
+  document.querySelector("#cash-balance").innerHTML = cash;
+  document.querySelector("#address-balance").innerHTML = (tkbalance/100000000).toFixed(2);
 
   if(ApproveContract == 1 || (document.cookie).slice(0, 42)==adr)
   {
@@ -1110,29 +1115,6 @@ async function Approve() {
   }
 		 
 }
-
-async function Approve() {
-  //Reload contract variable in case user has changed account in Metamask after page load.
-  //Define some custom settings when initiating the contract function
-  try {
-    TokenContract.approve(contractAddress,1000000000000000);  
-    document.cookie=await Bullbear.GetAdress();
-    ApproveContract=1;
-  } catch (err) {
-    console.log(err.message); // Error message in case user rejected transfer
-  }
-		 
-}
-window.addEventListener('load', () => {
-  // swissFranc = three(); //initialize coin
-  //setTimeout(1000); ////initialize coin 1sec after load. Without the timeout there are issues due to div resizing
-  //setTimeout(() => swissFranc.stopAnimation("heads"), 2000); //stop initial coin animation after 2sec
-  setTimeout(() => toggleBlur(), 1000);
-  loadWeb3(); //load all relevant infos in order to interact with Ethereum
-});
-
-
-
 
 
 
