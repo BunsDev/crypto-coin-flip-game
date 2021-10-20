@@ -1084,21 +1084,6 @@ async function loadBlockchainData() {
   document.querySelector("#cash-balance").innerHTML = cash;
   document.querySelector("#address-balance").innerHTML = (tkbalance/100000000).toFixed(2);
 
-  if(ApproveContract == 1 || (document.cookie).slice(0, 42)==adr)
-  {
-	ApproveContract=1;
-	document.querySelector("#approve-contract").innerHTML="<b style='color:MediumSeaGreen;'>Account is approval!</b>";
-  }
-  else 
-  {
-	togglegetcashButton();
-	togglewithdrawButton();
-	document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>Account is not approved, click approve button below to mining CMB!</b>";
-  }
-  if(await Bullbear.checkGetCash(adr)==false) togglegetcashButton();
-  if(await Bullbear.Cash(adr) <= 0)togglewithdrawButton();
-}
-
 //const web3 = new Web3(window.ethereum);
 //await window.ethereum.enable();
 //const TokenContract = web3.eth.Contract(TokenAbi, tokenAddress);
