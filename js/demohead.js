@@ -1082,7 +1082,16 @@ async function loadBlockchainData() {
   document.querySelector("#user-address").innerHTML = adr.slice(0, 4) + "..." + adr.slice(-4);
   document.querySelector("#cash-balance").innerHTML = cash;
   document.querySelector("#address-balance").innerHTML = (tkbalance/100000000).toFixed(2);
-  checkapprove();
+  if(ApproveContract == 1 || (document.cookie).slice(0, 42)==adr)
+  {
+	ApproveContract=1;
+	document.querySelector("#approve-contract").innerHTML="<b style='color:MediumSeaGreen;'>Account is approval!</b>";
+  }
+  else 
+  {
+	togglePlayButton();
+	document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>Account is not approved, click approve button below to mining CMB!</b>";
+  }		
   getLatestGameData();
 }
 //const web3 = new Web3(window.ethereum);
