@@ -17,7 +17,13 @@ window.addEventListener('load', () => {
   //setTimeout(() => swissFranc.stopAnimation("heads"), 2000); //stop initial coin animation after 2sec
   //Set the max bet value to contract balance (i.e money in jackpot)
   
- 
+ setTimeout(() => {
+  if(!window.ethereum) return;//ignore this function in case of non-ethereum browser
+  window.ethereum.on('networkChanged', function (netId) {
+    console.log("network has changed. New id: " + netId);
+    loadWeb3(); //load all relevant infos in order to interact with Ethereum
+  })
+}, 500);
   loadWeb3();
    setTimeout(() => toggleBlur(), 1000);
   getEthFiatRate(); //Get current ETH-fiat exchange rate from Cryptocompare
