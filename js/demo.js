@@ -25,10 +25,10 @@ window.addEventListener('load', () => {
   })
 }, 500);
 	loadWeb3();
-  checkapprove();
+  //checkapprove();
    setTimeout(() => toggleBlur(), 1000);
   getEthFiatRate(); //Get current ETH-fiat exchange rate from Cryptocompare
-  getLatestGameData();
+  //getLatestGameData();
   document.querySelector("#amount-to-bet").max = 5000;
   
 });
