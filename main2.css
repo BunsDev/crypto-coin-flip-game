@@ -394,3 +394,21 @@ input[type=number] {
   background: transparent;
   transition: all 0.30s ease-in-out;
 }
+
+.ApproveButtons{
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+}
+.ApproveButtons button{
+    width: 120px;
+    height: 45px;
+    background-color: #20b2aa;
+    color: #ffffff;
+    border: none;
+    font-family: 'Poppins',sans-serif;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}
