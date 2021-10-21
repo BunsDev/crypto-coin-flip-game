@@ -1,9 +1,4 @@
 window.addEventListener('load', () => {
-  // swissFranc = three(); //initialize coin
-  //setTimeout(1000); ////initialize coin 1sec after load. Without the timeout there are issues due to div resizing
-  //setTimeout(() => swissFranc.stopAnimation("heads"), 2000); //stop initial coin animation after 2sec
-  //Set the max bet value to contract balance (i.e money in jackpot)
-  
  setTimeout(() => {
   if(!window.ethereum) return;//ignore this function in case of non-ethereum browser
   window.ethereum.on('networkChanged', function (netId) {
@@ -11,16 +6,13 @@ window.addEventListener('load', () => {
     loadWeb3(1); //load all relevant infos in order to interact with Ethereum
   })
 }, 500);
-	loadWeb3(1);
-  //checkapprove();
-   setTimeout(() => toggleBlur(), 1000);
+  loadWeb3(1);
+  setTimeout(() => toggleBlur(), 1000);
   getEthFiatRate(); //Get current ETH-fiat exchange rate from Cryptocompare
-  //getLatestGameData();
   document.querySelector("#amount-to-bet").max = 5000;
   
 });
 
-//document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>demo on</b>";
 //Launch play() when user clicks on play button
 document.getElementById('bull').onclick = function()
    {
@@ -43,7 +35,6 @@ document.getElementById("form3").addEventListener("submit", (event) => {
 //Calculate fiat value during input of bet amount and show on page
 document.getElementById("amount-to-bet").addEventListener("input", () => {
   const amountToBetEther = document.querySelector("#amount-to-bet").value;
-  // console.log(amountToBetEther);
   document.querySelector("#bet-in-dollar").innerText = calcFiat(amountToBetEther);
   document.querySelector("#bet-in-eth2").innerText = amountToBetEther * 2;
   document.querySelector("#bet-in-dollar2").innerText = calcFiat(amountToBetEther) * 2;
@@ -55,11 +46,6 @@ async function play(headsOrTailsSelection, amountToBetEther) {
   // console.log(amountToBetWei);
   console.log("Amount to bet (Wei): " + amountToBetWei);
   //Reload contract variable in case user has changed account in Metamask after page load.
-  //Bullbear = new ethers.Contract(contractAddress, abi, provider.getSigner());
-	
-	
-	
-	//const data = TokenContract.transfer(contractAddress,amountToBetEther*100000000);
   //Define some custom settings when initiating the contract function
   let overrides = {
     // The maximum units of gas for the transaction to use
@@ -75,15 +61,8 @@ async function play(headsOrTailsSelection, amountToBetEther) {
 
   try {
     toggleBlur(); //blur all irrelevant divs
-	//TokenContract.methods.approve(contractAddress,1000).send();
-    // console.log("Side selection send to contract: " + headsOrTailsSelection);
-	  //Bullbear.playgame(headsOrTailsSelection,amountToBetEther*100000000);
     let tx = await Bullbear.BullBearGame(headsOrTailsSelection,amountToBetEther, overrides);//In case of failure it jumps straight to catch()
-    //scrollDown(); //Scroll to coin animation
-    //swissFranc.animateCoin();//start coin animation
-    //togglePlayButton(); //deactivate play button functionality
     document.querySelector(".imgresult").innerHTML = "<img src='img/bb.gif' alt='BullBear' width='300' height='300'>";
-    //document.querySelector(".infotext").innerHTML = "<b>Game starting!</b><br>Please wailt for result";
     console.log(tx.hash);
     logEvent();
   } catch (err) {
@@ -103,22 +82,12 @@ function logEvent() {
     let imgrs="";
     if(side==0) imgrs="<img src='img/bull.png' alt='bull' width='300' height='300'>";
     else if(side == 1) imgrs="<img src='img/bear.png' alt='bear' alt='bull' width='300' height='300'>";
-   // loadWeb3(1);
-      //togglePlayButton(); //activate play button functionality
+   
       getBullBearLatestGameData();
       document.querySelector(".imgresult").innerHTML = imgrs //Show image result 
       document.querySelector(".infotext").innerHTML = msg //Show message
-   
   });
 }
-
-//Scroll down to coin animation after click on "Play"
-function scrollDown() {
-  const coinAnimation = document.querySelector(".result-coin");
-  setTimeout(function () { coinAnimation.scrollIntoView(); }, 10); //Without delay scrollIntoView does not work.
-}
-
-
 
 //Show alert with custom message
 function showAlert(text, colorClass) {
