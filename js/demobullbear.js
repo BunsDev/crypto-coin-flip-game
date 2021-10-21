@@ -8,10 +8,10 @@ window.addEventListener('load', () => {
   if(!window.ethereum) return;//ignore this function in case of non-ethereum browser
   window.ethereum.on('networkChanged', function (netId) {
     console.log("network has changed. New id: " + netId);
-    loadWeb3(); //load all relevant infos in order to interact with Ethereum
+    loadWeb3(1); //load all relevant infos in order to interact with Ethereum
   })
 }, 500);
-	loadWeb3();
+	loadWeb3(1);
   //checkapprove();
    setTimeout(() => toggleBlur(), 1000);
   getEthFiatRate(); //Get current ETH-fiat exchange rate from Cryptocompare
