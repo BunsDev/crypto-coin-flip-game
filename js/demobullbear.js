@@ -22,74 +22,17 @@ window.addEventListener('load', () => {
 
 //document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>demo on</b>";
 //Launch play() when user clicks on play button
-document.getElementById("form").addEventListener("submit", (event) => {
-  event.preventDefault();
-  //Find out which radio button is selected and how much money is bet.
-  const amountToBetEther = document.querySelector("#amount-to-bet").value;
-  headsOrTailsSelection = parseInt(document.querySelector(":checked").value);
-  // console.log("0 or 1: " + headsOrTailsSelection);
-  // console.log("Amount to bet (ETH): " + amountToBetEther);
-  play(headsOrTailsSelection, amountToBetEther);
-});
-document.getElementById('btO').onclick = function()
+document.getElementById('bull').onclick = function()
    {
-	const amountToBetEther = document.querySelector("#amount-to-bet").value;
+       const amountToBetEther = document.querySelector("#amount-to-bet").value;
        play(0, amountToBetEther);
        headsOrTailsSelection=0;
    }
-document.getElementById('bt1').onclick = function()
+document.getElementById('bear').onclick = function()
    {
-	const amountToBetEther = document.querySelector("#amount-to-bet").value;
+       const amountToBetEther = document.querySelector("#amount-to-bet").value;
        play(1, amountToBetEther);
        headsOrTailsSelection=1;
-   }
-document.getElementById('bt2').onclick = function()
-   {
-	const amountToBetEther = document.querySelector("#amount-to-bet").value;
-       play(2, amountToBetEther);
-       headsOrTailsSelection=2;
-   }
-document.getElementById('bt3').onclick = function()
-   {
-	const amountToBetEther = document.querySelector("#amount-to-bet").value;
-       play(3, amountToBetEther);
-       headsOrTailsSelection=3;
-   }
-document.getElementById('bt4').onclick = function()
-   {
-	const amountToBetEther = document.querySelector("#amount-to-bet").value;
-       play(4, amountToBetEther);
-       headsOrTailsSelection=4;
-   }
-document.getElementById('bt5').onclick = function()
-   {
-	const amountToBetEther = document.querySelector("#amount-to-bet").value;
-       play(5, amountToBetEther);
-       headsOrTailsSelection=5;
-   }
-document.getElementById('bt6').onclick = function()
-   {
-	const amountToBetEther = document.querySelector("#amount-to-bet").value;
-       play(6, amountToBetEther);
-       headsOrTailsSelection=6;
-   }
-document.getElementById('bt7').onclick = function()
-   {
-	const amountToBetEther = document.querySelector("#amount-to-bet").value;
-       play(7, amountToBetEther);
-       headsOrTailsSelection=7;
-   }
-document.getElementById('bt8').onclick = function()
-   {
-	const amountToBetEther = document.querySelector("#amount-to-bet").value;
-       play(8, amountToBetEther);
-       headsOrTailsSelection=8;
-   }
-document.getElementById('bt9').onclick = function()
-   {
-	const amountToBetEther = document.querySelector("#amount-to-bet").value;
-       play(9, amountToBetEther);
-       headsOrTailsSelection=9;
    }
 document.getElementById("form3").addEventListener("submit", (event) => {
   event.preventDefault();
