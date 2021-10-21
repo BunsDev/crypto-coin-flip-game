@@ -256,7 +256,7 @@ function logEvent() {
     const msg = (side === headsOrTailsSelection) ? "<b style='color:MediumSeaGreen;'>You won!</b>" : "<h1 style='color:Tomato;'>You lost!</h1>";
     let imgrs="<img src='img/n0" + side + ".png' width='150' height='150'>";
     //togglePlayButton(); //activate play button functionality
-    getLatestGameData();
+    getLotteryLatestGameData();
       //getContractBalance(); //Display current amount of ETH in jackpot
       document.querySelector(".imgresult").innerHTML = imgrs //Show image result 
       document.querySelector(".infotext").innerHTML = msg //Show message
