@@ -79,11 +79,11 @@ async function loadBlockchainData(gameid) {
   document.querySelector("#user-address").innerHTML = adr.slice(0, 4) + "..." + adr.slice(-4);
   document.querySelector("#cash-balance").innerHTML = cash;
   //document.querySelector("#address-balance").innerHTML = (tkbalance/100000000).toFixed(2);
-  document.querySelector(".ApproveButton").onclick = function()
+  document.getElementById('approve').onclick = function()
    {
        Approve();
    }
-  //checkapprove();	
+  checkapprove();	
   if(gameid==1) getBullBearLatestGameData();
   else if(gameid==2) getLotteryLatestGameData();
   else if(gameid==3) getOneTwoThreeLatestGameData();
