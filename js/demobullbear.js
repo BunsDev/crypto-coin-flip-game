@@ -81,7 +81,7 @@ async function play(headsOrTailsSelection, amountToBetEther) {
     let tx = await Bullbear.BullBearGame(headsOrTailsSelection,amountToBetEther, overrides);//In case of failure it jumps straight to catch()
     //scrollDown(); //Scroll to coin animation
     //swissFranc.animateCoin();//start coin animation
-    togglePlayButton(); //deactivate play button functionality
+    //togglePlayButton(); //deactivate play button functionality
     document.querySelector(".imgresult").innerHTML = "<img src='img/bb.gif' alt='BullBear' width='300' height='300'>";
     //document.querySelector(".infotext").innerHTML = "<b>Game starting!</b><br>Please wailt for result";
     console.log(tx.hash);
@@ -103,9 +103,9 @@ function logEvent() {
     let imgrs="";
     if(side==0) imgrs="<img src='img/bull.png' alt='bull' width='300' height='300'>";
     else if(side == 1) imgrs="<img src='img/bear.png' alt='bear' alt='bull' width='300' height='300'>";
-    loadWeb3(1);
+   // loadWeb3(1);
       //togglePlayButton(); //activate play button functionality
-      //getBullBearLatestGameData();
+      getBullBearLatestGameData();
       document.querySelector(".imgresult").innerHTML = imgrs //Show image result 
       document.querySelector(".infotext").innerHTML = msg //Show message
    
