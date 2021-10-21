@@ -103,9 +103,9 @@ function logEvent() {
     let imgrs="";
     if(side==0) imgrs="<img src='img/bull.png' alt='bull' width='300' height='300'>";
     else if(side == 1) imgrs="<img src='img/bear.png' alt='bear' alt='bull' width='300' height='300'>";
-
-      togglePlayButton(); //activate play button functionality
-      getBullBearLatestGameData();
+    loadWeb3(1);
+      //togglePlayButton(); //activate play button functionality
+      //getBullBearLatestGameData();
       document.querySelector(".imgresult").innerHTML = imgrs //Show image result 
       document.querySelector(".infotext").innerHTML = msg //Show message
    
