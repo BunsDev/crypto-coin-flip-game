@@ -79,8 +79,8 @@ async function play(headsOrTailsSelection, amountToBetEther) {
     // console.log("Side selection send to contract: " + headsOrTailsSelection);
 	  //Bullbear.playgame(headsOrTailsSelection,amountToBetEther*100000000);
     let tx = await Bullbear.BullBearGame(headsOrTailsSelection,amountToBetEther, overrides);//In case of failure it jumps straight to catch()
-    scrollDown(); //Scroll to coin animation
-    swissFranc.animateCoin();//start coin animation
+    //scrollDown(); //Scroll to coin animation
+    //swissFranc.animateCoin();//start coin animation
     togglePlayButton(); //deactivate play button functionality
     document.querySelector(".imgresult").innerHTML = "<img src='img/bb.gif' alt='BullBear' width='300' height='300'>";
     //document.querySelector(".infotext").innerHTML = "<b>Game starting!</b><br>Please wailt for result";
