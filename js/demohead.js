@@ -305,13 +305,13 @@ async function checkapprove() {
   }
   else 
   {
-	togglePlayButton();
+	toggleApproveButton();
 	document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>Account is not approved, click approve button below to mining CMB!</b>";
   }		 
 }
 
 //Toggle activate/deactivate of play button
-function togglePlayButton() {
+function toggleApproveButton() {
   const playButton = document.querySelector(".play-button");
   if (playButton.disabled) playButton.disabled = "";
   else playButton.disabled = "disabled";
