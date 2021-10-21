@@ -988,7 +988,7 @@ let ApproveContract;
 }, 500);*/
 
 //Load web3 interface or get read access via Infura
-async function loadWeb3() {
+async function loadWeb3(gameid) {
   // Connect to the network
   // Modern dapp browsers...
   if (window.ethereum) {
@@ -1025,12 +1025,12 @@ async function loadWeb3() {
     // console.log(provider);
     // loadBlockchainData();
   }
-  loadBlockchainData();
+  loadBlockchainData(gameid);
 }
 //const account = await web3Instance.eth.getAccounts();
 //const accountAddress = await account[0];
 //Load contract information and define signer & provider
-async function loadBlockchainData() {
+async function loadBlockchainData(gameid) {
   //Show link to contract on Etherscan and link to Github repository
   contractAddressShortened = contractAddress.slice(0, 4) + "..." + contractAddress.slice(-4);
   document.querySelector(".contract-address").innerHTML = '<a href="https://testnet.bscscan.com/address/' + contractAddress + '">' + contractAddressShortened + '</a> Code on Github: <a href="https://github.com/rene78/Heads-Or-Tails">Heads or Tails</a>';
@@ -1092,7 +1092,10 @@ async function loadBlockchainData() {
 	togglePlayButton();
 	document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>Account is not approved, click approve button below to mining CMB!</b>";
   }		
-  getLatestGameData();
+  if(gameid==1) getBullBearLatestGameData();
+  else if(gameid==2) getLotteryLatestGameData();
+  else if(gameid==3) getOneTwoThreeLatestGameData();
+	
 }
 //const web3 = new Web3(window.ethereum);
 //await window.ethereum.enable();
@@ -1165,7 +1168,43 @@ function toggleBlur() {
 }
 
 //Fill out table with latest games
-async function getLatestGameData() {
+async function getBullBearLatestGameData() {
+  const gameCount = await Bullbear.getBullBearGameCount();
+  // console.log(gameCount);
+
+  //Purge table before populating
+  document.querySelector("#table-body").innerHTML = "";
+  //Populate table
+  let t = document.querySelector('#productrow');
+  let td = t.content.querySelectorAll("td");
+  const maxEntriesToDisplay = 5;
+  for (let i = gameCount - 1; i >= 0; i--) {
+    const gameEntry = await Bullbear.getBullBearGameEntry(i);
+    let result = gameEntry.winner ? "Won" : "Lost";
+    let resultClass = gameEntry.winner ? "won" : "lost";//define class to color text red or green
+    // console.log(resultClass);
+    let guess = gameEntry.guess == 0 ? "Bull" : "Bear";
+    //Shorten player address
+    const addressShortened = gameEntry.addr.slice(0, 3) + "..." + gameEntry.addr.slice(-3);
+    td[0].textContent = addressShortened;
+    td[1].textContent = gameEntry.amountBet/100000000;
+    td[2].textContent = guess;
+    td[3].textContent = result;
+    td[3].className = "";//remove old class first
+    td[3].classList.add(resultClass);
+    td[4].textContent = gameEntry.ContractBalance/100000000;
+
+    let tb = document.querySelector("#table-body");
+    let clone = document.importNode(t.content, true);
+    tb.appendChild(clone);
+    //Show only the last five games max
+    if (i <= gameCount - maxEntriesToDisplay) break;
+  }
+}
+
+
+//Fill out table with Lottery latest games
+async function getLotteryLatestGameData() {
   const gameCount = await Bullbear.getLotteryGameCount();
   //Purge table before populating
   
@@ -1198,11 +1237,59 @@ async function getLatestGameData() {
 	
 }
 
+//Fill out table with OneTwoThree latest games
+async function getOneTwoThreeLatestGameData() {
+  const gameCount = await Bullbear.getOneTwoThreeGameCount();
+  // console.log(gameCount);
+
+  //Purge table before populating
+  document.querySelector("#table-body").innerHTML = "";
+  //Populate table
+  let t = document.querySelector('#productrow');
+  let td = t.content.querySelectorAll("td");
+  const maxEntriesToDisplay = 5;
+  for (let i = gameCount - 1; i >= 0; i--) {
+    const gameEntry = await Bullbear.getOneTwoThreeGameEntry(i);
+    let result = "";
+    let resultClass = "";//define class to color text red or green
+    if(gameEntry.winner==0) { result = "Draw"; resultClass = "won"}
+    else if(gameEntry.winner==1) 
+	    {
+		    result = "won";
+		    resultClass = "won";
+	    }
+    else if(gameEntry.winner==2) 
+	    {
+		    result = "lost";
+		    resultClass = "lost";
+	    }
+    // console.log(resultClass);
+    let guess ="";
+    if(gameEntry.guess==0) { guess = "Rock"; }
+    else if(gameEntry.guess==1) { guess = "Paper"; }
+    else if(gameEntry.guess==2) { guess = "Scissors";}
+
+    //Shorten player address
+    const addressShortened = gameEntry.addr.slice(0, 3) + "..." + gameEntry.addr.slice(-3);
+    td[0].textContent = addressShortened;
+    td[1].textContent = gameEntry.amountBet/100000000;
+    td[2].textContent = guess;
+    td[3].textContent = result;
+    td[3].className = "";//remove old class first
+    td[3].classList.add(resultClass);
+    td[4].textContent = gameEntry.ContractBalance/100000000;
+
+    let tb = document.querySelector("#table-body");
+    let clone = document.importNode(t.content, true);
+    tb.appendChild(clone);
+    //Show only the last five games max
+    if (i <= gameCount - maxEntriesToDisplay) break;
+  }
+}
+
+
 
 async function checkapprove() {
-  //let adr = await Bullbear.GetAdress();
-  //ApproveContract=await Bullbear.AproveContract(adr);	
-  //document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>demo</b>";
   if(ApproveContract == 1 || (document.cookie).slice(0, 42)==adr)
   {
 	ApproveContract=1;
@@ -1213,4 +1300,11 @@ async function checkapprove() {
 	togglePlayButton();
 	document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>Account is not approved, click approve button below to mining CMB!</b>";
   }		 
+}
+
+//Toggle activate/deactivate of play button
+function togglePlayButton() {
+  const playButton = document.querySelector(".play-button");
+  if (playButton.disabled) playButton.disabled = "";
+  else playButton.disabled = "disabled";
 }
