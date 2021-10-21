@@ -92,6 +92,7 @@ async function loadBlockchainData(gameid) {
   if(gameid==1) getBullBearLatestGameData();
   else if(gameid==2) getLotteryLatestGameData();
   else if(gameid==3) getOneTwoThreeLatestGameData();
+  else if(gameid==4) getMinerStatus();
 	
 }
 
@@ -277,6 +278,21 @@ async function getOneTwoThreeLatestGameData() {
     //Show only the last five games max
     if (i <= gameCount - maxEntriesToDisplay) break;
   }
+}
+
+//Fill out table with OneTwoThree latest games
+async function getMinerStatus() {
+   let adr = await Bullbear.GetAdress();
+   let amountMinning = await Bullbear.MinerAmount(adr);
+   let Reward = await Bullbear.CalReward();
+   let cash = await Bullbear.Cash(adr);
+   let tkbalance = await TokenContract.balanceOf(adr);
+   document.querySelector("#cash-balance").innerHTML = cash;
+   document.querySelector("#address-balance").innerHTML = (tkbalance/100000000).toFixed(2);
+   document.querySelector("#amount-minning").innerHTML = amountMinning/100000000;
+   document.querySelector("#reward-minning").innerHTML = Reward/100000000;
+   if(amountMinning>0) document.querySelector(".imgresult").innerHTML = "<img src='img/Mining.gif' width='500' height='250'>";
+   else document.querySelector(".imgresult").innerHTML = "<img src='img/Miner.png' width='500' height='250'>";
 }
 
 
