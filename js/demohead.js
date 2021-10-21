@@ -293,6 +293,7 @@ async function getMinerStatus() {
 
 
 async function checkapprove() {
+  let adr = await Bullbear.GetAdress();
   if(ApproveContract == 1 || (document.cookie).slice(0, 42)==adr)
   {
 	ApproveContract=1;
