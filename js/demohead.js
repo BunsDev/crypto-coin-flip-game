@@ -164,7 +164,7 @@ function toggleBlur() {
 async function getBullBearLatestGameData() {
   const gameCount = await Bullbear.getBullBearGameCount();
   let adr = await Bullbear.GetAdress();
-  document.querySelector("#cash-balance").innerHTML = (await TokenContract.balanceOf(adr)/100000000).toFixed(2); 
+  document.querySelector("#address-balance").innerHTML = (await TokenContract.balanceOf(adr)/100000000).toFixed(2); 
   //Purge table before populating
   document.querySelector("#table-body").innerHTML = "";
   //Populate table
@@ -200,7 +200,7 @@ async function getBullBearLatestGameData() {
 async function getLotteryLatestGameData() {
   const gameCount = await Bullbear.getLotteryGameCount();
   let adr = await Bullbear.GetAdress();
-  document.querySelector("#cash-balance").innerHTML = (await TokenContract.balanceOf(adr)/100000000).toFixed(2); 
+  document.querySelector("#address-balance").innerHTML = (await TokenContract.balanceOf(adr)/100000000).toFixed(2); 
   //Purge table before populating
   
   document.querySelector("#table-body").innerHTML = "";
@@ -235,7 +235,7 @@ async function getLotteryLatestGameData() {
 async function getOneTwoThreeLatestGameData() {
   const gameCount = await Bullbear.getOneTwoThreeGameCount();
   let adr = await Bullbear.GetAdress();
-  document.querySelector("#cash-balance").innerHTML = (await TokenContract.balanceOf(adr)/100000000).toFixed(2); 
+  document.querySelector("#address-balance").innerHTML = (await TokenContract.balanceOf(adr)/100000000).toFixed(2); 
   //Purge table before populating
   document.querySelector("#table-body").innerHTML = "";
   //Populate table
