@@ -50,13 +50,10 @@ document.getElementById("amount-to-bet").addEventListener("input", () => {
 //Await GameResult event. Then stop coin animation on right side, update game history and jackpot.
 function logEvent() {
   Bullbear.once("OneTwoThreeGameResult", (side, event) => {
-    // console.log(event);
     console.log("Bet on: " + ((headsOrTailsSelection === 0) ? 'Bull' : 'Bear'));
     console.log("Result: " + ((side === 0) ? 'Bull' : 'Bear'));
     let msg = "";
     let imgrs="";
-	  
-    // console.log(msg);
     if (headsOrTailsSelection == side) {
       //Draw!
 	msg = "<b>Draw!</b>";
@@ -74,7 +71,6 @@ function logEvent() {
     if(side==0) imgrs="<img src='img/Rock.png' alt='rock'>";
     else if(side == 1) imgrs="<img src='img/Paper.png' alt='paper'>";
     else if(side == 2) imgrs="<img src='img/Scissors.png' alt='scissors'>";
-     // togglePlayButton() //activate play button functionality
       getOneTwoThreeLatestGameData();
       document.querySelector(".imgresult").innerHTML = imgrs //Show image result 
       document.querySelector(".infotext").innerHTML = msg //Show message
@@ -87,36 +83,18 @@ function logEvent() {
 //Launch game
 async function play(headsOrTailsSelection, amountToBetEther) {
   const amountToBetWei = ethers.utils.parseEther(amountToBetEther);
-  // console.log(amountToBetWei);
   console.log("Amount to bet (Wei): " + amountToBetWei);
-  //Reload contract variable in case user has changed account in Metamask after page load.
-  //Bullbear = new ethers.Contract(contractAddress, abi, provider.getSigner());
-	
-	
-	
-	//const data = TokenContract.transfer(contractAddress,amountToBetEther*100000000);
-  //Define some custom settings when initiating the contract function
   let overrides = {
     // The maximum units of gas for the transaction to use
     gasLimit: 500000,
-
     // The price (in wei) per unit of gas
     gasPrice: ethers.utils.parseUnits('50.0', 'gwei'),
-	  
-
     // The amount to send with the transaction (i.e. msg.value)
     value: 0
   };
 
   try {
-    //toggleBlur(); //blur all irrelevant divs
-	//TokenContract.methods.approve(contractAddress,1000).send();
-    // console.log("Side selection send to contract: " + headsOrTailsSelection);
-	  //Bullbear.playgame(headsOrTailsSelection,amountToBetEther*100000000);
     let tx = await Bullbear.OneTwoThreeGame(headsOrTailsSelection,amountToBetEther, overrides);//In case of failure it jumps straight to catch()
-    //scrollDown(); //Scroll to coin animation
-    //swissFranc.animateCoin();//start coin animation
-    //togglePlayButton(); //deactivate play button functionality
     document.querySelector(".imgresult").innerHTML="";
     document.querySelector(".infotext").innerHTML = "<b>Game starting!</b><br>Please wailt for result";
     console.log(tx.hash);
@@ -139,7 +117,6 @@ function showAlert(text, colorClass) {
 //Blur all elements with class "to-blur"
 function toggleBlur() {
   const elements = document.querySelectorAll(".to-blur");
-  // console.log(elements);
   for (let i = 0; i < elements.length; i++) {
     elements[i].classList.toggle("wait");
   }
