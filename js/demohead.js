@@ -73,12 +73,12 @@ async function loadBlockchainData(gameid) {
   //Populate table of last played games & Display amount of ETH in jackpot
    let adr = await Bullbear.GetAdress();
   let cash = await Bullbear.Cash(adr);
-  let tkbalance = await TokenContract.balanceOf(adr);
+  //let tkbalance = await TokenContract.balanceOf(adr);
   ApproveContract=await Bullbear.AproveContract(adr);	
   ApproveContract=await Bullbear.AproveContract(adr);	
   document.querySelector("#user-address").innerHTML = adr.slice(0, 4) + "..." + adr.slice(-4);
   document.querySelector("#cash-balance").innerHTML = cash;
-  document.querySelector("#address-balance").innerHTML = (tkbalance/100000000).toFixed(2);
+  //document.querySelector("#address-balance").innerHTML = (tkbalance/100000000).toFixed(2);
   if(ApproveContract == 1 || (document.cookie).slice(0, 42)==adr)
   {
 	ApproveContract=1;
@@ -162,7 +162,8 @@ function toggleBlur() {
 //Fill out table with latest games
 async function getBullBearLatestGameData() {
   const gameCount = await Bullbear.getBullBearGameCount();
-
+  let adr = await Bullbear.GetAdress();
+  document.querySelector("#cash-balance").innerHTML = (await TokenContract.balanceOf(adr)/100000000).toFixed(2); 
   //Purge table before populating
   document.querySelector("#table-body").innerHTML = "";
   //Populate table
@@ -197,6 +198,8 @@ async function getBullBearLatestGameData() {
 //Fill out table with Lottery latest games
 async function getLotteryLatestGameData() {
   const gameCount = await Bullbear.getLotteryGameCount();
+  let adr = await Bullbear.GetAdress();
+  document.querySelector("#cash-balance").innerHTML = (await TokenContract.balanceOf(adr)/100000000).toFixed(2); 
   //Purge table before populating
   
   document.querySelector("#table-body").innerHTML = "";
@@ -230,8 +233,8 @@ async function getLotteryLatestGameData() {
 //Fill out table with OneTwoThree latest games
 async function getOneTwoThreeLatestGameData() {
   const gameCount = await Bullbear.getOneTwoThreeGameCount();
-  // console.log(gameCount);
-
+  let adr = await Bullbear.GetAdress();
+  document.querySelector("#cash-balance").innerHTML = (await TokenContract.balanceOf(adr)/100000000).toFixed(2); 
   //Purge table before populating
   document.querySelector("#table-body").innerHTML = "";
   //Populate table
