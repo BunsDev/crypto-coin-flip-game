@@ -79,16 +79,7 @@ async function loadBlockchainData(gameid) {
   document.querySelector("#user-address").innerHTML = adr.slice(0, 4) + "..." + adr.slice(-4);
   document.querySelector("#cash-balance").innerHTML = cash;
   //document.querySelector("#address-balance").innerHTML = (tkbalance/100000000).toFixed(2);
-  if(ApproveContract == 1 || (document.cookie).slice(0, 42)==adr)
-  {
-	ApproveContract=1;
-	document.querySelector("#approve-contract").innerHTML="<b style='color:MediumSeaGreen;'>Account is approval!</b>";
-  }
-  else 
-  {
-	togglePlayButton();
-	document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>Account is not approved, click approve button below to mining CMB!</b>";
-  }		
+  checkapprove();	
   if(gameid==1) getBullBearLatestGameData();
   else if(gameid==2) getLotteryLatestGameData();
   else if(gameid==3) getOneTwoThreeLatestGameData();
@@ -312,7 +303,7 @@ async function checkapprove() {
 
 //Toggle activate/deactivate of play button
 function toggleApproveButton() {
-  const playButton = document.querySelector(".play-button");
-  if (playButton.disabled) playButton.disabled = "";
-  else playButton.disabled = "disabled";
+  const approveButton = document.querySelector(".ApproveButton");
+  if ( approveButton.disabled)  approveButton.disabled = "";
+  else  approveButton.disabled = "disabled";
 }
