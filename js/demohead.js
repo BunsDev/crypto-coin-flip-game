@@ -83,7 +83,7 @@ async function loadBlockchainData(gameid) {
    {
        Approve();
    }
-  checkapprove();	
+  //checkapprove();	
   if(gameid==1) getBullBearLatestGameData();
   else if(gameid==2) getLotteryLatestGameData();
   else if(gameid==3) getOneTwoThreeLatestGameData();
