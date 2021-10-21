@@ -109,14 +109,14 @@ async function play(headsOrTailsSelection, amountToBetEther) {
   };
 
   try {
-    toggleBlur(); //blur all irrelevant divs
+    //toggleBlur(); //blur all irrelevant divs
 	//TokenContract.methods.approve(contractAddress,1000).send();
     // console.log("Side selection send to contract: " + headsOrTailsSelection);
 	  //Bullbear.playgame(headsOrTailsSelection,amountToBetEther*100000000);
     let tx = await Bullbear.OneTwoThreeGame(headsOrTailsSelection,amountToBetEther, overrides);//In case of failure it jumps straight to catch()
-    scrollDown(); //Scroll to coin animation
-    swissFranc.animateCoin();//start coin animation
-    togglePlayButton(); //deactivate play button functionality
+    //scrollDown(); //Scroll to coin animation
+    //swissFranc.animateCoin();//start coin animation
+    //togglePlayButton(); //deactivate play button functionality
     document.querySelector(".imgresult").innerHTML="";
     document.querySelector(".infotext").innerHTML = "<b>Game starting!</b><br>Please wailt for result";
     console.log(tx.hash);
