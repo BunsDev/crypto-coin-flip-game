@@ -10,7 +10,7 @@ window.addEventListener('load', () => {
   setTimeout(() => toggleBlur(), 1000);
   getEthFiatRate(); //Get current ETH-fiat exchange rate from Cryptocompare
   document.querySelector("#amount-to-bet").max = 5000;
-  
+  document.querySelector(".imgresult").innerHTML = "<img src='img/bullbear.png' width='400' height='200'>";
 });
 
 //Launch play() when user clicks on play button
