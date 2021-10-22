@@ -356,6 +356,7 @@ body{
   justify-content: center;
   top: 10%;
   text-align:center;
+  left: 50%;
 }
 
 /* Blog post design starts from here */
@@ -370,7 +371,7 @@ body{
   transition: 250ms all ease-in-out;
   cursor: pointer;
   top: 50%;
-  left: 300px;
+  left: 50%;
 }
 
 /*.card:hover {  /* blog post hover */
