@@ -49,7 +49,7 @@ async function loadWeb3(gameid) {
 async function loadBlockchainData(gameid) {
   //Show link to contract on Etherscan and link to Github repository
   contractAddressShortened = contractAddress.slice(0, 4) + "..." + contractAddress.slice(-4);
-  document.querySelector(".contract-address").innerHTML = '<a href="https://testnet.bscscan.com/address/' + contractAddress + '">' + contractAddressShortened + '</a> Code on Github: <a href="https://github.com/rene78/Heads-Or-Tails">Heads or Tails</a>';
+  document.querySelector(".contract-address").innerHTML = '<a href="https://testnet.bscscan.com/address/' + contractAddress + '">' + contractAddressShortened + '</a> © 2021 <a href="https://www.CryptoMiniGames.com">CryptoMiniGames.com</a>';
 
   //First check if contract is deployed to the network
   let activeNetwork = await provider.getNetwork(provider);
