@@ -412,3 +412,14 @@ input[type=number] {
     cursor: pointer;
     outline: none;
 }
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #1177ca;
+  color: white;
+  font-family: 'segoe ui';
+  text-align: center;
+}
