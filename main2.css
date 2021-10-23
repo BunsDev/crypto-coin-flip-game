@@ -370,7 +370,8 @@ body{
   transition: 250ms all ease-in-out;
   cursor: pointer;
   top: 10%;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*.card:hover {  /* blog post hover */
