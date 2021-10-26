@@ -438,4 +438,5 @@ input[type=number] {
   color: white;
   font-family: 'segoe ui';
   text-align: center;
+  height: 30px;
 }
