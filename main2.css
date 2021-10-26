@@ -211,6 +211,15 @@ body{
     border-radius: 5px;
     box-shadow: 0 0 20px rgba(0,139,253,0.25);
 }
+
+.infotext{
+ 
+    font-family: 'Roboto mono',monospace;
+    color: #0381bb;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
 .buttons{
     width: 90%;
     margin: 60px auto 0 auto;
