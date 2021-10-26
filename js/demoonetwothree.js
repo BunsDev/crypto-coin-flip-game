@@ -10,7 +10,7 @@ window.addEventListener('load', () => {
   setTimeout(() => toggleBlur(), 1000);
   getEthFiatRate(); //Get current ETH-fiat exchange rate from Cryptocompare
   document.querySelector("#amount-to-bet").max = 5000;
-  
+  document.querySelector(".infotext").innerHTML = " Select rock, paper or  scissors";
 });
 
 document.getElementById('rock').onclick = function()
@@ -95,8 +95,8 @@ async function play(headsOrTailsSelection, amountToBetEther) {
 
   try {
     let tx = await Bullbear.OneTwoThreeGame(headsOrTailsSelection,amountToBetEther, overrides);//In case of failure it jumps straight to catch()
-    document.querySelector(".imgresult").innerHTML="";
-    document.querySelector(".infotext").innerHTML = "<b>Game starting!</b><br>Please wailt for result";
+    document.querySelector(".imgresult").innerHTML = "<img src='img/onetwothree.gif' width='300' height='300'>";
+    //document.querySelector(".infotext").innerHTML = "<b>Game starting!</b><br>Please wailt for result";
     console.log(tx.hash);
     logEvent();
   } catch (err) {
