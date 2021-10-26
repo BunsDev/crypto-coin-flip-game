@@ -410,12 +410,17 @@ input[type=number] {
     width: 90%;
     display: flex;
     justify-content: space-around;
+    
 }
 .ApproveButtons button{
     width: 120px;
-    height: 45px;
+    height: 30px;
     background-color: #20b2aa;
     color: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
     border: none;
     font-family: 'Poppins',sans-serif;
     font-size: 18px;
