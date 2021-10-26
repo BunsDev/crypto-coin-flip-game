@@ -68,9 +68,9 @@ function logEvent() {
         //win 
         msg = "<b style='color:MediumSeaGreen;'>You won!</b>";
     }
-    if(side==0) imgrs="<img src='img/Rock.png' alt='rock'>";
-    else if(side == 1) imgrs="<img src='img/Paper.png' alt='paper'>";
-    else if(side == 2) imgrs="<img src='img/Scissors.png' alt='scissors'>";
+    if(side==0) imgrs="<img src='img/Rock.png' width='200' height='200'>";
+    else if(side == 1) imgrs="<img src='img/Paper.png' width='200' height='200'>";
+    else if(side == 2) imgrs="<img src='img/Scissors.png' width='200' height='200'>";
       getOneTwoThreeLatestGameData();
       document.querySelector(".imgresult").innerHTML = imgrs //Show image result 
       document.querySelector(".infotext").innerHTML = msg //Show message
@@ -95,7 +95,7 @@ async function play(headsOrTailsSelection, amountToBetEther) {
 
   try {
     let tx = await Bullbear.OneTwoThreeGame(headsOrTailsSelection,amountToBetEther, overrides);//In case of failure it jumps straight to catch()
-    document.querySelector(".imgresult").innerHTML = "<img src='img/onetwothree.gif' width='300' height='300'>";
+    document.querySelector(".imgresult").innerHTML = "<img src='img/onetwothree.gif' width='200' height='200'>";
     //document.querySelector(".infotext").innerHTML = "<b>Game starting!</b><br>Please wailt for result";
     console.log(tx.hash);
     logEvent();
