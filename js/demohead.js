@@ -298,10 +298,10 @@ async function checkapprove() {
   {
 	ApproveContract=1;
 	document.querySelector("#approve-contract").innerHTML="<b style='color:MediumSeaGreen;'>Account is approval!</b>";
+	toggleApproveButton();
   }
   else 
   {
-	toggleApproveButton();
 	document.querySelector("#approve-contract").innerHTML="<b style='color:Tomato;'>Account is not approved, click approve button below to mining CMB!</b>";
   }		 
 }
