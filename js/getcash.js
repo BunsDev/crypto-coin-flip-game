@@ -138,14 +138,14 @@ async function loadBlockchainData() {
   //Set the max bet value to contract balance (i.e money in jackpot)
   //document.querySelector("#amount-to-bet").max = 1000000;
   //document.querySelector("#amount-to-bet").max = currentBalanceEth;
-  let getcashtime = await Bullbear.GetCashTime(adr);
+  let getcashtime = await Bullbear.GetCashTime(adr); 
   let datenext= new Date((getcashtime+ 864000)*1000);
   let year=datenext.getFullYear();
-  let mon=datenext.getMonth() + 1;
+  let mon=datenext.getMonth()+1;
   let day=datenext.getDate();
   let hour=datenext.getHours();
   let min=datenext.getMinutes();
-  let sec=datenext.getSeconds();     
+  let sec=datenext.getSeconds();   
   //let date_now = Math.floor( new Date().getTime() / 1000);
   //let timcount=datenext-date_now;
   //let minutes = Math.floor(timcount/60);
