@@ -145,7 +145,7 @@ async function loadBlockchainData() {
   let day=datenext.getDate();
   let hour=datenext.getHours();
   let min=datenext.getMinutes();
-  let sec=datenext.getSeconds()       
+  let sec=datenext.getSeconds();     
   let date_now = Math.floor( new Date().getTime() / 1000);
   let timcount=datenext-date_now;
   let minutes = Math.floor(timcount/60);
