@@ -139,14 +139,21 @@ async function loadBlockchainData() {
   //document.querySelector("#amount-to-bet").max = 1000000;
   //document.querySelector("#amount-to-bet").max = currentBalanceEth;
   let getcashtime = await Bullbear.GetCashTime(adr);
-  let datenext= getcashtime+ 864000;
+  let datenext= (getcashtime+ 864000)*1000;
+  let year=datenext.getFullYear();
+  let mon=datenext.getMonth() + 1;
+  let day=datenext.getDate();
+  let hour=datenext.getHours();
+  let min=datenext.getMinutes();
+  let sec=datenext.getSeconds()       
   let date_now = Math.floor( new Date().getTime() / 1000);
   let timcount=datenext-date_now;
   let minutes = Math.floor(timcount/60);
   let hours = Math.floor(minutes/60);
+	
   
-	document.querySelector("#cash-balance").innerHTML = cash+" "+ getcashtime +":"+date_now ;
-
+  document.querySelector("#cash-balance").innerHTML = cash;
+  document.querySelector(".infotext").innerHTML = "Next get cash time: " + hour + ":" + min + ":" + sec + " - " + day + "/" + mon + "/" + year;
   if(ApproveContract == 1 || (document.cookie).slice(0, 42)==adr)
   {
 	ApproveContract=1;
