@@ -309,6 +309,14 @@ async function checkapprove() {
 //Toggle activate/deactivate of play button
 function toggleApproveButton() {
   const approveButton = document.querySelector(".ApproveButton");
-  if ( approveButton.disabled)  approveButton.disabled = "";
-  else  approveButton.disabled = "disabled";
+  if ( approveButton.disabled)  
+  {
+	  approveButton.disabled = "";
+	  approveButton.style.backgroundColor = "#DDDDDD";
+  }
+  else  
+  {
+	approveButton.disabled = "disabled";
+	approveButton.style.backgroundColor = "#DDDDDD";
+  }
 }
