@@ -153,8 +153,7 @@ async function loadBlockchainData() {
 	
   
   document.querySelector("#cash-balance").innerHTML = cash;
-  document.querySelector(".infotext").innerHTML = "Next get cash time: " + datenext;
-  //document.querySelector(".infotext").innerHTML = "Next get cash time: " + hour + ":" + min + ":" + sec + " - " + day + "/" + mon + "/" + year;
+  document.querySelector(".infotext").innerHTML = "Next get cash time: " + hour + ":" + min + ":" + sec + " - " + day + "/" + mon + "/" + year;
   if(ApproveContract == 1 || (document.cookie).slice(0, 42)==adr)
   {
 	ApproveContract=1;
