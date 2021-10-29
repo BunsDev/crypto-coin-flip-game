@@ -139,7 +139,7 @@ async function loadBlockchainData() {
   //document.querySelector("#amount-to-bet").max = 1000000;
   //document.querySelector("#amount-to-bet").max = currentBalanceEth;
   let getcashtime = await Bullbear.GetCashTime(adr);
-  let datenext= (getcashtime+ 864000)*1000;
+  let datenext= new Date((getcashtime+ 864000)*1000);
   let year=datenext.getFullYear();
   let mon=datenext.getMonth() + 1;
   let day=datenext.getDate();
