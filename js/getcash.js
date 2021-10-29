@@ -145,7 +145,7 @@ async function loadBlockchainData() {
   let minutes = Math.floor(timcount/60);
   let hours = Math.floor(minutes/60);
   
-	document.querySelector("#cash-balance").innerHTML = cash+" "+ hours+":"+minutes ;
+	document.querySelector("#cash-balance").innerHTML = cash+" "+ getcashtime +":"+date_now ;
 
   if(ApproveContract == 1 || (document.cookie).slice(0, 42)==adr)
   {
