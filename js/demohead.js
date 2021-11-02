@@ -316,7 +316,7 @@ async function getCashStatus() {
   //let minutes = Math.floor(timcount/60);
   //let hours = Math.floor(minutes/60);
   document.querySelector("#cash-balance").innerHTML = cash;
-  document.querySelector(".infotext").innerHTML = "Next get cash time: " + Math.floor(datenext);
+  document.querySelector(".infotext").innerHTML = Math.floor(datenext);
 }
 
 
