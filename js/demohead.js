@@ -303,6 +303,20 @@ async function getCashStatus() {
    //document.querySelector("#reward-minning").innerHTML = Reward/100000000;
    //if(amountMinning>0) document.querySelector(".imgresult").innerHTML = "<img src='img/Mining.gif' width='500' height='250'>";
    //else document.querySelector(".imgresult").innerHTML = "<img src='img/Miner.png' width='500' height='250'>";
+   let getcashtime = await Bullbear.GetCashTime(adr); 
+  let datenext= new Date((getcashtime+ 864000)*1000);
+  let year=Math.floor(datenext.getFullYear());
+  let mon=Math.floor(datenext.getMonth()+1);
+  let day=Math.floor(datenext.getDate());
+  let hour=Math.floor(datenext.getHours());
+  let min=Math.floor(datenext.getMinutes());
+  let sec=Math.floor(datenext.getSeconds());   
+  //let date_now = Math.floor( new Date().getTime() / 1000);
+  //let timcount=datenext-date_now;
+  //let minutes = Math.floor(timcount/60);
+  //let hours = Math.floor(minutes/60);
+  document.querySelector("#cash-balance").innerHTML = cash;
+  document.querySelector(".infotext").innerHTML = "Next get cash time: " + datenext;
 }
 
 
