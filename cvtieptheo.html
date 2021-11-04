@@ -13,10 +13,11 @@ function loadFile() {
 
 function displayContents() {
     if(reader.readyState==4) {
-        let f=reader.readln();
+        allText = reader.responseText; 
+        lines = reader.responseText.split("\n");
         var el = document.getElementById('main');
        // el.innerHTML = reader.responseText;
-        el.innerHTML = f;
+        el.innerHTML = lines;
     }
 }
 
