@@ -13,11 +13,14 @@ function loadFile() {
 
 function displayContents() {
     if(reader.readyState==4) {
-        allText = reader.responseText; 
-        lines = reader.responseText.split("\n");
+        var allText = reader.responseText; 
+        var lines = reader.responseText.split("\n");
+        
+        var randomNum = Math.floor(Math.random() * lines.length);
+        var randomLine = lines[randomNum]
         var el = document.getElementById('main');
        // el.innerHTML = reader.responseText;
-        el.innerHTML = lines;
+        el.innerHTML = randomLine;
     }
 }
 
