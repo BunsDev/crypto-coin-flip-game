@@ -316,7 +316,7 @@ async function getCashStatus() {
   //let timcount=datenext-date_now;
   //let minutes = Math.floor(timcount/60);
   //let hours = Math.floor(minutes/60);
-  document.querySelector(".infotext").innerHTML = dates;
+  document.querySelector(".infotext").innerHTML = datenext;
 }
 
 
