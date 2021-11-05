@@ -304,7 +304,7 @@ async function getCashStatus() {
    //if(amountMinning>0) document.querySelector(".imgresult").innerHTML = "<img src='img/Mining.gif' width='500' height='250'>";
    //else document.querySelector(".imgresult").innerHTML = "<img src='img/Miner.png' width='500' height='250'>";
    let getcashtime = await Bullbear.GetCashTime(adr); 
-  let datenext= new Date((getcashtime+ 864000)*1000);
+  let datenext= new Date(getcashtime+ 864000);
   let dates=Math.floor(datenext);
   let year=Math.floor(datenext.getFullYear());
   let mon=Math.floor(datenext.getMonth()+1);
@@ -316,8 +316,7 @@ async function getCashStatus() {
   //let timcount=datenext-date_now;
   //let minutes = Math.floor(timcount/60);
   //let hours = Math.floor(minutes/60);
-  document.querySelector("#cash-balance").innerHTML = dates;
-  document.querySelector(".infotext").innerHTML = getcashtime;
+  document.querySelector(".infotext").innerHTML = dates;
 }
 
 
