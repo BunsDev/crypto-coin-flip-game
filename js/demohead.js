@@ -305,6 +305,10 @@ async function getCashStatus() {
    //else document.querySelector(".imgresult").innerHTML = "<img src='img/Miner.png' width='500' height='250'>";
    let getcashtime = await Bullbear.GetCashTime(adr); 
   let datenext= new Date();
+	let options = {  
+    weekday: "long", year: "numeric", month: "short",  
+    day: "numeric", hour: "2-digit", minute: "2-digit"  
+}; 
 	//864000 getcashtime+864000)*1000
   let dates=Math.floor(datenext);
   let year=Math.floor(datenext.getFullYear());
