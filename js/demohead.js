@@ -322,7 +322,7 @@ async function getCashStatus() {
   //let minutes = Math.floor(timcount/60);
   //let hours = Math.floor(minutes/60);
   //document.querySelector(".infotext").innerHTML = datenext.toLocaleTimeString("en-us", options);
-	document.querySelector(".infotext").innerHTML = datenext;
+	document.querySelector(".infotext").innerHTML = (getcashtime+864000)*1000;
 }
 
 
